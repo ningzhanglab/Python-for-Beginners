@@ -1,6 +1,6 @@
 # Module 2 — Data wrangling with pandas
 
-**Status: all ten lesson notebooks and their solutions are authored and locally verified.** Cross-platform CI and a learner walkthrough are still required for the final checkpoint; real Colab/Binder launches and a published website remain unverified. The lessons are on a draft branch, not yet on `main`, and public Colab/Binder links are not live.
+**Status: all ten lesson notebooks and their solutions are authored and cross-platform CI-verified.** [GitHub Actions run #41400291708](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41400291708) passed 47 tests on Ubuntu, Windows and macOS, including the checkpoint generator-consistency regression test. A beginner walkthrough, real Colab/Binder launches and a published website remain unverified. The lessons are on a draft branch, not yet on `main`, and public Colab/Binder links are not live.
 
 ## Goals and prerequisites
 
@@ -25,7 +25,6 @@ Each notebook has a corresponding completed notebook in [solutions/02_data_wrang
 
 ## Remaining verification
 
-- Verify all 10 lessons and 10 solutions in the locked Python 3.12 CI environment.
 - Conduct the required beginner walkthrough and check every public Colab/Binder launch after the repository is accessible.
 - Revisit the direct usage of the 90-row generator across earlier lessons as more modules are built.
 
@@ -35,4 +34,4 @@ Lessons 01–09 include the **same small, six-row fictional survey extract** in 
 
 Use Python 3.12 and the repository's `uv.lock` for the reproducible local environment. The lessons teach direct `.loc` assignments compatible with pandas' Copy-on-Write behavior. All new cells must be run from a fresh kernel before release.
 
-**Not yet verified:** real Colab/Binder launch, beginner walkthrough, and the final checkpoint's cross-platform CI results.
+**Not yet verified:** real Colab/Binder launch, beginner walkthrough, and full website integration.

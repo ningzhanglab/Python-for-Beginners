@@ -104,3 +104,10 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 
 - Added a regression test to compare the raw 90-row notebook-generated survey and household lookup directly against the project-owned `make_messy_survey.py` outputs. This guards against accidental drift while keeping the checkpoint runnable without external network access.
 - The test runs in Python CI, not against real participant or private research data.
+
+## Module 2 verified cross-platform (GitHub Actions, 2026-11-01)
+
+- **Pass:** [run #41400291708](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41400291708) completed successfully on Ubuntu, Windows and macOS using Python 3.12 and `uv sync --locked`.
+- Ubuntu logged **47 passing tests** (40 notebook executions across Modules 0–2 plus helper, dataset, badge and consistency tests), **20 learner notebooks validated**, all 20 badge paths checked, and Ruff passing.
+- The new `tests/test_checkpoint_data.py` successfully compared the checkpoint's generated 90-row survey/households to the canonical generator outputs. The fully locked environment includes `pyarrow` and executes the checkpoint's analysis-ready Parquet round trip.
+- Remaining blockers for public readiness: repository is private, lesson badges refer to `main`, live Colab/Binder launches and the beginner walkthrough are not yet verified; site deployment and later modules also remain incomplete.
