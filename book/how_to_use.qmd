@@ -1,0 +1,11 @@
+---
+title: "How to Use This Guide"
+---
+
+This course will be written as a set of short, self-checking lessons. New learners should begin with Module 0; those who know Stata or R can review the [Placement Guide](placement_guide.qmd).
+
+When lesson notebooks are available, use their Colab badges to open them in your browser. In Colab, choose **File → Save a copy in Drive** to keep your edits.
+
+For local work, see the repository [setup instructions](https://github.com/ningzhanglab/Python-for-Beginners/tree/main/setup). Never upload private or restricted research data to Colab unless your data-use agreement permits it.
+
+**Current state:** the course lessons and website deployment are still being built.

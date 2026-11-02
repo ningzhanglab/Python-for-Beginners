@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Python for Beginners"
+  description: "Applied Python for Economics & Social Science"
+  repo-url: https://github.com/ningzhanglab/Python-for-Beginners
+  repo-actions: [edit, issue]
+  search: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: how_to_use.qmd
+        text: How to Use
+      - href: placement_guide.qmd
+        text: Placement Guide
+
+format:
+  html:
+    theme: cosmo
+    toc: true

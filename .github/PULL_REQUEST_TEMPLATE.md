@@ -1,28 +1,21 @@
-## Purpose
+## Summary
 
-What problem does this change solve, and why?
+What changed, and why?
 
-## Scope
+## Checks actually run
 
-What files or behaviors changed? Note any unexpected edits or deletions.
+- [ ] Python setup check
+- [ ] Tests
+- [ ] Ruff lint / format
+- [ ] Every changed lesson and matching solution executed top to bottom
+- [ ] Colab badges, data provenance and accessibility reviewed if relevant
 
-## Verification
+**Not run / limitations:** explicitly list what was not tested.
 
-- [ ] Reviewed the full diff
-- [ ] Checked for secrets, private data, and unrelated changes
-- [ ] Ran relevant tests/builds/previews (describe below)
-- [ ] Updated user-facing documentation if needed
-- [ ] Updated `CHANGELOG.md` if user-facing behavior changed
-- [ ] Added a `records/` entry **only if** a substantial decision or evaluation warranted one
+## Teaching checklist (if relevant)
 
-**Tests/checks actually performed:** 
-
-**Not run / limitations:** 
-
-## AI assistance (if applicable)
-
-What was AI-assisted, and what was independently reviewed?
-
-## Related Issue
-
-Link an Issue if one exists; small changes may not have one. Writing `Closes #123` here links the Issue and closes it automatically when this PR is merged.
+- [ ] Three learning goals; prerequisites and time estimate
+- [ ] Stata/R equivalent commands, exercises and friendly checks
+- [ ] Common errors, recap, next lesson
+- [ ] Solution notebook; reproducibility and citation review
+- [ ] No secrets or restricted data

@@ -1,0 +1,10 @@
+---
+title: "Where Should I Start?"
+---
+
+- **Never programmed before:** start with Module 0 (setup) and Module 1 (Python essentials).
+- **Already use Stata or R:** skim Module 1 and begin with Module 2 (pandas).
+- **Comfortable with pandas and basic plotting:** work through Module 4 (applied econometrics), after reviewing Module 3 as needed.
+- **Want reproducible research workflows:** proceed to Module 6 after the core data and econometrics skills.
+
+This guide maps *planned* lessons; the course is not yet published in full.

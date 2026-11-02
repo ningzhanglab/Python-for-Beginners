@@ -1,19 +1,41 @@
-# Local system and editor noise
+# Operating systems and editors
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
 *.swp
 
-# Local environment variables and credentials
+# Python build, test and environment output
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+
+# Credentials and sensitive material
 .env
 .env.*
 !.env.example
 *.pem
-# Private keys. Note: macOS Keynote presentations also use the .key extension,
-# so this line silently ignores slide decks. If the project keeps Keynote files,
-# re-include their folder below (e.g. !slides/*.key) or export decks to PDF.
 *.key
 
-# Customize for the actual project language/toolchain.
-# Do not blindly ignore reproducible source files or required data.
+# Generated research data and exported figures
+data/processed/
+output/
+.quarto/
+_site/
+book/_site/
+book/.quarto/
+book/_freeze/
+
+# Keep generated raw datasets out of git until licensing/size is reviewed.
+data/raw/*
+!data/raw/.gitkeep
+
+# uv.lock SHOULD be committed once generated; do not ignore it.

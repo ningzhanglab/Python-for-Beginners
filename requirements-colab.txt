@@ -1,0 +1,3 @@
+# Additional dependencies for Colab lesson notebooks will be listed here
+# only after the notebooks and compatible package versions are verified.
+# The planned Module 0 material needs no extra Colab install.

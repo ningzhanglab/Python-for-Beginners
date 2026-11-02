@@ -1,27 +1,27 @@
-# Contributing
+# Contributing to Python for Beginners
 
-Thanks for helping improve this project. This file is a reusable starting point: update project-specific commands and expectations after creating a new repository.
+We welcome corrections, small runnable examples, accessible explanations, and well-tested lessons for empirical economics and social science.
 
-## Suggest a change
+## Report an issue
 
-For substantial new features or unclear behavior, open an Issue with the problem, expected result, and relevant example. Small typo fixes need not start with an Issue.
+Use [the issue tracker](https://github.com/ningzhanglab/Python-for-Beginners/issues) for an inaccurate explanation, confusing setup step, missing Stata/R translation, broken example, or lesson request. Supply the lesson path, your operating system, relevant versions, reproduction steps, and the expected result, without uploading private data.
 
-## Submit a change
+## Propose a contribution
 
-1. Read the project's `README.md` and any relevant instructions.
-2. Make a small, focused change on a topic branch.
-3. Run the relevant tests or previews, and disclose any checks you could not run.
-4. Open a pull request explaining **what**, **why**, and **how it was checked**.
-5. Review the full diff, avoid accidental unrelated edits, and wait for the maintainer to approve merging.
+1. Read [README.md](README.md), [AGENTS.md](AGENTS.md), and [DECISIONS.md](DECISIONS.md).
+2. For a significant new lesson or feature, open an Issue first; for typos, a small focused PR is enough.
+3. Use a topic branch. Keep unrelated changes out of your PR.
+4. For code, run `uv sync`, `uv run python setup/check_setup.py`, and `uv run pytest` after the lockfile is available. Run `uv run ruff check .` and `uv run ruff format --check .` if the tool is installed. Clearly disclose checks not run.
+5. Never commit an unexecuted lesson notebook. A new lesson needs three learning objectives, runnable imports, worked examples, Stata/R comparisons, guided practice with friendly checks, common errors, recap, and matching completed solutions.
+6. In the PR, explain *what*, *why*, *how verified*, and any remaining limitations. A maintainer reviews and merges; agents must not merge their own PRs.
 
-If you used AI, review generated content and code yourself; do not claim verification you did not perform. AI agents should follow [AGENTS.md](AGENTS.md).
+## Teaching and data standards
 
-## Records and documentation
+- Write for readers with no programming background; define jargon and use descriptive variable names.
+- Favor reproducible research tasks over isolated syntax examples.
+- Add descriptive captions or alt text for figures; use readable, colorblind-safe charts.
+- Never publish restricted data, student information, credentials, or API keys.
+- Before adding datasets, verify permissions and document provenance and license in [data/README.md](data/README.md).
+- Cite sources and distinguish executed numerical results from examples or estimates.
 
-Use Git history for routine edits. Update [CHANGELOG.md](CHANGELOG.md) when a change materially affects users. Only create a detailed record under [records/](records/README.md) when a decision or evaluation merits preserving its reasoning or evidence.
-
-Do not submit passwords, tokens, personal or confidential data, or material you do not have rights to publish.
-
-## Project-specific checks
-
-Replace this section with the *actual verified* commands for this project (tests, linting, builds, notebook execution, PDF generation, etc.). Do not claim that a check exists before it has been configured.
+The original code and text are [MIT-licensed](LICENSE), per the owner's current decision. Third-party datasets and assets may require other permissions. See [records/README.md](records/README.md) for the selective record-keeping policy.

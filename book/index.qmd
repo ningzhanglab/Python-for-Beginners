@@ -1,0 +1,14 @@
+---
+title: "Python for Beginners"
+---
+
+**Applied Python for Economics & Social Science**
+
+Learn Python with the practical workflow of an empirical research project. This course is intended for social-science students, research assistants, and Stata/R switchers.
+
+::: {.callout-warning}
+## Under construction
+The companion site is only a shell. Lessons, outputs, search indexing, notebook launch buttons, and site deployment have not been verified. Follow [implementation issue #1](https://github.com/ningzhanglab/Python-for-Beginners/issues/1).
+:::
+
+Start with [How to Use](how_to_use.qmd) or the [Placement Guide](placement_guide.qmd). See the [repository curriculum map](../README.md) for planned modules.

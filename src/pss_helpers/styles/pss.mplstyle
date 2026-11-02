@@ -1,0 +1,8 @@
+# Accessible baseline for empirical charts. Specify all labels in each plot.
+figure.figsize: 7, 4
+figure.dpi: 120
+savefig.dpi: 300
+axes.grid: True
+grid.alpha: 0.2
+axes.spines.top: False
+axes.spines.right: False

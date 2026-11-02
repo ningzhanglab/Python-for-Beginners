@@ -1,0 +1,16 @@
+# Provisional conda alternative: versions will be locked after uv.lock is verified.
+name: python-for-beginners
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy>=2.0
+  - pandas>=2.2
+  - pyarrow>=17
+  - openpyxl>=3.1
+  - matplotlib>=3.9
+  - seaborn>=0.13
+  - jupyterlab>=4.2
+  - ipykernel>=6.29
+  - pytest>=8
+  - pip
