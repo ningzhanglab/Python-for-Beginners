@@ -127,3 +127,10 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - Earlier Module 3 lesson CI runs passed on Ubuntu, Windows and macOS, including [Seaborn run #41404568857](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41404568857) and [publication/panel run #41404876942](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41404876942).
 - The plotting notebooks now display worked figures inline before closing the matplotlib figures. Source notebooks remain output-stripped to keep Git diffs readable. **Pass:** [GitHub Actions run #41405225377](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41405225377) completed successfully on Ubuntu, Windows, and macOS: 59 pytest tests passed, 26 learner notebooks validated, badge paths checked and Ruff passed. Notebook execution covers inline figure generation and the checkpoint solution. **TODO(verify):** inspect the rendered figures visually and complete the accessibility review.
 - **Unfinished:** manual visual/alt-text and accessibility review, live Colab/Binder access, full website deployment, and learner walkthrough.
+
+## Module 4 econometrics dependencies (2026-11-01)
+
+- Added `statsmodels>=0.15,<0.16` as a core regression dependency, according to the existing owner spec. The project still uses MIT for its own content; statsmodels is separately distributed under BSD-3-Clause.
+- `uv.lock` was resolved in [successful GitHub Actions run #41405968974](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41405968974), with statsmodels **0.15.0** and 118 package records, using Python 3.12. Package hashes and platform markers were preserved verbatim from the CI-produced lockfile.
+- CI returned to `uv sync --locked --group dev` after capturing the resolved lock. **TODO(verify):** check the new locked CI run across all three platforms and the new statsmodels notebooks before declaring them verified.
+- Module 4 examples initially use deterministic fictional wage data, not third-party human-subjects records, and explicitly distinguish regression association from causation.
