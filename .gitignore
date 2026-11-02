@@ -1,0 +1,19 @@
+# Local system and editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Local environment variables and credentials
+.env
+.env.*
+!.env.example
+*.pem
+# Private keys. Note: macOS Keynote presentations also use the .key extension,
+# so this line silently ignores slide decks. If the project keeps Keynote files,
+# re-include their folder below (e.g. !slides/*.key) or export decks to PDF.
+*.key
+
+# Customize for the actual project language/toolchain.
+# Do not blindly ignore reproducible source files or required data.
