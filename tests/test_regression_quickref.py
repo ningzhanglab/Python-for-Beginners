@@ -1,7 +1,7 @@
 """Run the documented, project-owned regression cheatsheet example."""
 
-from pathlib import Path
 import re
+from pathlib import Path
 
 import numpy as np
 
