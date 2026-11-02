@@ -11,6 +11,7 @@ Exact file diffs live in Git history. Use [records/](records/README.md) only whe
 ## Unreleased
 
 ### Added
+- Began Module 4 with OLS-by-hand, statsmodels OLS, robust/clustered inference, and reproducible regression tables with solutions; added and tested regression quick-reference ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Authored the six Module 3 lessons: descriptive Table 1 statistics, matplotlib, Seaborn, publication figures, panel plots, and a 90-record synthetic survey checkpoint; included graduated exercises and completed solutions ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Added a full Module 2 wrangling checkpoint using the 90-record deterministic synthetic household survey and completed solution, with raw-data cleaning, many-to-one merge, reshaping, and analysis-ready Parquet export ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Added Module 2 group aggregation, panel/time, and larger-data lessons with self-checking solutions ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).

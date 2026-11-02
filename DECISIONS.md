@@ -134,3 +134,9 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - `uv.lock` was resolved in [successful GitHub Actions run #41405968974](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41405968974), with statsmodels **0.15.0** and 118 package records, using Python 3.12. Package hashes and platform markers were preserved verbatim from the CI-produced lockfile.
 - CI returned to `uv sync --locked --group dev` after capturing the resolved lock. **TODO(verify):** check the new locked CI run across all three platforms and the new statsmodels notebooks before declaring them verified.
 - Module 4 examples initially use deterministic fictional wage data, not third-party human-subjects records, and explicitly distinguish regression association from causation.
+
+## Module 4 starter milestone
+
+- Four self-contained learner notebooks and four completed solutions cover OLS by hand, statsmodels OLS, HC3/cluster covariance inference and table generation. All examples use seeded fictional data and avoid causal claims.
+- A [regression quick-reference](cheatsheets/regression_quickref.md) includes an end-to-end synthetic example; its code block is executed in `tests/test_regression_quickref.py` to reduce documentation drift.
+- **Testing:** the first full Python 3.12 `uv sync --locked` run containing Module 4 notebooks had 67 tests passing on Ubuntu. Cross-platform results and the additional cheatsheet test are to be verified in a later run; do not mark the entire module complete.

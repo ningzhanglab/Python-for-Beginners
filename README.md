@@ -7,7 +7,7 @@
 
 This educational project is designed for economics, public policy, political science, sociology, and related social-science learners. **The GitHub repository remains named Python-for-Beginners.**
 
-> **Current status:** Modules 0–1 are authored and their notebooks have passed automated execution in a Python 3.12 environment. They remain on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2), not on `main`. All ten Module 2 lesson notebooks and their solutions are on the draft branch; the completed Module 2 checkpoint and all existing notebook tests have passed locked Python 3.12 CI on Ubuntu, Windows and macOS. Public launch tests and the website are still pending. Module 3 now contains all six authored lessons and solutions, and the full 59-test suite passed on Ubuntu, Windows and macOS; Modules 4–7 and the companion website remain under construction.
+> **Current status:** Modules 0–1 are authored and their notebooks have passed automated execution in a Python 3.12 environment. They remain on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2), not on `main`. All ten Module 2 lesson notebooks and their solutions are on the draft branch; the completed Module 2 checkpoint and all existing notebook tests have passed locked Python 3.12 CI on Ubuntu, Windows and macOS. Public launch tests and the website are still pending. Module 3 now contains all six authored lessons and solutions, and the full 59-test suite passed on Ubuntu, Windows and macOS; Module 4 has begun with OLS, robust inference and regression tables; Modules 5–7 and the companion website remain under construction.
 
 ## Start here
 
@@ -34,7 +34,7 @@ Zero programming experience is required. A basic understanding of statistics and
 | [6](modules/06_reproducibility/README.md) | Reproducible research | Environments, Git, pipelines, replication |
 | [7](modules/07_electives/README.md) | Electives | Text, causal ML, maps, AI use, time series |
 
-Modules 0–2 and all six Module 3 lessons have notebook paths on the draft branch; durations are in each module README. Remaining lessons are planned, not yet runnable.
+Modules 0–3 and four introductory Module 4 lessons have notebook paths on the draft branch; durations are in each module README. Remaining lessons are planned, not yet runnable.
 
 ## Local setup (foundation stage)
 
@@ -56,6 +56,8 @@ The course will use a deterministic **synthetic household survey** with delibera
 ## How this differs from other resources
 
 This guide is intended to be beginner-accessible and focused on the empirical-research workflow, with Stata/R comparisons and self-checking exercises. It complements [QuantEcon](https://quantecon.org/) and [Coding for Economists](https://aeturrell.github.io/coding-for-economists/). Neither resource is affiliated with this repository.
+
+See the [regression quick reference](cheatsheets/regression_quickref.md) for a tested code example and Stata/R translation.
 
 ## Contributing, license, and project history
 
