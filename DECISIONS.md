@@ -111,3 +111,10 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - Ubuntu logged **47 passing tests** (40 notebook executions across Modules 0–2 plus helper, dataset, badge and consistency tests), **20 learner notebooks validated**, all 20 badge paths checked, and Ruff passing.
 - The new `tests/test_checkpoint_data.py` successfully compared the checkpoint's generated 90-row survey/households to the canonical generator outputs. The fully locked environment includes `pyarrow` and executes the checkpoint's analysis-ready Parquet round trip.
 - Remaining blockers for public readiness: repository is private, lesson badges refer to `main`, live Colab/Binder launches and the beginner walkthrough are not yet verified; site deployment and later modules also remain incomplete.
+
+## Module 3 initial lessons — 2026-11-01
+
+- Two learner notebooks and matching solutions were added for Table 1 statistics and matplotlib plots. Both use **fictional, self-contained data**, so the first lessons do not require external downloads or research credentials.
+- The summary-statistics notebook distinguishes observed wage counts from row counts and demonstrates a weighted mean while explicitly warning that the synthetic weights are *not* a survey-variance design.
+- matplotlib examples use a noninteractive backend for portable execution on GitHub Actions, and create a high-resolution in-memory PNG. A fuller figure accessibility and site-rendered-output review remains to be completed.
+- Initial CI executed the notebooks, but lint flagged an import spacing issue, corrected in a follow-up commit. **TODO(verify):** record the latest full CI result after it completes.

@@ -11,6 +11,7 @@ Exact file diffs live in Git history. Use [records/](records/README.md) only whe
 ## Unreleased
 
 ### Added
+- Began Module 3 with descriptive Table 1 statistics and labeled matplotlib examples, with graduated exercises and completed solutions ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Added a full Module 2 wrangling checkpoint using the 90-record deterministic synthetic household survey and completed solution, with raw-data cleaning, many-to-one merge, reshaping, and analysis-ready Parquet export ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Added Module 2 group aggregation, panel/time, and larger-data lessons with self-checking solutions ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Extended Module 2 with exercises and verified solutions for constructing variables, safe many-to-one merges, and wide/long reshaping ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).

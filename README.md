@@ -7,7 +7,7 @@
 
 This educational project is designed for economics, public policy, political science, sociology, and related social-science learners. **The GitHub repository remains named Python-for-Beginners.**
 
-> **Current status:** Modules 0–1 are authored and their notebooks have passed automated execution in a Python 3.12 environment. They remain on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2), not on `main`. All ten Module 2 lesson notebooks and their solutions are on the draft branch; the completed Module 2 checkpoint and all existing notebook tests have passed locked Python 3.12 CI on Ubuntu, Windows and macOS. Public launch tests and the website are still pending. Modules 3–7 and the companion website remain under construction.
+> **Current status:** Modules 0–1 are authored and their notebooks have passed automated execution in a Python 3.12 environment. They remain on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2), not on `main`. All ten Module 2 lesson notebooks and their solutions are on the draft branch; the completed Module 2 checkpoint and all existing notebook tests have passed locked Python 3.12 CI on Ubuntu, Windows and macOS. Public launch tests and the website are still pending. Module 3 has begun with descriptive tables and matplotlib; Modules 4–7 and the companion website remain under construction.
 
 ## Start here
 
@@ -34,7 +34,7 @@ Zero programming experience is required. A basic understanding of statistics and
 | [6](modules/06_reproducibility/README.md) | Reproducible research | Environments, Git, pipelines, replication |
 | [7](modules/07_electives/README.md) | Electives | Text, causal ML, maps, AI use, time series |
 
-Modules 0–1 and all ten Module 2 lessons have notebook paths on the draft branch; their durations are listed in the module READMEs. The remaining modules are planned, not yet runnable.
+Modules 0–2 and the first two Module 3 lessons have notebook paths on the draft branch; durations are in each module README. Remaining lessons are planned, not yet runnable.
 
 ## Local setup (foundation stage)
 
