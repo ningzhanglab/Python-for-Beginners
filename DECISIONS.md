@@ -120,3 +120,10 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - Initial CI executed the notebooks, but lint flagged an import spacing issue, corrected in a follow-up commit. **TODO(verify):** record the latest full CI result after it completes.
 
 - A third introductory Module 3 lesson adds Seaborn histogram, boxplot and descriptive regression-line examples, distinguishing association from causation. Results remain based on fictional data. **TODO(verify):** confirm notebook/solution execution and lint on Ubuntu, Windows and macOS in the latest CI run.
+
+## Module 3 completion and visualization
+
+- Authored all six Module 3 lessons with one matching completed solution notebook each. The checkpoint regenerates the seeded 90-row survey and requires a Table 1 and three labeled figures. The first five lessons draw on self-contained fictional examples.
+- Earlier Module 3 lesson CI runs passed on Ubuntu, Windows and macOS, including [Seaborn run #41404568857](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41404568857) and [publication/panel run #41404876942](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41404876942).
+- The plotting notebooks now display worked figures inline before closing the matplotlib figures. Source notebooks remain output-stripped to keep Git diffs readable. **TODO(verify):** confirm inline-render execution, checkpoint exercise checks, figure appearance and latest CI on all three platforms.
+- **Unfinished:** manual visual/alt-text and accessibility review, live Colab/Binder access, full website deployment, and learner walkthrough.
