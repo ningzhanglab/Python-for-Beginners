@@ -1,18 +1,24 @@
 # Module 0 — Getting started
 
-Understand notebooks, execute code, and preserve your work. **Partially implemented**.
+**Status: instructional content written and all notebooks passing Python 3.12 CI.** A live Colab/Binder browser launch is still unverified. The companion site is not deployed.
 
-## Published on the draft branch, verified locally
+## Learning goals
 
-- [00 Welcome](00_welcome.ipynb) — 30 minutes; no prerequisites.
-- [Completed solutions](../../solutions/00_setup/00_welcome_solutions.ipynb).
+Run a Python notebook, compare notebooks with scripts, configure a local environment or use Colab, and track changes without touching `main`.
 
-## Remaining lessons
+## Lessons
 
-- 01 Local setup
-- 02 Notebooks versus scripts
-- 03 Git in 10 minutes
+| Lesson | Format | Time | Prerequisites |
+| --- | --- | --- | --- |
+| [00 Welcome](00_welcome.ipynb) | Notebook | 30 minutes | None |
+| [01 Local setup](01_local_setup.md) | Markdown | 25–35 minutes | None |
+| [02 Notebooks vs. scripts](02_notebooks_vs_scripts.ipynb) | Notebook | 35 minutes | Welcome |
+| [03 Git in 10 minutes](03_git_in_10_minutes.md) | Markdown | 10–15 minutes | Repository access |
 
-The first lesson needs only standard Python, with no external data. Public Colab/Binder launch remains unverified while the repository is private and notebooks are not on `main`.
+**Solutions:** [Welcome](../../solutions/00_setup/00_welcome_solutions.ipynb) and [Notebooks vs. scripts](../../solutions/00_setup/02_notebooks_vs_scripts_solutions.ipynb).
 
-See [setup instructions](../../setup/README.md) and the [Module 1 overview](../01_python_basics/README.md).
+**Dataset:** no external data or downloads. **Software:** standard Python in the notebooks. The local setup guide uses Python 3.12 and `uv sync --locked`.
+
+Run the lessons top to bottom and restart the kernel before calling results reproducible. Public Colab/Binder access is not confirmed while the repo is private and lessons are on a draft branch.
+
+**Next:** [Module 1](../01_python_basics/README.md).

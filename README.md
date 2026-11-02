@@ -7,11 +7,11 @@
 
 This educational project is designed for economics, public policy, political science, sociology, and related social-science learners. **The GitHub repository remains named Python-for-Beginners.**
 
-> **Current status:** The first executed lessons and the project foundation are under review in [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2). Other modules remain a roadmap, and the website is not yet deployed.
+> **Current status:** Modules 0–1 are authored and their notebooks have passed automated execution in a Python 3.12 environment. They remain on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2), not on `main`. Modules 2–7 and the companion website remain under construction.
 
 ## Start here
 
-Read [setup instructions](setup/README.md), then explore [00 Welcome](modules/00_setup/00_welcome.ipynb) and [01 Values and variables](modules/01_python_basics/01_values_and_variables.ipynb). Both learner notebooks and their completed solutions have passed clean-kernel execution locally. They are present on the **draft PR branch**, not yet on `main`. Their Colab/Binder badges target `main` and do not yet provide public access while this repository is private. Track the roadmap in [issue #1](https://github.com/ningzhanglab/Python-for-Beginners/issues/1).
+Read [setup instructions](setup/README.md), then begin with [Module 0](modules/00_setup/README.md) and [Module 1](modules/01_python_basics/README.md). These include tested notebook lessons, completed solutions and a fundamentals checkpoint. You must check out the draft PR branch to use them locally for now. **Colab/Binder badges target `main` and public launches are not yet available while the repository is private.** Track remaining work in [issue #1](https://github.com/ningzhanglab/Python-for-Beginners/issues/1).
 
 ## Who this guide is for
 
@@ -21,7 +21,7 @@ Read [setup instructions](setup/README.md), then explore [00 Welcome](modules/00
 
 Zero programming experience is required. A basic understanding of statistics and regression will help in the econometrics module. The emphasis is applied microeconomics, transparent data cleaning, and repeatable research.
 
-## Course map (planned)
+## Course map
 
 | Module | Theme | What you will learn |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ Zero programming experience is required. A basic understanding of statistics and
 | [6](modules/06_reproducibility/README.md) | Reproducible research | Environments, Git, pipelines, replication |
 | [7](modules/07_electives/README.md) | Electives | Text, causal ML, maps, AI use, time series |
 
-Actual durations, lesson links, solutions, and placement guidance will be published only after lessons are tested.
+Modules 0–1 contain published lesson paths on the draft branch; their durations are listed in their module READMEs. The remaining modules are planned, not yet runnable.
 
 ## Local setup (foundation stage)
 
