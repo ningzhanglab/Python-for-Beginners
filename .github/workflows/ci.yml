@@ -27,7 +27,14 @@ jobs:
       - name: Install Python
         run: uv python install 3.12
       - name: Install project and test dependencies
-        run: uv sync --locked --group dev
+        run: uv sync --group dev
+      # Temporary lock capture while adding statsmodels; remove in the next commit.
+      - name: Capture resolved lockfile for reproducibility
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          echo 'BEGIN-ECON-LOCKFILE'
+          cat uv.lock
+          echo 'END-ECON-LOCKFILE'
       - name: Verify setup
         run: uv run python setup/check_setup.py
       - name: Unit tests and fresh-kernel notebook execution
