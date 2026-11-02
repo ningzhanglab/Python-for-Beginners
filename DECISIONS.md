@@ -139,4 +139,10 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 
 - Four self-contained learner notebooks and four completed solutions cover OLS by hand, statsmodels OLS, HC3/cluster covariance inference and table generation. All examples use seeded fictional data and avoid causal claims.
 - A [regression quick-reference](cheatsheets/regression_quickref.md) includes an end-to-end synthetic example; its code block is executed in `tests/test_regression_quickref.py` to reduce documentation drift.
-- **Testing:** the first full Python 3.12 `uv sync --locked` run containing Module 4 notebooks had 67 tests passing on Ubuntu. Cross-platform results and the additional cheatsheet test are to be verified in a later run; do not mark the entire module complete.
+- **Testing:** the first full Python 3.12 `uv sync --locked` run containing Module 4 notebooks had 67 tests passing on Ubuntu. **Verified:** the full 68-test cross-platform run #41406835717 succeeded, including the cheatsheet test. Module 4 remains partial.
+
+## Module 4 OLS foundation — verified CI
+
+- [GitHub Actions run #41406835717](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41406835717) passed on **Ubuntu, Windows, and macOS** using locked Python 3.12 and statsmodels 0.15.0: **68 pytest tests**, **30 learner notebooks** validated, corresponding solutions executed, Colab/Binder badge path checks and Ruff lint passed. The regression cheatsheet code block is included in pytest.
+- **Scope gap vs. the owner's full Module 4 specification:** Lesson 01 still needs categorical interactions and level/log-log specification exercises; Lesson 02 needs a joint Wald/F-test, residual diagnostics, and multicollinearity overview; Lesson 03 needs a verified HTML/Word reporting path. These are deferred enhancements, not silently treated as completed acceptance criteria.
+- **Pending:** pyfixest/linearmodels/other specialized methods, the remaining 12 lessons, manual regression-table rendering review, public browser launch, and a learner walkthrough. No causal conclusion is claimed from fictional samples.

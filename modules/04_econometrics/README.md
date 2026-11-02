@@ -1,6 +1,6 @@
 # Module 4 — Applied econometrics
 
-**Status: in progress.** The four foundational lessons and matching solutions below are on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2). The reproducible Python 3.12 `uv.lock` includes statsmodels 0.15.0. The latest cross-platform CI status is tracked in GitHub Actions; the remaining 12 lessons are **not yet authored**.
+**Status: in progress.** The four foundational lessons and matching solutions below are on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2). The reproducible Python 3.12 `uv.lock` includes statsmodels 0.15.0. [GitHub Actions run #41406835717](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41406835717) passed **68 tests** on Ubuntu, Windows, and macOS, with 30 learner notebooks validated and 30 solution notebooks executed. The remaining 12 lessons are **not yet authored**.
 
 ## Audience and prerequisites
 
@@ -36,4 +36,4 @@ Each learner notebook has a complete companion in [solutions/04_econometrics](..
 
 The introductory examples generate 150 entirely fictional people in 30 shared-shock groups using a fixed seed; they do not include real individuals or external downloads. Clustering illustrates dependence within groups, but is not a magic solution to bias or poor research design.
 
-**Still required:** verification of the latest CI after notebook additions, a novice learner walkthrough, public Colab/Binder launches (the repository is private), website publication, and later econometric lessons.
+**Still required:** A novice learner walkthrough, public Colab/Binder launches (the repository is private), website publication, later econometric lessons, and deeper coverage of interaction/categorical/log specifications, joint tests/diagnostics and publication format options requested in the full build specification. The initial lessons are an on-ramp, not the entire module specification.
