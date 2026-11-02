@@ -11,7 +11,7 @@ Use [the issue tracker](https://github.com/ningzhanglab/Python-for-Beginners/iss
 1. Read [README.md](README.md), [AGENTS.md](AGENTS.md), and [DECISIONS.md](DECISIONS.md).
 2. For a significant new lesson or feature, open an Issue first; for typos, a small focused PR is enough.
 3. Use a topic branch. Keep unrelated changes out of your PR.
-4. For code, run `uv sync`, `uv run python setup/check_setup.py`, and `uv run pytest` after the lockfile is available. Run `uv run ruff check .` and `uv run ruff format --check .` if the tool is installed. Clearly disclose checks not run.
+4. For code, run `uv sync`, `uv run python setup/check_setup.py`, and `uv run pytest` using the committed lockfile. Run `uv run ruff check .` and `uv run ruff format --check .` if the tool is installed. Clearly disclose checks not run.
 5. Never commit an unexecuted lesson notebook. A new lesson needs three learning objectives, runnable imports, worked examples, Stata/R comparisons, guided practice with friendly checks, common errors, recap, and matching completed solutions.
 6. In the PR, explain *what*, *why*, *how verified*, and any remaining limitations. A maintainer reviews and merges; agents must not merge their own PRs.
 

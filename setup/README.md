@@ -5,12 +5,12 @@
 **Local:** use Python 3.12 and [uv](https://docs.astral.sh/uv/). From the repository root:
 
 ~~~sh
-uv sync
+uv sync --locked
 uv run python setup/check_setup.py
 uv run jupyter lab
 ~~~
 
-The third command starts JupyterLab; lesson notebooks will appear under `modules/` as each is released. `uv.lock` has not yet been verified/committed, so installs are provisional.
+The third command starts JupyterLab; lesson notebooks will appear under `modules/` as each is released. The Python 3.12 uv environment is pinned in [uv.lock](../uv.lock). The conda alternative still needs cross-platform verification.
 
 **For Stata/R users:** the planned [placement guide](../book/placement_guide.qmd) will help you skip material you already know.
 

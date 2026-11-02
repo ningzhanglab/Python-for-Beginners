@@ -43,11 +43,11 @@ Install [uv](https://docs.astral.sh/uv/) and Python 3.12, then:
 ~~~sh
 git clone https://github.com/ningzhanglab/Python-for-Beginners.git
 cd Python-for-Beginners
-uv sync
+uv sync --locked
 uv run python setup/check_setup.py
 ~~~
 
-Use `uv run jupyter lab` to open the first lessons after checking out the draft PR branch. **The dependency lockfile is still pending**, so current installations are not yet fully reproducible; see [DECISIONS.md](DECISIONS.md).
+Use `uv run jupyter lab` to open the first lessons after checking out the draft PR branch. The repository includes a resolved [uv.lock](uv.lock) for Python 3.12, generated and verified in GitHub Actions. Use `uv sync --locked` to keep the pinned environment. The conda environment remains provisional; see [DECISIONS.md](DECISIONS.md).
 
 ## Learning data
 
