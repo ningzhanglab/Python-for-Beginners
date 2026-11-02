@@ -1,6 +1,6 @@
 # Module 3 — Describing and visualizing
 
-**Status: partially implemented on draft PR #2.** The first two notebook lessons and corresponding solution notebooks have been committed; cross-platform validation of the latest changes is ongoing. The companion website and public Colab/Binder launch remain unverified.
+**Status: partially implemented on draft PR #2.** The first three notebook lessons and corresponding solution notebooks have been committed. The first two passed cross-platform GitHub Actions; the Seaborn lesson's latest run is pending. The companion website and public Colab/Binder launch remain unverified.
 
 ## Learning goals and prerequisites
 
@@ -12,6 +12,7 @@ Summarize fictional survey data in transparent descriptive tables, build labeled
 | --- | --- | --- |
 | [01 Summary statistics](01_summary_statistics.ipynb) | 45 minutes | Group counts and means, survey-weighted averages, cross-tabulation and Table 1 CSV/LaTeX |
 | [02 matplotlib basics](02_matplotlib_basics.ipynb) | 45 minutes | Histograms, scatter and line charts with labels and exported PNG |
+| [03 Seaborn for data](03_seaborn_for_data.ipynb) | 45 minutes | Compare fictional wage distributions and plot a descriptive fitted line |
 
 Completed solution notebooks are in [solutions/03_describe_visualize](../../solutions/03_describe_visualize/), with `_solutions.ipynb` appended to each lesson stem.
 
@@ -19,7 +20,6 @@ These introductory examples use **fictional six-person wage data** or an invente
 
 ## Planned lessons
 
-- 03 Seaborn for data
 - 04 Publication figures
 - 05 Time-series and panel plots
 - 06 Descriptive-statistics and figures checkpoint

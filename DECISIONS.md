@@ -118,3 +118,5 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - The summary-statistics notebook distinguishes observed wage counts from row counts and demonstrates a weighted mean while explicitly warning that the synthetic weights are *not* a survey-variance design.
 - matplotlib examples use a noninteractive backend for portable execution on GitHub Actions, and create a high-resolution in-memory PNG. A fuller figure accessibility and site-rendered-output review remains to be completed.
 - Initial CI executed the notebooks, but lint flagged an import spacing issue, corrected in a follow-up commit. **TODO(verify):** record the latest full CI result after it completes.
+
+- A third introductory Module 3 lesson adds Seaborn histogram, boxplot and descriptive regression-line examples, distinguishing association from causation. Results remain based on fictional data. **TODO(verify):** confirm notebook/solution execution and lint on Ubuntu, Windows and macOS in the latest CI run.
