@@ -67,3 +67,12 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - **Pass:** The new Module 0 and Module 1 notebook execution tests, validator and Ruff ran successfully in Python 3.12 GitHub Actions [run #41396837908](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41396837908), with Ubuntu, Windows and macOS jobs successful after a checkpoint-import style correction. Earlier additions were verified in [run #41396452536](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41396452536).
 - A badge sync utility is being added. Its checks run separately from live browser launch verification; its CI result should be checked before claiming it passes in all environments.
 - **Open:** the source specification requires a live beginner walkthrough, Colab/Binder access, and a website. The repo is private and PR unmerged, so public badge launching remains unverified. In particular, do not claim course publication based on notebook unit tests alone.
+
+## Module 2 first lessons — 2026-11-01
+
+- Scope: publish three pandas lessons (DataFrame and CSV/Excel/Parquet/Stata file I/O, selecting/filtering, cleaning) and three corresponding completed solutions. Other Module 2 topics are not yet complete.
+- Source data: self-contained **six-row fictional teaching extract** in each notebook, deliberately distinct from the 90-row synthetic survey generator; no confidential or external data.
+- Local precommit check: all six notebook **code-cell sequences** were executed via `nbclient` in fresh kernels using Python 3.13.5 and pandas 2.2.3. Learner versions printed nonfatal hints; completed solutions passed their checks. The optional Parquet branch was not exercised locally because `pyarrow` is absent from the local sandbox; the CI environment includes `pyarrow`.
+- **TODO(verify):** GitHub Actions run with Python 3.12, the locked pandas release, Stata/Excel/Parquet I/O, Ruff, and the existing notebook validator. Do not claim success until the resulting CI checks complete.
+- pandas 3 uses Copy-on-Write and disallows chained assignment; teaching examples use direct `.loc` assignment. Official references: https://pandas.pydata.org/docs/user_guide/copy_on_write.html and https://pandas.pydata.org/docs/user_guide/io.html .
+- Public Colab/Binder links still point to the not-yet-updated `main` branch of this private repository. Live launch unverified.

@@ -11,6 +11,7 @@ Exact file diffs live in Git history. Use [records/](records/README.md) only whe
 ## Unreleased
 
 ### Added
+- Added the first three Module 2 pandas lessons and matching solutions covering file I/O, filtering, and cleaning, using a self-contained synthetic teaching extract ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Completed Module 0 onboarding lessons and all eight Module 1 fundamentals notebooks with matched, self-checking solutions and a synthetic checkpoint ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Added a badge path generator/checker and tests, enforcing Colab/Binder badge paths in CI ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Added the first executed beginner notebooks and matching solutions for welcome and values/variables, plus full fresh-kernel execution tests ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).

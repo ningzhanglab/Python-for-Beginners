@@ -1,24 +1,35 @@
-# Module 02 — Data wrangling with pandas
+# Module 2 — Data wrangling with pandas
 
-**Status: curriculum outline only; lessons are not yet published.**
+**Status: in progress.** Three of ten planned lessons and their completed solutions are written and verified locally. The lessons are on a draft branch, not yet on `main`, and public Colab/Binder links are not live.
 
-Reading, filtering, cleaning, merges, reshaping, panels and an end-to-end project.
+## Goals and prerequisites
 
-## Planned lessons
+Read, inspect, select, clean, merge, reshape, and validate research datasets. Complete [Module 1](../01_python_basics/README.md), or start here if you already know Python's basic data types and functions.
 
-- 01 dataframes intro
-- 02 selecting filtering
-- 03 cleaning
-- 04 creating variables
-- 05 merging
-- 06 reshaping
-- 07 groupby aggregate
-- 08 panels and time
-- 09 larger data
-- 10 wrangling project
+## Available on this branch
 
-## Prerequisites and data
+| Lesson | Time | Research task |
+| --- | --- | --- |
+| [01 DataFrames introduction](01_dataframes_intro.ipynb) | 40 min | Inspect data and round-trip CSV, Excel, Stata and Parquet |
+| [02 Selecting and filtering](02_selecting_filtering.ipynb) | 40 min | Build a sample with `.loc`, Boolean filters, and sorted data |
+| [03 Cleaning](03_cleaning.ipynb) | 45 min | Normalize labels, recode missing wages, flag duplicates/outliers |
 
-Follow the preceding core module; Module 7 electives are independent. The planned common datasets are described in [data/README.md](../../data/README.md). Module-specific times and tested commands will be added alongside actual notebook releases.
+Each notebook has a corresponding completed notebook in [solutions/02_data_wrangling](../../solutions/02_data_wrangling/), with `_solutions.ipynb` appended to the lesson stem.
 
-**Acceptance rule:** do not create an unexecuted lesson notebook, and publish a matching checked solution for each released lesson.
+## Remaining planned lessons
+
+- 04 Creating variables
+- 05 Merging
+- 06 Reshaping
+- 07 Groupby and aggregation
+- 08 Panels and time
+- 09 Larger data
+- 10 Wrangling project / checkpoint
+
+## Data and reproducibility
+
+The first three notebooks include the **same small, six-row fictional survey extract** in their setup cells so no download, API key, or GitHub raw URL is required. It is a *teaching illustration*, not the 90-row deterministic survey produced by [the generator](../../data/scripts/make_messy_survey.py). Later lessons will introduce the larger generated file and document the difference.
+
+Use Python 3.12 and the repository's `uv.lock` for the reproducible local environment. The lessons teach direct `.loc` assignments compatible with pandas' Copy-on-Write behavior. All new cells must be run from a fresh kernel before release.
+
+**Not yet verified:** real Colab/Binder launch, beginner walkthrough, and the complete 10-lesson module.
