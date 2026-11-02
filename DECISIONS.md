@@ -76,3 +76,10 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - **TODO(verify):** GitHub Actions run with Python 3.12, the locked pandas release, Stata/Excel/Parquet I/O, Ruff, and the existing notebook validator. Do not claim success until the resulting CI checks complete.
 - pandas 3 uses Copy-on-Write and disallows chained assignment; teaching examples use direct `.loc` assignment. Official references: https://pandas.pydata.org/docs/user_guide/copy_on_write.html and https://pandas.pydata.org/docs/user_guide/io.html .
 - Public Colab/Binder links still point to the not-yet-updated `main` branch of this private repository. Live launch unverified.
+
+## Module 2 variables, merging, reshaping (2026-11-01)
+
+- New lessons 04–06 and their three completed solutions use the same self-contained six-row fictional survey, with an additional fictional household lookup for merges.
+- **Pass (local, precommit):** all six code-cell sequences executed in separate clean `nbclient` kernels using Python 3.13.5 and pandas 2.2.3. Learner exercises printed hints without exceptions, while solutions passed all checks. Imports were normalized for Ruff before saving.
+- **Pass (CI for prior batch):** Module 2 lessons 01–03 passed Ubuntu, Windows, macOS in [run #41398314510](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41398314510).
+- **TODO(verify):** the newly added 04–06 notebooks must pass the locked Python 3.12 CI before being labeled cross-platform tested. Full module checkpoint, real Colab access, and site publication remain pending.

@@ -7,11 +7,11 @@
 
 This educational project is designed for economics, public policy, political science, sociology, and related social-science learners. **The GitHub repository remains named Python-for-Beginners.**
 
-> **Current status:** Modules 0–1 are authored and their notebooks have passed automated execution in a Python 3.12 environment. They remain on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2), not on `main`. The first three lessons of Module 2 are also underway. Modules 3–7 and the companion website remain under construction.
+> **Current status:** Modules 0–1 are authored and their notebooks have passed automated execution in a Python 3.12 environment. They remain on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2), not on `main`. The first six lessons of Module 2 are now on the draft branch. Modules 3–7 and the companion website remain under construction.
 
 ## Start here
 
-Read [setup instructions](setup/README.md), then begin with [Module 0](modules/00_setup/README.md) and [Module 1](modules/01_python_basics/README.md). These include tested notebook lessons, completed solutions and a fundamentals checkpoint. [Module 2](modules/02_data_wrangling/README.md) now contains its first three lessons on file formats, filtering, and cleaning. You must check out the draft PR branch to use them locally for now. **Colab/Binder badges target `main` and public launches are not yet available while the repository is private.** Track remaining work in [issue #1](https://github.com/ningzhanglab/Python-for-Beginners/issues/1).
+Read [setup instructions](setup/README.md), then begin with [Module 0](modules/00_setup/README.md) and [Module 1](modules/01_python_basics/README.md). These include tested notebook lessons, completed solutions and a fundamentals checkpoint. [Module 2](modules/02_data_wrangling/README.md) now contains its first six lessons on file formats, filtering, cleaning, creating variables, merging, and reshaping. You must check out the draft PR branch to use them locally for now. **Colab/Binder badges target `main` and public launches are not yet available while the repository is private.** Track remaining work in [issue #1](https://github.com/ningzhanglab/Python-for-Beginners/issues/1).
 
 ## Who this guide is for
 
@@ -34,7 +34,7 @@ Zero programming experience is required. A basic understanding of statistics and
 | [6](modules/06_reproducibility/README.md) | Reproducible research | Environments, Git, pipelines, replication |
 | [7](modules/07_electives/README.md) | Electives | Text, causal ML, maps, AI use, time series |
 
-Modules 0–1 and the first three Module 2 lessons have notebook paths on the draft branch; their durations are listed in the module READMEs. The remaining modules are planned, not yet runnable.
+Modules 0–1 and the first six Module 2 lessons have notebook paths on the draft branch; their durations are listed in the module READMEs. The remaining modules are planned, not yet runnable.
 
 ## Local setup (foundation stage)
 
