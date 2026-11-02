@@ -41,3 +41,11 @@ When you add a `CHANGELOG.md` entry, put it under `## Unreleased` and link the P
 - Keep `CONTRIBUTING.md` oriented toward human contributors and refer to this file for additional agent constraints; avoid duplicating large policy sections.
 - Add language-specific tooling, linting, CI, or dependency policies only when appropriate for this project.
 - At completion, report: files changed, why, tests/checks with actual outcomes, remaining limitations, and the commit/PR link if one exists. Never claim a file or PR was saved unless the operation succeeded.
+
+## Course-specific constraints (Python for Beginners)
+
+- Keep the GitHub repository name `Python-for-Beginners`; the course subject is applied Python for economics and social science.
+- The owner currently chose MIT for original code **and** text. Do not introduce a second original-content license or relicense third-party material without authorization. Check `LICENSE`, `data/README.md`, and `DECISIONS.md`.
+- Follow the owner-supplied course specification tracked in [issue #1](https://github.com/ningzhanglab/Python-for-Beginners/issues/1). Implement it in truthful, verified increments, and record deviations in `DECISIONS.md`.
+- Execute each new lesson and its completed solution top-to-bottom **before committing** either notebook; exercise checks in incomplete learner versions must be friendly and nonfatal.
+- Maintain Colab portability, simple research examples, Stata/R comparisons, accessible figures and reproducibility. Never report a course module or website as complete before verified.

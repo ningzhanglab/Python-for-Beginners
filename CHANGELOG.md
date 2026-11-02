@@ -10,7 +10,12 @@ Exact file diffs live in Git history. Use [records/](records/README.md) only whe
 
 ## Unreleased
 
-_Replace this line with noteworthy new features, important fixes, or changed behavior as the new project develops. Routine edits need no entry._
+### Added
+- Began the applied Python course foundation: curriculum outlines, setup instructions, helper package, synthetic survey generator, and cross-platform tests ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
+- Added the project’s MIT license and documented the owner’s licensing decision and verification gaps ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
+
+### Changed
+- Replaced the language-neutral starter README and contributor guidance with course-specific documentation ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 
 <!-- Example entries (delete this comment when using the template):
 ## Unreleased

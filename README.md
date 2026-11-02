@@ -5,7 +5,7 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Project status](https://img.shields.io/badge/status-under%20construction-yellow.svg)](https://github.com/ningzhanglab/Python-for-Beginners/issues/1)
 
-This open educational project is designed for economics, public policy, political science, sociology, and related social-science learners. **The GitHub repository remains named Python-for-Beginners.**
+This educational project is designed for economics, public policy, political science, sociology, and related social-science learners. **The GitHub repository remains named Python-for-Beginners.**
 
 > **Current status:** The project foundation is in progress. The curriculum below is a *roadmap*, not a list of published lessons. Do not expect unfinished notebooks or the companion website to work yet.
 
