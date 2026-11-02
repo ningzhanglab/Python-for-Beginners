@@ -1,0 +1,38 @@
+name: Foundation checks
+
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    name: Core checks on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+      - name: Install Python
+        run: uv python install 3.12
+      - name: Install project and test dependencies
+        run: uv sync --group dev
+      - name: Verify setup
+        run: uv run python setup/check_setup.py
+      - name: Unit tests and synthetic data generation
+        run: uv run pytest -q
+      - name: Validate published notebook structure
+        run: uv run python scripts/validate_notebooks.py
+      - name: Lint Python sources
+        run: uv run ruff check .

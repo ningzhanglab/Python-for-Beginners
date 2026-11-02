@@ -1,11 +1,7 @@
-# Choosing a license
+# Licensing decision for this repository
 
-This general-purpose starter deliberately does **not** preselect a license. A new project may contain code, teaching materials, research data, or a mixture, each with different sharing requirements.
+The owner selected **MIT** for the existing `Python-for-Beginners` repository, for now. The authoritative license text is [LICENSE](LICENSE).
 
-Before publishing:
-1. Identify who owns the code, content, and data.
-2. Choose an appropriate software or documentation license when you have the rights to do so.
-3. Create a real `LICENSE` file with the selected terms and required copyright notice.
-4. Document third-party datasets, figures, and other assets separately when their licenses differ.
+The planned educational course uses MIT for original code and originally authored explanatory content, not the original build spec's proposed MIT/CC BY split. If the owner changes the licensing policy later, the transition must be explicit and reviewed.
 
-Do not publish private research, student information, restricted datasets, or unlicensed third-party content.
+**Important:** this selection does **not** relicense third-party data, figures, paper tables, external readings, or contributed material not owned by the project. Always verify permission and attribution before inclusion. See [data/README.md](data/README.md).
