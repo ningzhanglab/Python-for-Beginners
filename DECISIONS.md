@@ -47,3 +47,10 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - Local test evidence: four synthetic-survey/helper tests passed in a recreated sandbox with Python 3.13.5. This was **not** the complete Python 3.12 uv environment.
 - GitHub Actions [foundation checks](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41394368763) were **successful** on Ubuntu, Windows, and macOS. Those checks install the project, run its setup smoke test and pytest tests, validate currently released notebooks (zero so far), and run Ruff lint. CI currently resolves dependencies without a committed uv.lock; a reproducible lock remains open.
 - Work is reviewed in [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2). No merge or GitHub Pages deployment has occurred.
+
+## First notebooks and validation (2026-11-01)
+
+- **Pass (local):** Two learner notebooks and two completed solutions executed end-to-end using Python 3.13.5 and `nbclient`; 4/4 passes. Each learner version gives hints for blank exercises, and all solution checks pass.
+- **Pass (GitHub CI):** Fresh-kernel notebook tests, the template validator, and Ruff passed on Ubuntu, Windows, and macOS after a blank-line import style fix; CI uses Python 3.12. These runs covered eight pytest tests including the existing survey tests.
+- **TODO(verify):** Colab/Binder badges point to `main` after merge; public access is blocked while the repository is private. Their paths are validated, but a live browser launch is not yet claimed.
+- **Dependency locking:** CI temporarily prints the fully resolved `uv.lock` so it can be imported in the next commit; this should be removed immediately once the lockfile is reviewed and committed.

@@ -11,6 +11,7 @@ Exact file diffs live in Git history. Use [records/](records/README.md) only whe
 ## Unreleased
 
 ### Added
+- Added the first executed beginner notebooks and matching solutions for welcome and values/variables, plus full fresh-kernel execution tests ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Began the applied Python course foundation: curriculum outlines, setup instructions, helper package, synthetic survey generator, and cross-platform tests ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 - Added the project’s MIT license and documented the owner’s licensing decision and verification gaps ([#2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2)).
 

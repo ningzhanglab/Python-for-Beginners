@@ -28,9 +28,17 @@ jobs:
         run: uv python install 3.12
       - name: Install project and test dependencies
         run: uv sync --group dev
+      # Temporary verification step for importing the first fully resolved uv.lock.
+      # Remove after the committed lockfile has been reviewed.
+      - name: Print resolved dependency lock for import
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          echo 'START-PYTHON-FOR-BEGINNERS-LOCK'
+          cat uv.lock
+          echo 'END-PYTHON-FOR-BEGINNERS-LOCK'
       - name: Verify setup
         run: uv run python setup/check_setup.py
-      - name: Unit tests and synthetic data generation
+      - name: Unit tests and fresh-kernel notebook execution
         run: uv run pytest -q
       - name: Validate published notebook structure
         run: uv run python scripts/validate_notebooks.py
