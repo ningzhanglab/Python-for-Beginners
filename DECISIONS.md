@@ -83,3 +83,11 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - **Pass (local, precommit):** all six code-cell sequences executed in separate clean `nbclient` kernels using Python 3.13.5 and pandas 2.2.3. Learner exercises printed hints without exceptions, while solutions passed all checks. Imports were normalized for Ruff before saving.
 - **Pass (CI for prior batch):** Module 2 lessons 01–03 passed Ubuntu, Windows, macOS in [run #41398314510](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41398314510).
 - **TODO(verify):** the newly added 04–06 notebooks must pass the locked Python 3.12 CI before being labeled cross-platform tested. Full module checkpoint, real Colab access, and site publication remain pending.
+
+## Module 2 aggregation, panels, larger files (2026-11-01)
+
+- Added lessons 07–09 with their solution notebooks. Lesson 08 explicitly distinguishes a unique *record* key from a verified longitudinal person identifier, avoiding spurious panel claims.
+- **Pass (local, precommit):** all six code-cell sequences executed in fresh `nbclient` kernels using Python 3.13.5 / pandas 2.2.3. Learners' incomplete exercises printed hints; solutions' checks passed.
+- The optional Parquet-writing code in lesson 09 is guarded when `pyarrow` is absent locally; GitHub CI uses the locked `pyarrow` installation.
+- **Pass (CI for previous batch):** lessons 04–06 verified with GitHub Actions [run #41398857559](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41398857559) across Ubuntu, Windows, macOS.
+- **TODO(verify):** cross-platform CI for the newly added 07–09 notebooks, before describing their CI status as passed.

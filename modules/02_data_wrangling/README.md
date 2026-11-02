@@ -1,6 +1,6 @@
 # Module 2 — Data wrangling with pandas
 
-**Status: in progress.** Six of ten planned lessons and their completed solutions are written and verified locally. The first three passed GitHub CI on all three operating systems; the next three require post-commit CI verification. The lessons are on a draft branch, not yet on `main`, and public Colab/Binder links are not live.
+**Status: in progress.** Nine of ten planned lessons and their completed solutions are written and verified locally. Lessons 01–06 have passed cross-platform GitHub CI; lessons 07–09 still require post-commit CI verification. The lessons are on a draft branch, not yet on `main`, and public Colab/Binder links are not live.
 
 ## Goals and prerequisites
 
@@ -16,19 +16,19 @@ Read, inspect, select, clean, merge, reshape, and validate research datasets. Co
 | [04 Creating variables](04_creating_variables.ipynb) | 45 min | Indicators, bins, log wages and method chaining |
 | [05 Merging](05_merging.ipynb) | 45 min | Many-to-one joins, validation, unmatched keys and appending |
 | [06 Reshaping](06_reshaping.ipynb) | 45 min | Wide/long, unique identifiers, panel-ready rows |
+| [07 Groupby and aggregate](07_groupby_aggregate.ipynb) | 40 min | Group means, demeaning, and weighted summaries |
+| [08 Panels and time](08_panels_and_time.ipynb) | 45 min | Parsing dates, lags, MultiIndex, balance checks |
+| [09 Larger data](09_larger_data.ipynb) | 40 min | Memory, CSV chunking, categorical types, Parquet |
 
 Each notebook has a corresponding completed notebook in [solutions/02_data_wrangling](../../solutions/02_data_wrangling/), with `_solutions.ipynb` appended to the lesson stem.
 
 ## Remaining planned lessons
 
-- 07 Groupby and aggregation
-- 08 Panels and time
-- 09 Larger data
 - 10 Wrangling project / checkpoint
 
 ## Data and reproducibility
 
-The first six notebooks include the **same small, six-row fictional survey extract** in their setup cells so no download, API key, or GitHub raw URL is required. It is a *teaching illustration*, not the 90-row deterministic survey produced by [the generator](../../data/scripts/make_messy_survey.py). Later lessons will introduce the larger generated file and document the difference.
+The first nine notebooks include the **same small, six-row fictional survey extract** in their setup cells so no download, API key, or GitHub raw URL is required. It is a *teaching illustration*, not the 90-row deterministic survey produced by [the generator](../../data/scripts/make_messy_survey.py). Later lessons will introduce the larger generated file and document the difference.
 
 Use Python 3.12 and the repository's `uv.lock` for the reproducible local environment. The lessons teach direct `.loc` assignments compatible with pandas' Copy-on-Write behavior. All new cells must be run from a fresh kernel before release.
 
