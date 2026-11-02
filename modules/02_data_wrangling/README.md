@@ -1,6 +1,6 @@
 # Module 2 — Data wrangling with pandas
 
-**Status: in progress.** Nine of ten planned lessons and their completed solutions are written and verified locally. Lessons 01–06 have passed cross-platform GitHub CI; lessons 07–09 still require post-commit CI verification. The lessons are on a draft branch, not yet on `main`, and public Colab/Binder links are not live.
+**Status: all ten lesson notebooks and their solutions are authored and locally verified.** Cross-platform CI and a learner walkthrough are still required for the final checkpoint; real Colab/Binder launches and a published website remain unverified. The lessons are on a draft branch, not yet on `main`, and public Colab/Binder links are not live.
 
 ## Goals and prerequisites
 
@@ -19,17 +19,20 @@ Read, inspect, select, clean, merge, reshape, and validate research datasets. Co
 | [07 Groupby and aggregate](07_groupby_aggregate.ipynb) | 40 min | Group means, demeaning, and weighted summaries |
 | [08 Panels and time](08_panels_and_time.ipynb) | 45 min | Parsing dates, lags, MultiIndex, balance checks |
 | [09 Larger data](09_larger_data.ipynb) | 40 min | Memory, CSV chunking, categorical types, Parquet |
+| [10 Wrangling checkpoint](10_wrangling_project.ipynb) | 55 min | Reproduce a 90-row synthetic survey, clean/merge/reshape, and verify export |
 
 Each notebook has a corresponding completed notebook in [solutions/02_data_wrangling](../../solutions/02_data_wrangling/), with `_solutions.ipynb` appended to the lesson stem.
 
-## Remaining planned lessons
+## Remaining verification
 
-- 10 Wrangling project / checkpoint
+- Verify all 10 lessons and 10 solutions in the locked Python 3.12 CI environment.
+- Conduct the required beginner walkthrough and check every public Colab/Binder launch after the repository is accessible.
+- Revisit the direct usage of the 90-row generator across earlier lessons as more modules are built.
 
 ## Data and reproducibility
 
-The first nine notebooks include the **same small, six-row fictional survey extract** in their setup cells so no download, API key, or GitHub raw URL is required. It is a *teaching illustration*, not the 90-row deterministic survey produced by [the generator](../../data/scripts/make_messy_survey.py). Later lessons will introduce the larger generated file and document the difference.
+Lessons 01–09 include the **same small, six-row fictional survey extract** in their setup cells so no download, API key, or GitHub raw URL is required. It is a *teaching illustration*, not the 90-row deterministic survey produced by [the generator](../../data/scripts/make_messy_survey.py). The checkpoint uses the generator's deterministic algorithm and 90-row schema, with the same seeded, fully fictional data.
 
 Use Python 3.12 and the repository's `uv.lock` for the reproducible local environment. The lessons teach direct `.loc` assignments compatible with pandas' Copy-on-Write behavior. All new cells must be run from a fresh kernel before release.
 
-**Not yet verified:** real Colab/Binder launch, beginner walkthrough, and the complete 10-lesson module.
+**Not yet verified:** real Colab/Binder launch, beginner walkthrough, and the final checkpoint's cross-platform CI results.

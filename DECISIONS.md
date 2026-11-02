@@ -91,3 +91,11 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - The optional Parquet-writing code in lesson 09 is guarded when `pyarrow` is absent locally; GitHub CI uses the locked `pyarrow` installation.
 - **Pass (CI for previous batch):** lessons 04–06 verified with GitHub Actions [run #41398857559](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41398857559) across Ubuntu, Windows, macOS.
 - **TODO(verify):** cross-platform CI for the newly added 07–09 notebooks, before describing their CI status as passed.
+
+## Module 2 checkpoint — 2026-11-01
+
+- **Pass (local, precommit):** the 90-row synthetic checkpoint notebook and completed solution were reconstructed with their exact code-cell sequence and executed in clean `nbclient` kernels under Python 3.13.5 / pandas 2.2.3. Learner checks printed hints without stopping; solution checks passed. The Parquet branch cannot be fully tested locally without `pyarrow`, but the locked CI environment includes it.
+- Input generation mirrors the committed `data/scripts/make_messy_survey.py` seed, row construction and intentional defects: 90 fictional people/wave records, 30 fictional household keys, one duplicated person identifier, sentinel -99, invalid text, and a wage outlier.
+- The completed checkpoint solution builds a cleaned wage/region dataset, validates the many-to-one household join, and reshapes two cleaned annual wages to a 180-row analysis-ready table before export.
+- **Lint fix:** removed an unused NumPy import from lesson 08 (learner and solution) after GitHub Actions flagged F401; other tests in [run #41399407132](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41399407132) had reached the lint stage.
+- **TODO(verify):** full 10-lesson Module 2 CI (including actual Parquet writing in Python 3.12), walkthrough, private-repository badge access, and full-course release. Do not treat authored lessons alone as a published public course.
