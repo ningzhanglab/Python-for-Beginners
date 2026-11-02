@@ -7,7 +7,7 @@
 
 This educational project is designed for economics, public policy, political science, sociology, and related social-science learners. **The GitHub repository remains named Python-for-Beginners.**
 
-> **Current status:** Modules 0–1 are authored and their notebooks have passed automated execution in a Python 3.12 environment. They remain on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2), not on `main`. All ten Module 2 lesson notebooks and their solutions are on the draft branch; the completed Module 2 checkpoint and all existing notebook tests have passed locked Python 3.12 CI on Ubuntu, Windows and macOS. Public launch tests and the website are still pending. Module 3 now contains all six authored lessons and solutions (latest CI pending); Modules 4–7 and the companion website remain under construction.
+> **Current status:** Modules 0–1 are authored and their notebooks have passed automated execution in a Python 3.12 environment. They remain on [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2), not on `main`. All ten Module 2 lesson notebooks and their solutions are on the draft branch; the completed Module 2 checkpoint and all existing notebook tests have passed locked Python 3.12 CI on Ubuntu, Windows and macOS. Public launch tests and the website are still pending. Module 3 now contains all six authored lessons and solutions, and the full 59-test suite passed on Ubuntu, Windows and macOS; Modules 4–7 and the companion website remain under construction.
 
 ## Start here
 

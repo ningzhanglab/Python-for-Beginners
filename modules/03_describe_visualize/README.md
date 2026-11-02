@@ -1,6 +1,6 @@
 # Module 3 — Describing and visualizing
 
-**Status: all six planned lesson notebooks and their matching solutions are authored on draft PR #2.** Cross-platform CI for the latest checkpoint and inline-figure changes is still running. A beginner walkthrough, real Colab/Binder launches and a published website remain unverified.
+**Status: all six planned lesson notebooks and their matching solutions are authored on draft PR #2.** [Cross-platform CI run #41405225377](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41405225377) passed on Ubuntu, Windows, and macOS with 59 tests, including clean-kernel notebook execution and inline figure generation. A beginner walkthrough, real Colab/Binder launches and a published website remain unverified.
 
 ## Prerequisites and learning goals
 
@@ -32,6 +32,6 @@ All examples are intended to run offline using Python 3.12 with the repository's
 - I can produce a labeled histogram, a regional bar figure, and a time-wave line figure.
 - I can reproduce these outputs after restarting the kernel.
 
-**Still required:** latest CI confirmation, a visual accessibility and formatting review, a beginner walkthrough, and real public Colab/Binder launch checks after merge and appropriate repository visibility.
+**Still required:** a manual visual accessibility and formatting review, a beginner walkthrough, and real public Colab/Binder launch checks after merge and appropriate repository visibility.
 
 **Next:** [Module 4 — Econometrics](../04_econometrics/README.md).
