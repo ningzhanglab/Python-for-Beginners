@@ -7,11 +7,11 @@
 
 This educational project is designed for economics, public policy, political science, sociology, and related social-science learners. **The GitHub repository remains named Python-for-Beginners.**
 
-> **Current status:** The project foundation is in progress. The curriculum below is a *roadmap*, not a list of published lessons. Do not expect unfinished notebooks or the companion website to work yet.
+> **Current status:** The first executed lessons and the project foundation are under review in [draft PR #2](https://github.com/ningzhanglab/Python-for-Beginners/pull/2). Other modules remain a roadmap, and the website is not yet deployed.
 
 ## Start here
 
-For now, see [setup/README.md](setup/README.md) for the planned learning paths and [Module 0](modules/00_setup/README.md) for the onboarding roadmap. Lesson notebooks and their one-click Colab links will be added after execution checks. You can track the implementation in [issue #1](https://github.com/ningzhanglab/Python-for-Beginners/issues/1).
+Read [setup instructions](setup/README.md), then explore [00 Welcome](modules/00_setup/00_welcome.ipynb) and [01 Values and variables](modules/01_python_basics/01_values_and_variables.ipynb). Both learner notebooks and their completed solutions have passed clean-kernel execution locally. They are present on the **draft PR branch**, not yet on `main`. Their Colab/Binder badges target `main` and do not yet provide public access while this repository is private. Track the roadmap in [issue #1](https://github.com/ningzhanglab/Python-for-Beginners/issues/1).
 
 ## Who this guide is for
 
@@ -47,7 +47,7 @@ uv sync
 uv run python setup/check_setup.py
 ~~~
 
-Use `uv run jupyter lab` once lesson notebooks are available. **The dependency lockfile is still pending**, so current installations are not yet fully reproducible; see [DECISIONS.md](DECISIONS.md).
+Use `uv run jupyter lab` to open the first lessons after checking out the draft PR branch. **The dependency lockfile is still pending**, so current installations are not yet fully reproducible; see [DECISIONS.md](DECISIONS.md).
 
 ## Learning data
 

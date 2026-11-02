@@ -1,18 +1,18 @@
-# Module 00 — Getting started
+# Module 0 — Getting started
 
-**Status: curriculum outline only; lessons are not yet published.**
+Understand notebooks, execute code, and preserve your work. **Partially implemented**.
 
-Welcome, Colab, local environments, notebooks vs scripts, Git basics.
+## Published on the draft branch, verified locally
 
-## Planned lessons
+- [00 Welcome](00_welcome.ipynb) — 30 minutes; no prerequisites.
+- [Completed solutions](../../solutions/00_setup/00_welcome_solutions.ipynb).
 
-- 00 welcome
-- 01 local setup
-- 02 notebooks vs scripts
-- 03 git in 10 minutes
+## Remaining lessons
 
-## Prerequisites and data
+- 01 Local setup
+- 02 Notebooks versus scripts
+- 03 Git in 10 minutes
 
-Follow the preceding core module; Module 7 electives are independent. The planned common datasets are described in [data/README.md](../../data/README.md). Module-specific times and tested commands will be added alongside actual notebook releases.
+The first lesson needs only standard Python, with no external data. Public Colab/Binder launch remains unverified while the repository is private and notebooks are not on `main`.
 
-**Acceptance rule:** do not create an unexecuted lesson notebook, and publish a matching checked solution for each released lesson.
+See [setup instructions](../../setup/README.md) and the [Module 1 overview](../01_python_basics/README.md).

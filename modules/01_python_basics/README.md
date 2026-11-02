@@ -1,22 +1,22 @@
-# Module 01 — Just-enough Python
+# Module 1 — Just-enough Python
 
-**Status: curriculum outline only; lessons are not yet published.**
+Practice with wages, prices, GDP and survey responses. **Partially implemented**.
 
-Values, containers, control flow, functions, packages, debugging, NumPy, checkpoint.
+## Published on the draft branch, verified locally
 
-## Planned lessons
+- [01 Values and variables](01_values_and_variables.ipynb) — 40 minutes; assumes notebook familiarity.
+- [Completed solutions](../../solutions/01_python_basics/01_values_and_variables_solutions.ipynb).
 
-- 01 values and variables
-- 02 lists and dicts
-- 03 conditionals and loops
-- 04 functions
-- 05 modules and packages
-- 06 errors and debugging
-- 07 numpy basics
-- 08 checkpoint
+## Remaining lessons
 
-## Prerequisites and data
+- 02 Lists and dictionaries
+- 03 Conditionals and loops
+- 04 Functions
+- 05 Modules and packages
+- 06 Errors and debugging
+- 07 NumPy basics
+- 08 Checkpoint
 
-Follow the preceding core module; Module 7 electives are independent. The planned common datasets are described in [data/README.md](../../data/README.md). Module-specific times and tested commands will be added alongside actual notebook releases.
+The introductory notebook uses the Python standard library only. Complete-module and live-Colab verification is still pending.
 
-**Acceptance rule:** do not create an unexecuted lesson notebook, and publish a matching checked solution for each released lesson.
+New readers may prefer [Module 0](../00_setup/README.md) first.
