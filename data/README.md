@@ -22,3 +22,7 @@
 | FRED series | Macro/time-series | TODO(verify) series-level terms and key-free snapshots |
 
 No real third-party datasets are distributed by this foundation commit.
+
+## Module 2 checkpoint reproducibility
+
+[Module 2's 90-row checkpoint](../modules/02_data_wrangling/10_wrangling_project.ipynb) reproduces this project's seeded synthetic survey and household lookup without fetching files from GitHub, so its examples can run in a self-contained notebook. [The regression test](../tests/test_checkpoint_data.py) executes the checkpoint's input-generation cells and compares the fictional raw survey and household lookup with the canonical generator's CSV outputs. This detects drift between the two teaching paths. Lessons 01–09 use a separate, six-row fictional teaching extract for shorter demonstrations; their numbers are not identical to the full 90-row survey.

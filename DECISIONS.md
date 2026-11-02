@@ -99,3 +99,8 @@ The spec's full acceptance checklist is not yet complete. Progress must not be p
 - The completed checkpoint solution builds a cleaned wage/region dataset, validates the many-to-one household join, and reshapes two cleaned annual wages to a 180-row analysis-ready table before export.
 - **Lint fix:** removed an unused NumPy import from lesson 08 (learner and solution) after GitHub Actions flagged F401; other tests in [run #41399407132](https://github.com/ningzhanglab/Python-for-Beginners/actions/runs/41399407132) had reached the lint stage.
 - **TODO(verify):** full 10-lesson Module 2 CI (including actual Parquet writing in Python 3.12), walkthrough, private-repository badge access, and full-course release. Do not treat authored lessons alone as a published public course.
+
+## Checkpoint source consistency test
+
+- Added a regression test to compare the raw 90-row notebook-generated survey and household lookup directly against the project-owned `make_messy_survey.py` outputs. This guards against accidental drift while keeping the checkpoint runnable without external network access.
+- The test runs in Python CI, not against real participant or private research data.
