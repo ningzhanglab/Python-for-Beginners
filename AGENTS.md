@@ -1,6 +1,19 @@
 # Agent instructions
 
-These instructions apply to AI agents maintaining **this repository**. When this starter is copied into a new project, review and tailor them to that project's scope, tools, data, and risks before making substantive changes. Agent tools differ: do not assume this file is automatically loaded. Explicitly read it at the start of work. `CLAUDE.md` and `.github/copilot-instructions.md` only point here; put rules in this file, not in those pointers, so they cannot drift apart.
+These instructions apply to AI agents maintaining **Python for Beginners: Economics & Social Sciences**, a free, self-paced course for people who have never programmed. Explicitly read this file at the start of work. `CLAUDE.md` and `.github/copilot-instructions.md` only point here; put rules in this file, not in those pointers, so they cannot drift apart.
+
+## Course and website requirements
+
+- Phase 1 is a website skeleton plus complete lessons 0.2 and 2.1. Stop for owner review before writing the bulk of later lessons; keep unavailable material clearly marked coming soon.
+- Lesson sources are output-free `.ipynb` notebooks in `lessons/`; edit those, not the generated HTML or notebook downloads. Quarto executes every code cell, including solutions, in CI. Never disable execution, allow unexpected errors, or enable cache/freeze to make a broken lesson pass. Catch deliberately demonstrated errors explicitly and explain them.
+- Every lesson has 2–4 learning goals, a short motivation, a worked example, 3–5 exercises with collapsible solutions, common errors, a recap, and optional Stata/R/Excel bridges. Precede every code cell with its purpose and follow it with what to notice. Define new terms, label fictional numbers, and use social-science examples. Target 20–40 minutes and keep the first hour browser-only.
+- Every lesson links to Colab and its generated notebook download. Code and data must work top to bottom from a fresh runtime; do not rely on saved state, private files, paid software or credentials. Verify both local-data and fresh-download paths when changing setup.
+- Use the historical country panel for the running question, “Do people live longer in richer countries?” Preserve source units and coverage; distinguish association from causation. Do not change the agreed curriculum outcomes or sequence without the owner.
+- Before adding data, verify redistribution terms. Record source URL, exact version, retrieval date, license, transformations and preparation script in `data/README.md`. Keep committed data small. Label future simulated data and commit its fixed-seed generation script.
+- Figures need meaningful alt text and labelled axes. Meaning must not depend on colour alone. Use the built-in Quarto themes with small customizations.
+- `requirements.txt` is the sole Python dependency source for CI and local setup. Add packages only when an available lesson or course check needs them. Use Python 3.12 and Quarto 1.11.9; verify official current documentation before upgrades.
+- With the documented environment active, run `python -m unittest discover -s tests -v` and `python scripts/build.py`. The build validates sources/data, executes all notebooks, renders HTML and checks local links, fragments, assets, downloads and alt text. `python scripts/prepare_data.py --check` additionally verifies the exact upstream transformation (network needed unless `--source` is supplied).
+- `_site/`, `downloads/`, `.quarto/` and `scratch/` are generated and ignored. Course licensing is undecided by owner request; do not add a `LICENSE` or imply original materials are openly licensed until the owner chooses. Do not change repository visibility or enable Pages; the owner plans to make the repository public later and enable Pages then.
 
 ## Priorities
 

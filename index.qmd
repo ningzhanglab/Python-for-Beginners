@@ -1,0 +1,37 @@
+---
+title: "Python for Beginners"
+subtitle: "Economics & Social Sciences"
+toc: false
+sidebar: false
+page-navigation: false
+---
+
+::: {.hero}
+::: {.eyebrow}
+FREE · SELF-PACED · NO INSTALL TO START
+:::
+
+::: {.lead}
+Learn to answer social-science questions with Python, one small step at a time. Built for students and researchers who have never programmed.
+:::
+
+[Start your first notebook →](lessons/00-start/02-first-notebook.ipynb){.btn .btn-primary .btn-lg}
+
+Start in your browser with Google Colab. You need a Google account to run and save your work there. No paid software or local installation is required.
+:::
+
+## From a question to an analysis
+
+**Do people live longer in richer countries?** We follow this question from a first calculation to data cleaning, figures and regression. The aim is to understand a pattern, and the limits of what it can tell us.
+
+You will learn to load CSV, Excel and Stata files; clean and combine tables; make readable charts; estimate and interpret regressions; and organize work another person can rerun.
+
+## A course you can take at your own pace
+
+Each lesson has a worked example, things to try, hidden solutions and help with common errors. Plan for 20–40 minutes, with breaks whenever you need them. A little statistics helps; programming experience is not assumed.
+
+**Available now:** [0.2 Your first notebook](lessons/00-start/02-first-notebook.ipynb) and [2.1 Loading data](lessons/02-data/01-loading-data.ipynb). This is the first review edition; the rest of the [course map](lessons/index.qmd) is marked coming soon.
+
+## A good place to make mistakes
+
+An error is information about what Python could not do. You will practise reading errors and fixing them. If you get stuck, share the lesson title and the smallest example that reproduces your problem in [GitHub Issues](https://github.com/ningzhanglab/Python-for-Beginners/issues). Remove personal data before sharing.

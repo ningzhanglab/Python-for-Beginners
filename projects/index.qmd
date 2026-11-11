@@ -1,0 +1,11 @@
+---
+title: Projects
+---
+
+## Part 6 · Coming soon
+
+Guided projects will take a research question from raw public data to a figure and regression table. Each will include a partially completed starter notebook and a full solution.
+
+The planned questions will reuse the cleaning, plotting and interpretation skills from Parts 1–5, with less guidance each time. Datasets and redistribution rights will be checked before projects are added.
+
+For now, begin with [your first notebook](../lessons/00-start/02-first-notebook.ipynb) or explore the [course map](../lessons/index.qmd).
