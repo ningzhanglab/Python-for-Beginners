@@ -10,6 +10,8 @@ import tempfile
 import nbformat
 from nbclient import NotebookClient
 
+from check_course import check_practice_formats
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -23,6 +25,8 @@ def main():
             NotebookClient(notebook, timeout=120, kernel_name="python3",
                            resources={"metadata": {"path": str(workspace)}}).execute()
             assert (workspace / "data/gapminder.csv").read_bytes() == (ROOT / "data/gapminder.csv").read_bytes()
+            if (workspace / "scratch/countries.xlsx").exists():
+                check_practice_formats(workspace)
             cells = sum(cell.cell_type == "code" for cell in notebook.cells)
             print(f"PASS: {source.name}, {cells} cells and solutions; downloaded CSV matches committed data exactly.")
 

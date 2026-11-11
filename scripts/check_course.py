@@ -55,6 +55,16 @@ def check_data(root=ROOT):
     print("PASS: country panel schema, coverage, unique country-years and complete positive measurements.")
 
 
+def check_practice_formats(root):
+    """Check generated format conversions outside the learner-facing notebooks."""
+    original = pd.read_csv(root / "data/gapminder.csv")
+    excel = pd.read_excel(root / "scratch/countries.xlsx", sheet_name="countries", engine="openpyxl")
+    stata = pd.read_stata(root / "scratch/countries.dta", convert_categoricals=False)
+    for imported in [excel, stata]:
+        pd.testing.assert_frame_equal(original, imported, check_dtype=False, rtol=1e-10, atol=1e-10)
+    print("PASS: generated Excel and Stata values match the course CSV.")
+
+
 if __name__ == "__main__":
     check_sources()
     check_data()

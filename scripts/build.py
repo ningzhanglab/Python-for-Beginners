@@ -7,6 +7,8 @@ import subprocess
 import sys
 import tempfile
 
+from check_course import check_practice_formats
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -37,6 +39,7 @@ def main():
             else:
                 shutil.copyfile(source, destination)
         subprocess.run([quarto, "render", "--execute"], cwd=workspace, env=env, check=True)
+        check_practice_formats(workspace)
         output = ROOT / "_site"
         if output.exists():
             shutil.rmtree(output)

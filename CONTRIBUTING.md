@@ -36,7 +36,7 @@ python -m unittest discover -s tests -v
 python scripts/build.py
 ```
 
-The safeguard tests confirm that a changed data download or a notebook that skips execution is rejected. The build validates the dataset and lesson structure, renders all pages with fresh notebook execution, and checks internal links and fragments, assets, image alt text, notebook downloads and the search index. Exercise solutions execute too. The converted Excel and Stata values are compared against the CSV during lesson execution.
+The safeguard tests confirm that a changed data download or a notebook that skips execution is rejected. The build validates the dataset and lesson structure, renders all pages with fresh notebook execution, and checks internal links and fragments, assets, image alt text, notebook downloads and the search index. Exercise solutions execute too. The converted Excel and Stata values are compared against the CSV after lesson execution.
 
 **Use `scripts/build.py` for the authoritative build.** Quarto executes notebook inputs in place; this wrapper renders disposable copies and publishes their generated output to `_site/`, preserving the clean source notebooks even on failure. Do not commit generated output, notebook execution counts or saved outputs. Deliberate error demonstrations catch and explain specific exceptions; unexpected errors must fail the build.
 
