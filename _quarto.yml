@@ -12,7 +12,7 @@ project:
   pre-render: python scripts/prepare_site.py
   resources:
     - downloads/
-    - data/gapminder.csv
+    - data/*.csv
 
 website:
   title: "Python for Beginners"
@@ -42,16 +42,27 @@ website:
       - lessons/index.qmd
       - section: "Part 0 · Start here"
         contents:
-          - text: "0.1 What Python is for · coming soon"
+          - lessons/00-start/01-what-python-is-for.ipynb
           - lessons/00-start/02-first-notebook.ipynb
-          - text: "0.3 How to use this course · coming soon"
-      - section: "Part 1 · Python basics · coming soon"
+          - lessons/00-start/03-how-to-learn.ipynb
+      - section: "Part 1 · Python basics"
         contents:
-          - text: "Values, lists, decisions, functions and errors"
+          - lessons/01-basics/01-values-variables.ipynb
+          - lessons/01-basics/02-lists-dictionaries.ipynb
+          - lessons/01-basics/03-decisions-repetition.ipynb
+          - lessons/01-basics/04-functions.ipynb
+          - lessons/01-basics/05-reading-errors.ipynb
+          - lessons/01-basics/06-importing-libraries.ipynb
       - section: "Part 2 · Working with data"
         contents:
           - lessons/02-data/01-loading-data.ipynb
-          - text: "2.2–2.8 Cleaning, groups, merges, panels and dates · coming soon"
+          - lessons/02-data/02-selecting.ipynb
+          - lessons/02-data/03-transforming.ipynb
+          - lessons/02-data/04-missing-types.ipynb
+          - lessons/02-data/05-group-summaries.ipynb
+          - lessons/02-data/06-combining.ipynb
+          - lessons/02-data/07-reshaping.ipynb
+          - lessons/02-data/08-dates-time-series.ipynb
       - text: "Part 3 · Visualization · coming soon"
       - text: "Part 4 · Statistics and regression · coming soon"
       - text: "Part 5 · Reproducible workflow · coming soon"

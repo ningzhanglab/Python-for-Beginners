@@ -4,7 +4,7 @@ These instructions apply to AI agents maintaining **Python for Beginners: Econom
 
 ## Course and website requirements
 
-- Phase 1 is a website skeleton plus complete lessons 0.2 and 2.1. Stop for owner review before writing the bulk of later lessons; keep unavailable material clearly marked coming soon.
+- Phase 1 was reviewed and merged in PR #4. The owner authorized Phase 2 (Parts 0–2) and explicitly requested direct work on `main` for this phase; Issue #5 records acceptance criteria. This is a phase-specific exception to the normal branch/PR workflow. Parts 3–6 remain coming soon and are outside Phase 2.
 - Lesson sources are output-free `.ipynb` notebooks in `lessons/`; edit those, not the generated HTML or notebook downloads. Quarto executes every code cell, including solutions, in CI. Never disable execution, allow unexpected errors, or enable cache/freeze to make a broken lesson pass. Catch deliberately demonstrated errors explicitly and explain them.
 - Every lesson has 2–4 learning goals, a short motivation, a worked example, 3–5 exercises with collapsible solutions, common errors, a recap, and optional Stata/R/Excel bridges. Precede every code cell with its purpose and follow it with what to notice. Define new terms, label fictional numbers, and use social-science examples. Target 20–40 minutes and keep the first hour browser-only.
 - Every lesson links to Colab and its generated notebook download. Code and data must work top to bottom from a fresh runtime; do not rely on saved state, private files, paid software or credentials. Verify both local-data and fresh-download paths when changing setup.
@@ -12,7 +12,7 @@ These instructions apply to AI agents maintaining **Python for Beginners: Econom
 - Before adding data, verify redistribution terms. Record source URL, exact version, retrieval date, license, transformations and preparation script in `data/README.md`. Keep committed data small. Label future simulated data and commit its fixed-seed generation script.
 - Figures need meaningful alt text and labelled axes. Meaning must not depend on colour alone. Use the built-in Quarto themes with small customizations.
 - `requirements.txt` is the sole Python dependency source for CI and local setup. Add packages only when an available lesson or course check needs them. Use Python 3.12 and Quarto 1.11.9; verify official current documentation before upgrades.
-- With the documented environment active, run `python -m unittest discover -s tests -v` and `python scripts/build.py`. The build validates sources/data, executes all notebooks, renders HTML and checks local links, fragments, assets, downloads and alt text. `python scripts/prepare_data.py --check` additionally verifies the exact upstream transformation (network needed unless `--source` is supplied).
+- With the documented environment active, run `python -m unittest discover -s tests -v` and `python scripts/build.py`. The build validates sources/data, curriculum navigation, lesson outcomes, links, fragments, assets, downloads and alt text while executing every notebook. Declare `course.checks` and `course.required_data` in notebook metadata; validation cells are injected only into disposable execution copies. `python scripts/check_fresh_runtime.py` also verifies independent empty-session execution and exact data preparation. Check the upstream transformation with `python scripts/prepare_data.py --check` (network needed unless `--source` is supplied) and the simulation with `python scripts/simulate_people.py --check` (offline). Update generated simulation setup cells from their authoritative source with `--sync-notebooks`.
 - `_site/`, `downloads/`, `.quarto/` and `scratch/` are generated and ignored. Course licensing is undecided by owner request; do not add a `LICENSE` or imply original materials are openly licensed until the owner chooses. Do not change repository visibility or enable Pages; the owner plans to make the repository public later and enable Pages then.
 
 ## Priorities
@@ -46,7 +46,7 @@ Do **not** make a detailed record for every commit, PR, routine editorial task, 
 
 When you write or substantially edit a record, fill in its **AI assistance** line: name the tool and the exact model identifier your tool reports (do not guess or substitute a marketing name; write "model not reported" if you cannot tell), and state briefly what you did (for example, drafted the analysis, ran the evaluation) and what remains for a person to verify. Leave **Responsible** for the human who owns the record. Do not paste session transcripts or step-by-step activity into records.
 
-When you add a `CHANGELOG.md` entry, put it under `## Unreleased` and link the PR. Only when a maintainer asks for a release, move those entries under a dated heading (see `CHANGELOG.md`).
+When you add a `CHANGELOG.md` entry, put it under `## Unreleased` and link the PR. For an explicitly authorized direct-to-main phase, link its tracking issue instead. Only when a maintainer asks for a release, move those entries under a dated heading (see `CHANGELOG.md`).
 
 ## Documentation and handoff
 

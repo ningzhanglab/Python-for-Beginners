@@ -1,0 +1,121 @@
+person_id,age,education,education_years,employed,hourly_wage
+1,50,university,16,1,26.23
+2,63,secondary,12,0,
+3,52,postgraduate,18,1,29.81
+4,45,secondary,12,1,21.49
+5,34,secondary,12,1,22.45
+6,25,postgraduate,18,1,27.68
+7,27,secondary,12,1,-99
+8,62,college,14,1,27.01
+9,53, POSTGRADUATE ,18,1,28.3
+10,30,college,14,0,
+11,33,postgraduate,18,1,28.29
+12,34,postgraduate,18,1,28.23
+13,unknown,university,16,1,23.38
+14,29,university,16,1,-99
+15,62,secondary,12,1,24.69
+16,63,college,14,1,25.42
+17,53,postgraduate,18,1,27.58
+18,36, SECONDARY ,12,1,20.67
+19,56,postgraduate,18,1,26.71
+20,35,college,14,1,23.02
+21,62,university,16,0,
+22,40,postgraduate,18,1,25.7
+23,28,university,16,1,26.24
+24,23,secondary,12,1,21.23
+25,39,secondary,12,1,23.32
+26,unknown,college,14,1,26.44
+27,62, POSTGRADUATE ,18,1,27.89
+28,46,university,16,1,-99
+29,54,postgraduate,18,1,27.61
+30,39,college,14,1,24.08
+31,37,college,14,1,25.14
+32,45,secondary,12,0,
+33,48,secondary,12,1,21.3
+34,63,postgraduate,18,1,31.06
+35,26,postgraduate,18,1,-99
+36,37, SECONDARY ,12,1,21.81
+37,23,college,14,1,20.78
+38,62,university,16,1,26.24
+39,unknown,college,14,1,23.36
+40,53,university,16,1,26.09
+41,54,college,14,1,22.93
+42,40,postgraduate,18,1,-99
+43,63,college,14,0,
+44,39,university,16,1,26.7
+45,24, UNIVERSITY ,16,1,24.63
+46,45,college,14,1,23.78
+47,33,secondary,12,1,20.73
+48,53,college,14,0,
+49,35,university,16,0,
+50,32,postgraduate,18,1,28.67
+51,37,secondary,12,1,23.33
+52,unknown,university,16,0,
+53,24,postgraduate,18,1,27.77
+54,39, UNIVERSITY ,16,1,23.74
+55,58,university,16,1,25.39
+56,62,university,16,0,
+57,58,college,14,1,24.21
+58,35,college,14,1,23.17
+59,40,postgraduate,18,1,27.8
+60,36,college,14,1,24.42
+61,64,secondary,12,1,24.39
+62,34,college,14,1,23.14
+63,57, POSTGRADUATE ,18,1,-99
+64,27,college,14,1,23.17
+65,unknown,postgraduate,18,1,29.18
+66,48,college,14,1,24.41
+67,25,postgraduate,18,1,26.72
+68,59,secondary,12,0,
+69,59,secondary,12,1,21.81
+70,50,college,14,1,-99
+71,31,postgraduate,18,1,28.55
+72,50, COLLEGE ,14,1,24.66
+73,62,postgraduate,18,1,29.55
+74,50,secondary,12,1,23.52
+75,52,postgraduate,18,1,29.54
+76,24,university,16,0,
+77,52,secondary,12,1,-99
+78,unknown,secondary,12,1,21.19
+79,24,college,14,1,21.07
+80,52,postgraduate,18,0,
+81,26, POSTGRADUATE ,18,1,26.55
+82,22,university,16,0,
+83,45,college,14,1,23.11
+84,48,college,14,1,-99
+85,40,secondary,12,1,23.57
+86,43,secondary,12,0,
+87,29,university,16,1,25.39
+88,35,postgraduate,18,1,28.71
+89,40,university,16,1,26.87
+90,46, COLLEGE ,14,1,25.64
+91,unknown,postgraduate,18,1,-99
+92,27,secondary,12,1,20.64
+93,46,university,16,1,25.96
+94,44,university,16,1,24.01
+95,55,postgraduate,18,0,
+96,23,college,14,0,
+97,50,secondary,12,1,23.18
+98,50,secondary,12,1,-99
+99,40, SECONDARY ,12,1,23.28
+100,22,postgraduate,18,1,27.62
+101,58,college,14,1,24.77
+102,32,secondary,12,0,
+103,46,university,16,1,27.52
+104,unknown,secondary,12,1,23.72
+105,45,university,16,1,-99
+106,23,secondary,12,1,21.72
+107,26,secondary,12,1,20.04
+108,47, POSTGRADUATE ,18,1,27.3
+109,38,postgraduate,18,1,28.17
+110,27,college,14,1,22.35
+111,38,college,14,1,25.54
+112,49,secondary,12,1,-99
+113,30,college,14,1,22.55
+114,57,university,16,1,25.39
+115,64,postgraduate,18,0,
+116,43,secondary,12,1,24.14
+117,unknown, POSTGRADUATE ,18,0,
+118,59,secondary,12,1,24.4
+119,64,college,14,1,-99
+120,43,college,14,1,22.19

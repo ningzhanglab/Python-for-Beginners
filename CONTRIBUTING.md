@@ -25,7 +25,7 @@ py -3.12 -m venv .venv
 .venv\Scripts\python scripts/build.py
 ```
 
-Windows instructions are provided for contributors but have not been tested on Windows in Phase 1. The optional learner installation lesson remains coming soon. A university-managed computer may prevent installation; use Colab to take the lessons.
+Windows instructions are provided for contributors but have not yet been tested on Windows. The optional learner installation lesson remains coming soon. A university-managed computer may prevent installation; use Colab to take the lessons.
 
 ## Required checks
 
@@ -36,7 +36,7 @@ python -m unittest discover -s tests -v
 python scripts/build.py
 ```
 
-The safeguard tests confirm that a changed data download or a notebook that skips execution is rejected. The build validates the dataset and lesson structure, renders all pages with fresh notebook execution, and checks internal links and fragments, assets, image alt text, notebook downloads and the search index. Exercise solutions execute too. The converted Excel and Stata values are compared against the CSV after lesson execution.
+The safeguard tests confirm that a changed data download or a notebook that skips execution is rejected. The build validates the dataset and lesson structure, renders all pages with fresh notebook execution, and checks internal links and fragments, assets, image alt text, notebook downloads and the search index. Exercise solutions execute too. The converted Excel and Stata values are compared against the CSV after lesson execution. Additional checks in each notebook's `course.checks` metadata verify the intended samples, transformations and reshape results. The build adds those validation cells only to disposable execution copies; source notebooks and downloads contain learner code only.
 
 **Use `scripts/build.py` for the authoritative build.** Quarto executes notebook inputs in place; this wrapper renders disposable copies and publishes their generated output to `_site/`, preserving the clean source notebooks even on failure. Do not commit generated output, notebook execution counts or saved outputs. Deliberate error demonstrations catch and explain specific exceptions; unexpected errors must fail the build.
 
@@ -45,9 +45,10 @@ For notebook setup or data changes, also run:
 ```sh
 python scripts/check_fresh_runtime.py
 python scripts/prepare_data.py --check
+python scripts/simulate_people.py --check
 ```
 
-Both commands need internet access. The fresh-runtime check executes each notebook and all solutions from an empty working folder, then verifies that its downloaded CSV exactly matches the committed one. It exercises the Colab-style data path in Python; it does **not** establish that the Google Colab service/UI was tested. The upstream check verifies the pinned checksum and complete CSV transformation. For an offline upstream check, add `--source /path/to/gapminder.tsv`.
+The first two commands need internet access; the simulation check is entirely offline. The fresh-runtime check executes each notebook and all solutions from an empty working folder, then verifies that each required downloaded, derived or simulated CSV exactly matches the committed one. It exercises the Colab-style data path in Python; it does **not** establish that the Google Colab service/UI was tested. The upstream check verifies the pinned checksum and complete CSV transformation. For an offline upstream check, add `--source /path/to/gapminder.tsv`.
 
 ## Preview and review
 
@@ -59,12 +60,12 @@ Visit [the preview](http://127.0.0.1:8765/) and stop the server with Ctrl+C. Reb
 
 ## Write and update sources
 
-Edit the `.ipynb` files in `lessons/` for lessons, and `.qmd` files for other pages. The source notebook is also the downloadable and Colab version; never maintain a separate hand-edited copy. Generated notebook downloads are staged automatically by the pre-render script. Keep exercises' solutions in executable code cells inside the disclosure markers, so the website can hide them while the build still tests them.
+Edit the `.ipynb` files in `lessons/` for lessons, and `.qmd` files for other pages. The source notebook is also the downloadable and Colab version; never maintain a separate hand-edited copy. Generated notebook downloads are staged automatically by the pre-render script. Keep exercises' solutions in executable code cells inside the disclosure markers, so the website can hide them while the build still tests them. Declare each notebook's required data files and outcome checks in its `course` metadata. The simulated-data setup cell is generated from `scripts/simulate_people.py`; change that source first, then run `python scripts/simulate_people.py --sync-notebooks` to update the CSV and tagged cell together.
 
 Keep learning steps small. Define new terms, explain what each cell does and what its output means, and state when numbers are made up. Document every added dataset in [data/README.md](data/README.md) after checking its redistribution rights. Remove personal information from any bug report or example.
 
 ## History and review
 
-Git commits and PRs record routine changes. Update [CHANGELOG.md](CHANGELOG.md) for significant learner-facing changes, under Unreleased with a PR link. Use a [record](records/README.md) only when a substantial decision or investigation deserves preserving its reasoning. Do not create one for each lesson or work session.
+Git commits and PRs record routine changes. Update [CHANGELOG.md](CHANGELOG.md) for significant learner-facing changes, under Unreleased with a PR link (or a tracking issue for an explicitly authorized direct-to-main phase). Use a [record](records/README.md) only when a substantial decision or investigation deserves preserving its reasoning. Do not create one for each lesson or work session.
 
-Phase 1 needs owner review before bulk content writing. Course licensing is still undecided; the repository's eventual public visibility and Pages activation are owner actions. Do not claim a live-site or release check before it happened.
+Phase 1 was reviewed and merged; the owner authorized Phase 2 directly on main. Further changes normally use topic branches and focused PRs unless explicitly authorized otherwise. Parts 0–2 are the current completed scope; do not label later content available before it exists. Course licensing is still undecided; the repository's eventual public visibility and Pages activation are owner actions. Do not claim a live-site or release check before it happened.

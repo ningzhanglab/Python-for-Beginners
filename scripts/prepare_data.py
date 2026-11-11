@@ -28,6 +28,18 @@ def prepare(raw):
     return buffer.getvalue().encode("utf-8")
 
 
+def country_regions(prepared):
+    """Separate the extract's existing country/continent lookup for merge practice."""
+    pairs = sorted({(row["country"], row["region"]) for row in csv.DictReader(io.StringIO(prepared.decode("utf-8")))})
+    if len(pairs) != 142 or len({country for country, _ in pairs}) != 142:
+        raise ValueError("A country must have exactly one region in this teaching extract.")
+    output = io.StringIO(newline="")
+    writer = csv.writer(output, lineterminator="\n")
+    writer.writerow(["country", "region"])
+    writer.writerows(pairs)
+    return output.getvalue().encode("utf-8")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, help="Use an already downloaded upstream TSV.")
@@ -39,15 +51,18 @@ def main():
         with urlopen(SOURCE, timeout=30) as response:
             raw = response.read()
     prepared = prepare(raw)
-    destination = ROOT / "data/gapminder.csv"
+    outputs = {ROOT / "data/gapminder.csv": prepared,
+               ROOT / "data/country_regions.csv": country_regions(prepared)}
     if args.check:
-        if destination.read_bytes() != prepared:
-            raise SystemExit("FAIL: committed CSV differs from the pinned source transformation.")
-        print("PASS: CSV exactly matches the pinned source transformation.")
+        for destination, content in outputs.items():
+            if destination.read_bytes() != content:
+                raise SystemExit(f"FAIL: {destination.name} differs from the pinned source transformation.")
+        print("PASS: country panel and region lookup exactly match the pinned source transformations.")
     else:
-        destination.parent.mkdir(exist_ok=True)
-        destination.write_bytes(prepared)
-        print("Prepared data/gapminder.csv (1,704 rows).")
+        for destination, content in outputs.items():
+            destination.parent.mkdir(exist_ok=True)
+            destination.write_bytes(content)
+        print("Prepared country panel (1,704 rows) and region lookup (142 rows).")
 
 
 if __name__ == "__main__":

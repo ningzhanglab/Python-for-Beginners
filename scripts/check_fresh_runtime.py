@@ -10,7 +10,7 @@ import tempfile
 import nbformat
 from nbclient import NotebookClient
 
-from check_course import check_practice_formats
+from check_course import check_practice_formats, outcome_cell
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -22,13 +22,15 @@ def main():
             os.environ["MPLCONFIGDIR"] = str(workspace / "matplotlib")
             os.environ["JUPYTER_RUNTIME_DIR"] = str(workspace / "jupyter")
             notebook = nbformat.read(source, as_version=4)
+            cells = sum(cell.cell_type == "code" for cell in notebook.cells)
+            notebook.cells.append(outcome_cell(notebook))
             NotebookClient(notebook, timeout=120, kernel_name="python3",
                            resources={"metadata": {"path": str(workspace)}}).execute()
-            assert (workspace / "data/gapminder.csv").read_bytes() == (ROOT / "data/gapminder.csv").read_bytes()
+            for filename in notebook.metadata.get("course", {}).get("required_data", []):
+                assert (workspace / "data" / filename).read_bytes() == (ROOT / "data" / filename).read_bytes(), filename
             if (workspace / "scratch/countries.xlsx").exists():
                 check_practice_formats(workspace)
-            cells = sum(cell.cell_type == "code" for cell in notebook.cells)
-            print(f"PASS: {source.name}, {cells} cells and solutions; downloaded CSV matches committed data exactly.")
+            print(f"PASS: {source.name}, {cells} lesson cells and solutions; outcome checks and required data match.")
 
 
 if __name__ == "__main__":
