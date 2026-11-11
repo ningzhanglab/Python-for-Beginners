@@ -1,0 +1,26 @@
+---
+title: About this course
+sidebar: false
+---
+
+## Who it is for
+
+Python for Beginners: Economics & Social Sciences is a free, self-paced course by Ning Zhang for students and researchers in economics, sociology, political science, public policy and related fields. You can start with no programming experience.
+
+The first lessons run in Google Colab, a service that runs Python notebooks in your browser. Local installation is an optional later path. The planned statistics sequence ends with ordinary least squares (OLS) and fixed effects. OLS fits a linear relationship; fixed effects account for group-specific differences that stay constant over time. Neither method by itself establishes causation.
+
+## Status and scope
+
+This first review edition contains two complete lessons. See the [course map](lessons/index.qmd) for the planned sequence and availability. Later lessons and projects will be written after review of the tone, depth, design and lesson format.
+
+## Data and rights
+
+The country panel is an historical teaching extract from Gapminder, packaged by Jennifer Bryan under **CC0**. It covers 142 countries at five-year intervals from 1952 to 2007. It is not current statistics or a complete sample of the world. [Data and attribution details](https://github.com/ningzhanglab/Python-for-Beginners/blob/main/data/README.md) document the exact source and transformations.
+
+**Course licensing is undecided.** The owner has not yet granted an open license for the course's original code, lesson text or figures. The third-party dataset retains its own CC0 terms. Free access to read a course does not itself grant permission to redistribute its original materials.
+
+## Cite and improve
+
+Suggested informal citation: Ning Zhang. *Python for Beginners: Economics & Social Sciences*. Course in development, 2026. Include the repository URL and the date or commit you used. A versioned release citation will follow a first release.
+
+Use [GitHub Issues](https://github.com/ningzhanglab/Python-for-Beginners/issues) to report an unclear explanation or a broken example. Include the lesson title, what you expected and what happened. Never include student records, passwords or private research data.

@@ -1,11 +1,7 @@
-# Choosing a license
+# Course licensing status
 
-This general-purpose starter deliberately does **not** preselect a license. A new project may contain code, teaching materials, research data, or a mixture, each with different sharing requirements.
+On 2026-11-11, the owner explicitly chose to keep licensing undecided while Phase 1 is built and reviewed. There is no project `LICENSE` yet, and no open license is granted for the course's original code, lesson text or figures.
 
-Before publishing:
-1. Identify who owns the code, content, and data.
-2. Choose an appropriate software or documentation license when you have the rights to do so.
-3. Create a real `LICENSE` file with the selected terms and required copyright notice.
-4. Document third-party datasets, figures, and other assets separately when their licenses differ.
+The handoff suggested MIT for code and CC BY 4.0 for original lesson text and figures. This remains a proposal, not the selected terms. When the owner chooses, add the actual license text and update the README, About page and site footer consistently. Confirm ownership before licensing contributed material.
 
-Do not publish private research, student information, restricted datasets, or unlicensed third-party content.
+Third-party data keep their own terms. The committed historical Gapminder teaching extract is CC0, as verified in the upstream package's license declaration. See [data/README.md](data/README.md) for source, attribution, license and limitations. No private, student or restricted data are included.

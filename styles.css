@@ -1,0 +1,32 @@
+:root { --course-accent: #21645a; }
+body { line-height: 1.7; }
+main { max-width: 52rem; }
+h1, h2, h3 { line-height: 1.25; }
+h2 { margin-top: 2.2rem; }
+pre, code { font-size: 0.95em; }
+.quarto-title-meta { font-size: 0.95rem; }
+.hero { padding: 1.3rem 0 1.8rem; }
+.hero .lead { font-size: 1.25rem; max-width: 40rem; }
+.eyebrow { color: var(--course-accent); font-weight: 700; letter-spacing: 0.04em; }
+.btn-primary { background: #21645a; border-color: #21645a; color: #fff; }
+.btn-primary:hover, .btn-primary:focus { background: #17483f; border-color: #17483f; color: #fff; }
+body.quarto-light a:not(.btn) { color: #21645a; }
+body.quarto-dark a:not(.btn) { color: #8bd3c4; }
+body.quarto-dark .eyebrow { color: #8bd3c4; }
+body.quarto-dark .navbar { background-color: #182623 !important; }
+body.quarto-dark .navbar .navbar-brand,
+body.quarto-dark .navbar .nav-link { color: #def0eb; }
+body.quarto-light .btn-outline-secondary { color: #21645a; border-color: #21645a; }
+body.quarto-dark .btn-outline-secondary { color: #8bd3c4; border-color: #8bd3c4; }
+body.quarto-dark .btn-outline-secondary:hover,
+body.quarto-dark .btn-outline-secondary:focus { color: #182623; background: #8bd3c4; }
+details { border-left: 3px solid #6c8c85; padding: 0.35rem 1rem; margin: 1rem 0 1.6rem; }
+summary { cursor: pointer; font-weight: 600; }
+.lesson-tools { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.3rem; }
+.lesson-tools p { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+@media (max-width: 575px) {
+  .hero { padding-top: 0.4rem; }
+  .hero .lead { font-size: 1.1rem; }
+  h1 { font-size: 2rem; }
+  .lesson-tools .btn { width: 100%; }
+}

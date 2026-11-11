@@ -1,0 +1,12 @@
+---
+title: Reference
+---
+
+## Planned reference pages · Coming soon
+
+- Stata → Python and R → Python cheat sheets
+- pandas quick reference
+- Glossary of programming and data terms
+- Common errors and fixes
+
+The two available lessons define terms where you first use them and include a **When it goes wrong** section. Start with [your first notebook](../lessons/00-start/02-first-notebook.ipynb) or [loading data](../lessons/02-data/01-loading-data.ipynb).

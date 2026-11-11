@@ -1,0 +1,83 @@
+project:
+  type: website
+  output-dir: _site
+  execute-dir: project
+  render:
+    - index.qmd
+    - about.qmd
+    - lessons/index.qmd
+    - lessons/**/*.ipynb
+    - projects/index.qmd
+    - reference/index.qmd
+  pre-render: python scripts/prepare_site.py
+  resources:
+    - downloads/
+    - data/gapminder.csv
+
+website:
+  title: "Python for Beginners"
+  description: "A free, self-paced Python course for economics and social sciences. Start in your browser."
+  site-url: https://ningzhanglab.github.io/Python-for-Beginners/
+  repo-url: https://github.com/ningzhanglab/Python-for-Beginners
+  repo-actions: [issue]
+  page-navigation: true
+  back-to-top-navigation: true
+  search:
+    location: navbar
+    type: overlay
+  navbar:
+    background: light
+    left:
+      - text: Start here
+        href: lessons/00-start/02-first-notebook.ipynb
+      - text: Lessons
+        href: lessons/index.qmd
+      - projects/index.qmd
+      - reference/index.qmd
+      - about.qmd
+  sidebar:
+    style: docked
+    collapse-level: 2
+    contents:
+      - lessons/index.qmd
+      - section: "Part 0 · Start here"
+        contents:
+          - text: "0.1 What Python is for · coming soon"
+          - lessons/00-start/02-first-notebook.ipynb
+          - text: "0.3 How to use this course · coming soon"
+      - section: "Part 1 · Python basics · coming soon"
+        contents:
+          - text: "Values, lists, decisions, functions and errors"
+      - section: "Part 2 · Working with data"
+        contents:
+          - lessons/02-data/01-loading-data.ipynb
+          - text: "2.2–2.8 Cleaning, groups, merges, panels and dates · coming soon"
+      - text: "Part 3 · Visualization · coming soon"
+      - text: "Part 4 · Statistics and regression · coming soon"
+      - text: "Part 5 · Reproducible workflow · coming soon"
+      - text: "Part 6 · Projects · coming soon"
+        href: projects/index.qmd
+      - reference/index.qmd
+  page-footer:
+    left: "Ning Zhang · Economics & social sciences"
+    right: "Course in development · License undecided"
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-title: On this page
+    code-copy: true
+    code-overflow: scroll
+    lang: en
+
+jupyter: python3
+execute:
+  enabled: true
+  error: false
+  cache: false
+  freeze: false
+  daemon: false
