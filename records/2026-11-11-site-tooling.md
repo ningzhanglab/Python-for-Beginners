@@ -6,7 +6,7 @@
 - **Tags:** website, notebooks, reproducibility, teaching
 - **Responsible:** To be confirmed by the owner.
 - **AI assistance:** Codex, model not reported; evaluated tooling, authored the first slice and ran the checks below. A person still needs to review beginner accessibility, instructional depth, licensing and publication choices.
-- **Related Issue / PR:** [Issue #3](https://github.com/ningzhanglab/Python-for-Beginners/issues/3); PR to be linked after creation.
+- **Related Issue / PR:** [Issue #3](https://github.com/ningzhanglab/Python-for-Beginners/issues/3); [PR #4](https://github.com/ningzhanglab/Python-for-Beginners/pull/4).
 
 ## Why this mattered
 
