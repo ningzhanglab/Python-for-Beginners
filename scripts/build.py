@@ -7,7 +7,7 @@ import subprocess
 import sys
 import tempfile
 
-from check_course import check_practice_formats
+from check_course import check_practice_formats, check_exports
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -30,7 +30,7 @@ def main():
     # authoritative notebooks remain output-free, even after a failed render.
     with tempfile.TemporaryDirectory(prefix="python-course-build-") as temporary:
         workspace = Path(temporary)
-        for name in ["_quarto.yml", "styles.css", "index.qmd", "about.qmd",
+        for name in ["_quarto.yml", "styles.css", "index.qmd", "about.qmd", "requirements.txt",
                      "lessons", "projects", "reference", "data", "scripts"]:
             source = ROOT / name
             destination = workspace / name
@@ -40,6 +40,7 @@ def main():
                 shutil.copyfile(source, destination)
         subprocess.run([quarto, "render", "--execute"], cwd=workspace, env=env, check=True)
         check_practice_formats(workspace)
+        check_exports(workspace)
         output = ROOT / "_site"
         if output.exists():
             shutil.rmtree(output)

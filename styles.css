@@ -22,8 +22,10 @@ body.quarto-dark .btn-outline-secondary:hover,
 body.quarto-dark .btn-outline-secondary:focus { color: #182623; background: #8bd3c4; }
 details { border-left: 3px solid #6c8c85; padding: 0.35rem 1rem; margin: 1rem 0 1.6rem; }
 summary { cursor: pointer; font-weight: 600; }
+body.quarto-dark details > summary { color: inherit; }
 .lesson-tools { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.3rem; }
 .lesson-tools p { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+main .cell-output-display img.figure-img { max-width: 100%; height: auto; }
 @media (max-width: 575px) {
   .hero { padding-top: 0.4rem; }
   .hero .lead { font-size: 1.1rem; }

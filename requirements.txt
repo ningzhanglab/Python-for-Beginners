@@ -51,3 +51,15 @@ traitlets==5.16.1
 typing_extensions==4.16.0
 tzdata==2026.6
 wcwidth==0.9.4
+
+# Statistics and fixed-effects models, with their newly required dependencies.
+formulaic==1.2.2
+interface_meta==2.0.1
+linearmodels==7.1
+mypy_extensions==1.2.0
+narwhals==2.28.0
+patsy==1.0.3
+pyhdfe==0.2.1
+scipy==1.18.1
+statsmodels==0.15.0
+wrapt==2.5.2

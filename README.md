@@ -2,13 +2,15 @@
 
 A free, self-paced course for students and researchers who have never programmed. Start in your browser, then learn to load, clean, summarize and visualize data, interpret regressions, and organize analysis another person can rerun.
 
-**Status: Phase 2 core path available.** All 17 lessons in Parts 0–2 are complete: browser notebooks, Python basics and pandas data handling. Parts 3–6 and the reference pages remain coming soon. Phase 1 was reviewed and merged in [PR #4](https://github.com/ningzhanglab/Python-for-Beginners/pull/4); Phase 2 was explicitly authorized directly on `main` and is tracked in [Issue #5](https://github.com/ningzhanglab/Python-for-Beginners/issues/5).
+**Status: Phase 3 analysis path available.** All 27 lessons in Parts 0–4 are complete: browser notebooks, Python basics, pandas data handling, charts, OLS and fixed effects. Parts 5–6 and the reference pages remain coming soon. Phase 1 was reviewed and merged in [PR #4](https://github.com/ningzhanglab/Python-for-Beginners/pull/4); subsequent phases were authorized directly on `main` ([Phase 2](https://github.com/ningzhanglab/Python-for-Beginners/issues/5), [Phase 3](https://github.com/ningzhanglab/Python-for-Beginners/issues/6)).
 
 ## Start learning
 
 - [0.2 Your first notebook, in the browser](lessons/00-start/02-first-notebook.ipynb) — calculations, variables, functions, errors and a prepared chart.
 - [Part 1: Python basics](lessons/01-basics/01-values-variables.ipynb) — values, collections, decisions, functions, errors and libraries.
 - [2.1 Loading data and looking at it](lessons/02-data/01-loading-data.ipynb) — inspect the same country panel in CSV, Excel and Stata formats.
+- [Part 3: Visualization](lessons/03-viz/01-first-plots.ipynb) — labelled charts, group comparisons and PNG/PDF exports.
+- [Part 4: Statistics and regression](lessons/04-regression/01-descriptive-statistics.ipynb) — descriptive tables, OLS, robust/clustered uncertainty, fixed effects and table exports.
 - [Course map](lessons/index.qmd) — the planned sequence, Parts 0–6 and reference pages.
 
 Each lesson has an **Open in Colab** link and a notebook download on its generated webpage. Colab requires a Google account to run and save work; local installation and paid software are not required. Before the repository is public, download a lesson notebook and upload it in Colab via **File → Upload notebook** if its GitHub link cannot open.
@@ -36,7 +38,7 @@ python -m http.server 8765 --directory _site --bind 127.0.0.1
 
 Open [the local preview](http://127.0.0.1:8765/). Stop the server with Ctrl+C. Windows setup notes and details of the checks are in [CONTRIBUTING.md](CONTRIBUTING.md). This is contributor setup; learners can start with Colab.
 
-`requirements.txt` pins the Python environment for CI and local builds. The build checks the sources and dataset, executes all lesson code and solutions, renders the website, and checks internal links, fragment targets, assets, downloads and image alt text. Execution is isolated so notebook sources stay unchanged. It uses committed data without downloading anything; installation needs internet access. Lesson-specific outcome checks run only in disposable execution copies, so a wrong sample, join or reshape fails the build without exposing validation cells in learner notebooks.
+`requirements.txt` pins the Python environment for CI and local builds. The build checks the sources and dataset, executes all lesson code and solutions, renders the website, and checks internal links, fragment targets, assets, downloads and image alt text. Execution is isolated so notebook sources stay unchanged. It uses committed data without downloading anything; installation needs internet access. Lesson-specific outcome checks verify samples, transformations, model results and generated figure/table exports without adding validation cells to learner notebooks. The standalone regression notebooks include prepared package setup generated from this same dependency file; contributors synchronize it with `python scripts/notebook_packages.py --sync` after changing pins.
 
 ## Sources and generated files
 
@@ -58,7 +60,7 @@ The 1,704-row Gapminder teaching extract is pinned to an upstream commit and che
 
 ## Review and publication
 
-When ready to publish, the owner should make the repository public, select **Settings → Pages → Build and deployment → Source: GitHub Actions**, then rerun **Course build and Pages** on `main`. Review the core path for instructional accuracy, pace and clarity before proceeding to the analysis lessons. Deployment does not enable Pages or change visibility itself. Before enablement, the main build can succeed while its deploy job fails.
+When ready to publish, the owner should make the repository public, select **Settings → Pages → Build and deployment → Source: GitHub Actions**, then rerun **Course build and Pages** on `main`. Review the available lessons for instructional accuracy, pace and clarity before a first release. Deployment does not enable Pages or change visibility itself. Before enablement, the main build can succeed while its deploy job fails.
 
 Every successful build uploads a `course-site` Actions artifact for inspection. Download and unzip it, then serve the extracted folder using a local HTTP server. The workflow deploys only checked main-branch output, never PR code.
 

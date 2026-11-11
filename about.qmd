@@ -11,7 +11,7 @@ The first lessons run in Google Colab, a service that runs Python notebooks in y
 
 ## Status and scope
 
-The core path is available: 17 lessons across Parts 0–2 cover the browser notebook, Python basics and pandas data handling. The [course map](lessons/index.qmd) lists each lesson in order. Parts 3–6—visualization, regression, reproducible workflow and projects—remain coming soon. This is a course in development, not a finished release.
+The core and analysis paths are available: 27 lessons across Parts 0–4 cover browser notebooks, Python basics, pandas data handling, visualization, descriptive statistics, OLS and fixed effects. The [course map](lessons/index.qmd) lists each lesson in order. Parts 5–6—reproducible workflow and projects—and the reference pages remain coming soon. This is a course in development, not a finished release.
 
 ## Data and rights
 

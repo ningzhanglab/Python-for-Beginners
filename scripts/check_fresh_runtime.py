@@ -3,6 +3,7 @@
 Requires internet access. This checks a fresh Python runtime, not Google's Colab UI.
 """
 
+import argparse
 import os
 from pathlib import Path
 import tempfile
@@ -10,13 +11,19 @@ import tempfile
 import nbformat
 from nbclient import NotebookClient
 
-from check_course import check_practice_formats, outcome_cell
+from check_course import check_practice_formats, outcome_cell, check_exports
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    for source in sorted((ROOT / "lessons").rglob("*.ipynb")):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("notebooks", nargs="*", type=Path, help="Optional source notebook paths; default: all lessons.")
+    args = parser.parse_args()
+    sources = sorted({path.resolve() for path in args.notebooks}) if args.notebooks else sorted((ROOT / "lessons").rglob("*.ipynb"))
+    for source in sources:
+        if not source.is_relative_to(ROOT / "lessons") or source.suffix != ".ipynb" or not source.is_file():
+            parser.error(f"Not a source lesson notebook: {source}")
         with tempfile.TemporaryDirectory(prefix="course-fresh-runtime-") as temporary:
             workspace = Path(temporary)
             os.environ["MPLCONFIGDIR"] = str(workspace / "matplotlib")
@@ -30,6 +37,7 @@ def main():
                 assert (workspace / "data" / filename).read_bytes() == (ROOT / "data" / filename).read_bytes(), filename
             if (workspace / "scratch/countries.xlsx").exists():
                 check_practice_formats(workspace)
+            check_exports(workspace, [notebook])
             print(f"PASS: {source.name}, {cells} lesson cells and solutions; outcome checks and required data match.")
 
 

@@ -2,7 +2,7 @@
 title: Course map
 ---
 
-**Parts 0–2 are available: 17 complete lessons.** Parts 3–6 and the reference pages remain coming soon. Begin with [your first notebook](00-start/02-first-notebook.ipynb); read [0.1](00-start/01-what-python-is-for.ipynb) first if you want an overview. Plan for 20–40 minutes per lesson, including practice and breaks.
+**Parts 0–4 are available: 27 complete lessons.** Parts 5–6 and the reference pages remain coming soon. Begin with [your first notebook](00-start/02-first-notebook.ipynb); read [0.1](00-start/01-what-python-is-for.ipynb) first if you want an overview. Plan for 20–40 minutes per lesson, including practice and breaks.
 
 Our running question is **Do people live longer in richer countries?** We return to the same historical country panel as your skills grow. Short introductions use made-up numbers for fictional countries. The missing-data lesson also uses a clearly labelled simulated survey; it contains no actual people.
 
@@ -40,15 +40,23 @@ Move from individual values to collections, decisions, repetition, functions and
 
 Inspect CSV, Excel and Stata files; select observations; create variables; handle missing values and types; summarize groups; validate joins; reshape a panel; and check dates and time spacing.
 
-## Part 3 · Visualization — coming soon
+## Part 3 · Visualization
 
-3.1 First plots from a DataFrame · 3.2 Labels, scales and colour · 3.3 Comparing groups and small multiples · 3.4 Saving figures for papers and slides
+- [3.1 First plots from a DataFrame](03-viz/01-first-plots.ipynb)
+- [3.2 Making a chart readable: labels, scales and colour](03-viz/02-readable-charts.ipynb)
+- [3.3 Comparing groups and small multiples](03-viz/03-groups-small-multiples.ipynb)
+- [3.4 Saving figures for a paper or slides](03-viz/04-saving-figures.ipynb)
 
 Build the income–life expectancy scatter in small steps, then compare patterns across decades. A small multiple repeats the same chart for different groups.
 
-## Part 4 · Statistics and regression — coming soon
+## Part 4 · Statistics and regression
 
-4.1 Descriptive statistics and a Table 1 · 4.2 Correlation and simple OLS · 4.3 Multiple regression, categories and interactions · 4.4 Robust and clustered standard errors · 4.5 Fixed effects and panel models · 4.6 Regression tables
+- [4.1 Descriptive statistics and a Table 1](04-regression/01-descriptive-statistics.ipynb)
+- [4.2 Correlation and simple OLS](04-regression/02-correlation-ols.ipynb)
+- [4.3 Multiple regression, categories and interactions](04-regression/03-multiple-regression.ipynb)
+- [4.4 Robust and clustered standard errors](04-regression/04-robust-clustered.ipynb)
+- [4.5 Fixed effects and panel models](04-regression/05-fixed-effects.ipynb)
+- [4.6 Regression tables you can put in a paper](04-regression/06-regression-tables.ipynb)
 
 Learn what a model estimates and what it cannot establish. Ordinary least squares (OLS) fits a linear relationship; fixed effects account for group differences that stay constant over time. Instrumental variables and difference-in-differences are beyond the core path.
 

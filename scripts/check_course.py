@@ -8,6 +8,7 @@ import pandas as pd
 import yaml
 
 from simulate_people import generate_people, people_setup_source
+from notebook_packages import package_setup_source
 
 ROOT = Path(__file__).resolve().parents[1]
 SECTIONS = ("You will learn", "Why it matters", "Worked example", "Try it",
@@ -40,6 +41,16 @@ def check_sources(root=ROOT):
         assert checks and all(isinstance(check, str) for check in checks), f"Missing outcome checks: {path}"
         for check in checks:
             compile(check, f"{path.name}:outcome-check", "exec")
+        packages = nb.metadata.get("course", {}).get("packages", [])
+        package_cells = [cell for cell in nb.cells if "course-package-setup" in cell.metadata.get("tags", [])]
+        if packages:
+            assert len(package_cells) == 1, f"Expected one package setup: {path}"
+            assert package_cells[0].source == package_setup_source(packages), f"Stale package setup: {path}"
+            assert next(cell for cell in nb.cells if cell.cell_type == "code") is package_cells[0], f"Package setup must run first: {path}"
+        else:
+            assert not package_cells, f"Undeclared package setup: {path}"
+        for exported in nb.metadata.get("course", {}).get("exports", []):
+            assert exported.startswith("downloads/outputs/") and ".." not in Path(exported).parts, path
         for cell in nb.cells:
             if cell.cell_type != "code":
                 continue
@@ -64,7 +75,7 @@ def check_curriculum(root=ROOT):
     navigation = str(config["website"]["sidebar"]["contents"])
     course_map = (root / "lessons/index.qmd").read_text()
     positions = []
-    for part, expected in {"00-start": 3, "01-basics": 6, "02-data": 8}.items():
+    for part, expected in {"00-start": 3, "01-basics": 6, "02-data": 8, "03-viz": 4, "04-regression": 6}.items():
         notebooks = sorted((root / "lessons" / part).glob("*.ipynb"))
         assert len(notebooks) == expected, f"Incomplete {part}: expected {expected} lessons."
         for notebook in notebooks:
@@ -73,7 +84,35 @@ def check_curriculum(root=ROOT):
             positions.append(navigation.index(relative))
             assert notebook.relative_to(root / "lessons").as_posix() in course_map, f"Missing from course map: {relative}"
     assert positions == sorted(positions), "Core lessons must appear in curriculum order in the sidebar."
-    print("PASS: all 17 core lessons are present in the course map and ordered sidebar.")
+    print("PASS: all 27 lessons in Parts 0–4 are present in the course map and ordered sidebar.")
+
+
+def check_exports(root, notebooks=None):
+    """Verify generated figure/table exports, without changing learner sources."""
+    from PIL import Image
+    lessons = notebooks if notebooks is not None else [nbformat.read(path, as_version=4) for path in (root / "lessons").rglob("*.ipynb")]
+    count = 0
+    for notebook in lessons:
+        course = notebook.metadata.get("course", {})
+        for exported in course.get("exports", []):
+            path = root / exported
+            assert path.is_file() and path.stat().st_size > 0, f"Missing export: {path}"
+            if path.suffix == ".png":
+                with Image.open(path) as picture:
+                    assert picture.format == "PNG"
+                    expected_size = course.get("export_sizes", {}).get(exported)
+                    if expected_size:
+                        assert list(picture.size) == expected_size, (exported, picture.size)
+                    picture.verify()
+            elif path.suffix == ".pdf":
+                assert path.read_bytes().startswith(b"%PDF-"), path
+            elif path.suffix == ".csv":
+                assert not pd.read_csv(path).empty, path
+            elif path.suffix == ".html":
+                assert "<table" in path.read_text(encoding="utf-8"), path
+            count += 1
+    if count:
+        print(f"PASS: {count} generated figure/table exports and declared image sizes.")
 
 
 def check_data(root=ROOT):

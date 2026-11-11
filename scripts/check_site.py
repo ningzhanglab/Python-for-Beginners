@@ -5,6 +5,10 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 import json
 
+import nbformat
+
+from check_course import check_exports
+
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "_site"
 
@@ -61,6 +65,7 @@ def main():
             failures.append(f"Missing or stale notebook download: {source.name}")
     assert json.loads((SITE / "search.json").read_text()), "Search index is empty."
     assert not failures, "\n".join(failures)
+    check_exports(SITE, [nbformat.read(path, as_version=4) for path in (ROOT / "lessons").rglob("*.ipynb")])
     print(f"PASS: {len(pages)} rendered pages; local links/fragments, assets, notebook downloads, image alt text and search index.")
 
 

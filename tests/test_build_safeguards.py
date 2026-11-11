@@ -60,6 +60,18 @@ class BuildSafeguards(unittest.TestCase):
             with self.assertRaisesRegex(AssertionError, "Stale generated simulation"):
                 check_sources(root)
 
+    def test_rejects_stale_analysis_package_setup(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            shutil.copyfile(ROOT / "_quarto.yml", root / "_quarto.yml")
+            (root / "lessons").mkdir()
+            nb = nbformat.read(ROOT / "lessons/04-regression/02-correlation-ols.ipynb", as_version=4)
+            setup = next(cell for cell in nb.cells if "course-package-setup" in cell.metadata.get("tags", []))
+            setup.source += "\n# stale generated copy"
+            nbformat.write(nb, root / "lessons/stale.ipynb")
+            with self.assertRaisesRegex(AssertionError, "Stale package setup"):
+                check_sources(root)
+
 
 if __name__ == "__main__":
     unittest.main()
