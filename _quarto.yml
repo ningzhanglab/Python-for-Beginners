@@ -8,7 +8,9 @@ project:
     - lessons/index.qmd
     - lessons/**/*.ipynb
     - projects/index.qmd
-    - reference/index.qmd
+    - projects/**/*.ipynb
+    - reference/*.qmd
+    - "!downloads/"
   pre-render: python scripts/prepare_site.py
   resources:
     - downloads/
@@ -77,10 +79,31 @@ website:
           - lessons/04-regression/04-robust-clustered.ipynb
           - lessons/04-regression/05-fixed-effects.ipynb
           - lessons/04-regression/06-regression-tables.ipynb
-      - text: "Part 5 · Reproducible workflow · coming soon"
-      - text: "Part 6 · Projects · coming soon"
-        href: projects/index.qmd
-      - reference/index.qmd
+      - section: "Part 5 · Reproducible workflow"
+        contents:
+          - lessons/05-workflow/01-local-installation.ipynb
+          - lessons/05-workflow/02-folders-paths-scripts.ipynb
+          - lessons/05-workflow/03-public-data.ipynb
+          - lessons/05-workflow/04-checking-ai.ipynb
+      - section: "Part 6 · Guided projects"
+        contents:
+          - projects/index.qmd
+          - section: "6.1 Fertility and income"
+            contents:
+              - projects/01-fertility-income/01-starter.ipynb
+              - projects/01-fertility-income/02-solution.ipynb
+          - section: "6.2 Internet use and urbanization"
+            contents:
+              - projects/02-internet-urban/01-starter.ipynb
+              - projects/02-internet-urban/02-solution.ipynb
+      - section: "Reference"
+        contents:
+          - reference/index.qmd
+          - reference/stata-python.qmd
+          - reference/r-python.qmd
+          - reference/pandas.qmd
+          - reference/glossary.qmd
+          - reference/errors.qmd
   page-footer:
     left: "Ning Zhang · Economics & social sciences"
     right: "Course in development · License undecided"

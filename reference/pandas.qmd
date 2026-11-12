@@ -1,0 +1,115 @@
+---
+title: pandas quick reference
+---
+
+Use this page to recall an operation after its lesson. A DataFrame is a table; a Series is one labelled sequence such as a column. Keep an unchanged input and assign meaningful intermediate names. Refer to the [official pandas user guide](https://pandas.pydata.org/docs/user_guide/index.html) for options outside this course.
+
+
+Tables can be scrolled sideways on a narrow screen.
+
+## Load, inspect and select
+
+The real historical country panel is the same input used throughout the course. Inspect size, column names and types before transforming it.
+
+```{python}
+import pandas as pd
+import numpy as np
+d = pd.read_csv("data/gapminder.csv")
+print(d.shape)
+print(d.dtypes)
+print(d.head(2))
+```
+
+A 1704 by 6 shape counts rows and columns. A successful read does not establish what a column measures. CSV does not store the same type metadata as Excel or Stata; see [loading data](../lessons/02-data/01-loading-data.ipynb) for those formats.
+
+::: {.table-responsive}
+
+| Need | Operation | Check alongside it |
+| --- | --- | --- |
+| Named columns | `.loc[:, ["country", "life_exp"]]` | Exact column spelling and units |
+| Rows satisfying a condition | `.loc[condition].copy()` | Retained row count and keys |
+| First row by position | `.iloc[0]` | Position starts at zero |
+| Missing counts | `.isna().sum()` | Missing codes from the codebook |
+| Numeric text conversion | `pd.to_numeric(..., errors="coerce")` | Count new missing values |
+| Recode a special value | `.mask(condition)` | Preserve the original field/reason |
+| Sort measurements | `.sort_values(...)` | Sorting does not change the unit |
+
+:::
+
+
+Select 2007, check positive GDP and create a named log column. `.copy()` makes the intended separate analysis table clear.
+
+```{python}
+selected = d.loc[d["year"] == 2007, ["country", "region", "life_exp", "gdp_pc"]].copy()
+assert selected["gdp_pc"].gt(0).all()
+selected["log_gdp_pc"] = np.log(selected["gdp_pc"])
+print(selected.sort_values("life_exp", ascending=False).head(3))
+```
+
+All 142 countries remain. Natural log changes the predictor's scale; it does not change the original dollar field. A logarithmic chart axis can instead change only the display scale.
+
+## Clean with an audit
+
+These are made-up numbers and responses for fictional Northland respondents. Preserve raw age text and wage codes before defining cleaned fields.
+
+```{python}
+practice = pd.DataFrame({"raw_age": ["34", "unknown", "52"], "raw_wage": [12.0, -99.0, None]})
+practice["age"] = pd.to_numeric(practice["raw_age"], errors="coerce").astype("Int64")
+practice["wage"] = practice["raw_wage"].mask(practice["raw_wage"].eq(-99))
+print(practice)
+print(practice[["age", "wage"]].isna().sum())
+```
+
+There is one unavailable clean age and two unavailable wages. Converting unknown text to missing is a decision to audit; it does not prove that other numeric ages are valid. A missing wage is not an observed zero wage.
+
+## Summarize, join and reshape
+
+::: {.table-responsive}
+
+| Need | Method | Important contract |
+| --- | --- | --- |
+| Group summary | `.groupby(...).agg(...)` | `size` counts rows; `count` counts available values |
+| Group value aligned to original rows | `.groupby(...).transform(...)` | Keep row labels aligned |
+| Stack compatible row sets | `pd.concat(...)` | Check duplicate observation keys |
+| Add lookup fields | `.merge(...)` | State `how`, key multiplicity and match audit |
+| Long to wide | `.pivot(...)` | Each index/column key pair must be unique |
+| Wide to long | `.melt(...)` | Preserve identifiers and restore types deliberately |
+| Save CSV | `.to_csv(..., index=False)` | Read it back; store notes separately |
+
+:::
+
+
+Count countries and mean life expectancy by source region. Group means describe countries equally weighted here.
+
+```{python}
+summary = selected.groupby("region").agg(n=("country", "size"), mean_life=("life_exp", "mean"))
+print(summary.round(2))
+lookup = pd.read_csv("data/country_regions.csv")
+joined = d.drop(columns="region").merge(lookup, on="country", how="left", validate="many_to_one", indicator=True)
+print(joined["_merge"].value_counts())
+```
+
+All 1704 country-years match a lookup. Key validation and match validation answer different questions. pandas can match null join keys to each other, so investigate missing identifiers before a research join; a successful merge is not an identity audit.
+
+Reshape life expectancy to one column per year and back, then compare keys and values with the original selection.
+
+```{python}
+assert not d.duplicated(["country", "year"]).any()
+wide = d.pivot(index="country", columns="year", values="life_exp")
+long = wide.reset_index().melt(id_vars="country", var_name="year", value_name="life_exp")
+long["year"] = long["year"].astype(int)
+original = d[["country", "year", "life_exp"]].sort_values(["country", "year"]).reset_index(drop=True)
+roundtrip = long.sort_values(["country", "year"]).reset_index(drop=True)
+pd.testing.assert_frame_equal(original, roundtrip)
+print("Reshape preserved:", len(roundtrip), "measurements")
+```
+
+The wide table has 142 rows and twelve measurement columns; long has 1704 observations again. A reshape rearranges measurements, while a group summary reduces them. See [wide/long panels](../lessons/02-data/07-reshaping.ipynb) for the full explanation and [dates](../lessons/02-data/08-dates-time-series.ipynb) before resampling time data.
+
+```{python}
+#| include: false
+assert len(selected) == 142 and len(joined) == 1704
+assert joined["_merge"].eq("both").all()
+assert practice["age"].isna().sum() == 1 and practice["wage"].isna().sum() == 2
+assert summary["n"].sum() == 142
+```

@@ -1,0 +1,94 @@
+---
+title: "R → Python"
+---
+
+This bridge uses base R vocabulary and the same Python table operations taught in the course. It does not require installing R. The Python code executes in the course build; R expressions here are reading comparisons and have not been run as part of that check. Match samples, keys and model conventions before comparing output.
+
+
+Tables can be scrolled sideways on a narrow screen.
+
+## Translate intentions
+
+::: {.table-responsive}
+
+| Intention | Familiar R expression | Python approach |
+| --- | --- | --- |
+| Read CSV | `read.csv(...)` | `pd.read_csv(...)` |
+| See column names | `names(d)` | `d.columns` |
+| First observations | `head(d)` | `d.head()` |
+| Select a year | `subset(d, year == 2007)` | `d.loc[d["year"] == 2007].copy()` |
+| Create a transformed variable | `log(d$gdp_pc)` | `np.log(d["gdp_pc"])` |
+| Group means | `aggregate(life_exp ~ region, d, mean)` | `groupby("region")["life_exp"].mean()` |
+| Join tables | `merge(d, lookup, by="country", all.x=TRUE)` | Explicit left merge with key validation |
+| Fit a linear model | `lm(life_exp ~ log_gdp_pc, data=d)` | `smf.ols(..., data=d).fit(...)` |
+| Obtain coefficients | `coef(model)` | `model.params` |
+
+:::
+
+
+These are bridges for the stated complete examples, not universal replacements. R's [subset documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/subset.html) describes evaluation and missingness rules. Its [lm documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html) describes formula, missing-action and fitting defaults. Ordinary lm uncertainty is not automatically HC1; use an explicitly appropriate covariance method before comparing robust intervals.
+
+## A complete Python sequence
+
+Load the historical country data and inspect its schema. pandas usually uses brackets for named fields rather than R's dollar-field notation.
+
+```{python}
+import pandas as pd
+import numpy as np
+import statsmodels.formula.api as smf
+d = pd.read_csv("data/gapminder.csv")
+print(d.columns.tolist())
+print(d.head(2))
+```
+
+A DataFrame has both named columns and a row index. The index may be labels rather than observation numbers. For the first row by position use `.iloc[0]`; Python positions begin at zero.
+
+Create an explicit 2007 copy and log the positive income field. Count the retained sample rather than relying on the formula to silently remove observations.
+
+```{python}
+selected = d.loc[d["year"] == 2007, ["country", "region", "life_exp", "gdp_pc"]].dropna().copy()
+assert selected["gdp_pc"].gt(0).all()
+selected["log_gdp_pc"] = np.log(selected["gdp_pc"])
+summary = selected.groupby("region")["life_exp"].agg(["count", "mean"])
+print(summary.round(2))
+```
+
+All 142 countries remain. Each regional mean uses the number in its own count column. R formula aggregation and pandas grouping can treat missing fields and grouping values differently in other data; define the intended denominator explicitly rather than assuming these commands always select identical rows.
+
+Join a known unique lookup with a stated left-join contract. Do not rely on output row order as the meaning of an observation.
+
+```{python}
+lookup = d[["country", "region"]].drop_duplicates()
+joined = selected.drop(columns="region").merge(lookup, on="country", how="left", validate="one_to_one", indicator=True)
+print(joined["_merge"].value_counts())
+```
+
+The original selected table has one country row, and so does the lookup. `one_to_one` would be inappropriate for a repeated country panel; that join would use `many_to_one`. Check keys and matches after each sample restriction.
+
+Fit simple and region-adjusted OLS, choosing HC1 t-based approximate inference explicitly.
+
+```{python}
+simple = smf.ols("life_exp ~ log_gdp_pc", selected, missing="raise").fit(cov_type="HC1", use_t=True)
+adjusted = smf.ols("life_exp ~ log_gdp_pc + C(region)", selected, missing="raise").fit(cov_type="HC1", use_t=True)
+print(pd.DataFrame({"simple": simple.params, "region_adjusted": adjusted.params}).round(3))
+```
+
+Missing table entries here mean a term was absent from that model; they are not estimated zero coefficients. Formula `C(region)` declares category indicators for statsmodels. In R, ensure the corresponding field has the intended factor treatment. Reference categories and contrast coding can change the displayed coefficients while preserving fitted values.
+
+## Similar-looking operations that need care
+
+- Assignment uses `=` in Python. A comparison uses `==`. Parenthesize combined pandas masks and use `&` or `|`, with one condition per side.
+- `.loc` aligns by labels; `.iloc` selects positions. A Series combined with another Series can align on its index, so separately sorting only one input may change a calculation.
+- R's NA and pandas' missing values are not ordinary zero values. pandas nullable dtypes and floating NaN also have distinct behaviours; use explicit missingness checks and the codebook.
+- A Python function argument such as `how="left"` has a specific default if omitted. Do not assume a similarly named R and Python function share sorting, joining or missing-action defaults.
+- A package's covariance or fixed-effects result object has its own field names and conventions. See [regression tables](../lessons/04-regression/06-regression-tables.ipynb) for extraction without retyping results.
+
+The 2007 simple coefficient is about 7.203 years per natural-log unit. Neither porting a formula nor matching its coefficient establishes a causal effect of income. The [sample](../lessons/04-regression/02-correlation-ols.ipynb), units and assumptions remain part of the analysis.
+
+```{python}
+#| include: false
+assert len(selected) == len(joined) == 142
+assert joined["_merge"].eq("both").all()
+assert abs(simple.params["log_gdp_pc"] - 7.202801571) < 1e-6
+assert abs(adjusted.params["log_gdp_pc"] - 4.630775270) < 1e-6
+```

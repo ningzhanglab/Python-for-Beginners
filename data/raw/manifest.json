@@ -1,0 +1,38 @@
+{
+  "wb-gdp-2019.json": {
+    "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.CD?date=2019&format=json&per_page=1000",
+    "retrieved": "2026-11-11",
+    "sha256": "95b4ca6aa13d3e5474b72370ee5459682390649d59f4a00f14579f412c1026c7",
+    "license": "CC BY 4.0 (World Bank additional terms apply)"
+  },
+  "wb-fertility-2019.json": {
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.TFRT.IN?date=2019&format=json&per_page=1000",
+    "retrieved": "2026-11-11",
+    "sha256": "78582c929b8b4ef6d5c8f621689c26084d15a12cac007dac632f98c68b42c6d9",
+    "license": "CC BY 4.0 (World Bank additional terms apply)"
+  },
+  "wb-internet-2019.json": {
+    "url": "https://api.worldbank.org/v2/country/all/indicator/IT.NET.USER.ZS?date=2019&format=json&per_page=1000",
+    "retrieved": "2026-11-11",
+    "sha256": "1c576afd87af68e35ba7142745ce821879337aa7812d860ae87b324f983f3a87",
+    "license": "CC BY 4.0 (World Bank additional terms apply)"
+  },
+  "wb-urban-2019.json": {
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SP.URB.TOTL.IN.ZS?date=2019&format=json&per_page=1000",
+    "retrieved": "2026-11-11",
+    "sha256": "9e35a76fe73d1ad1938a8cdfe7a35efa8c13aad4913db91035a61c2c3be2fcea",
+    "license": "CC BY 4.0 (World Bank additional terms apply)"
+  },
+  "wb-economies.json": {
+    "url": "https://api.worldbank.org/v2/country?format=json&per_page=400",
+    "retrieved": "2026-11-11",
+    "sha256": "c9acf3932785191a649cbc04c3056af4cf64a236e5c3b49d49be25ddb0440bce",
+    "license": "CC BY 4.0 (World Bank additional terms apply)"
+  },
+  "gapminder.tsv": {
+    "url": "https://raw.githubusercontent.com/jennybc/gapminder/391b5a40d3574c3b89d889dd7d72f7f3fdb4a70c/inst/extdata/gapminder.tsv",
+    "retrieved": "2026-11-11",
+    "sha256": "f74275b4a2f4a7c8e3a09a752f9d6e43d1759d78d5cbfdebaaa3e1a6efc68f78",
+    "license": "CC0"
+  }
+}
