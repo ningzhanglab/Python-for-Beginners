@@ -1,0 +1,155 @@
+---
+title: Glossary
+---
+
+Use the links for a worked example. Definitions describe how terms are used in this course; they are not a replacement for a provider's codebook or a statistical methods text.
+
+
+Tables can be scrolled sideways on a narrow screen.
+
+## Running code
+
+::: {.table-responsive}
+
+| Term | Meaning | Learn it |
+| --- | --- | --- |
+| Notebook | A document combining explanatory text and runnable code cells | [First notebook](../lessons/00-start/02-first-notebook.ipynb) |
+| Cell | One block of text or code in a notebook | First notebook |
+| Kernel | The live process that executes notebook code and remembers its variables | [Local setup](../lessons/05-workflow/01-local-installation.ipynb) |
+| Interpreter | The program that runs Python code | Local setup |
+| Variable | A name referring to a value | [Values and variables](../lessons/01-basics/01-values-variables.ipynb) |
+| Assignment | Binding a name or field to a value using `=` | Values and variables |
+| Type | The kind of value, such as a number, text or Boolean | Values and variables |
+| Boolean | A True/False value, often produced by a comparison | [Decisions](../lessons/01-basics/03-decisions-repetition.ipynb) |
+| List | An ordered collection of values | [Collections](../lessons/01-basics/02-lists-dictionaries.ipynb) |
+| Dictionary | A collection mapping named keys to values | Collections |
+| Function | A named operation that receives inputs and may return a result | [Functions](../lessons/01-basics/04-functions.ipynb) |
+| Argument | An input supplied to a function call | Functions |
+| Return value | The result a function hands back to its caller | Functions |
+| Library/package | Reusable code installed and imported for a task | [Libraries](../lessons/01-basics/06-importing-libraries.ipynb) |
+| Method | A function accessed through an object, such as a table's `.head()` | Libraries |
+| Exception | A named error condition that stops execution unless handled | [Errors](errors.qmd) |
+| Traceback | The error report showing where execution failed | Errors |
+
+:::
+
+
+Here is a small executable example using made-up Northland measurements. A function receives two arguments and returns a growth rate.
+
+```{python}
+def growth_rate(start, end):
+    if start <= 0:
+        raise ValueError("The starting level must be positive.")
+    return 100 * (end - start) / start
+
+northland_income = 100.0
+growth = growth_rate(northland_income, 150.0)
+print("Made-up growth, percent:", growth)
+```
+
+The variable growth holds 50.0. A definition, arguments and return value are separate parts of the function call. The number's unit comes from the calculation, not from Python's numeric type.
+
+## Tables and measurements
+
+::: {.table-responsive}
+
+| Term | Meaning | Learn it |
+| --- | --- | --- |
+| DataFrame | A table with named columns and a row index | [Loading data](../lessons/02-data/01-loading-data.ipynb) |
+| Series | A labelled sequence, often one DataFrame column | Loading data |
+| Row/observation | One recorded unit at the dataset's stated level | Loading data |
+| Unit of observation | What one row represents, such as a person or country-year | [Panels](../lessons/02-data/07-reshaping.ipynb) |
+| Measurement unit | The scale of a field, such as years, people, dollars or percent | [Descriptive statistics](../lessons/04-regression/01-descriptive-statistics.ipynb) |
+| Index | Labels attached to rows for selecting and aligning data | [Selecting](../lessons/02-data/02-selecting.ipynb) |
+| Key | One field or combination of fields intended to identify a record | [Merges](../lessons/02-data/06-combining.ipynb) |
+| Duplicate key | More than one record with the same intended identifier | Merges |
+| Missing value | An unavailable measurement; its reason requires the codebook | [Missing values](../lessons/02-data/04-missing-types.ipynb) |
+| Sentinel code | A special recorded value such as -99 used to represent a condition | Missing values |
+| dtype | A column's storage/value type in pandas | Missing values |
+| Mask | A True/False selection aligned with observations | Selecting |
+| Group summary | A statistic computed separately for each specified group | [Grouping](../lessons/02-data/05-group-summaries.ipynb) |
+| Denominator | The number or quantity a rate/mean is relative to | Descriptive statistics |
+| Join/merge | Matching records across tables using specified keys | Merges |
+| Reshape | Rearranging the same measurements between table layouts | Panels |
+| Panel | Repeated observations for the same units over time | Panels |
+| Balanced panel | A panel where units have the same observed time points | Panels |
+| Time series | Measurements for a unit ordered through time | [Dates](../lessons/02-data/08-dates-time-series.ipynb) |
+| Percentage point | An arithmetic difference between two percentages on the 0–100 scale | [Internet project](../projects/02-internet-urban/01-starter.ipynb) |
+
+:::
+
+
+A tiny table illustrates a key and a group count. These are made-up numbers, not a real national survey.
+
+```{python}
+import pandas as pd
+practice = pd.DataFrame({"economy": ["Northland", "Eastria"], "year": [2019, 2019], "life_exp": [70.0, 75.0]})
+print("Duplicate economy-year keys:", practice.duplicated(["economy", "year"]).sum())
+print("Available life-expectancy values:", practice["life_exp"].count())
+```
+
+The unique key is economy plus year, not life expectancy. Two complete country rows do not constitute two people, and a count of recorded values is not a population weight.
+
+## Models and interpretation
+
+::: {.table-responsive}
+
+| Term | Meaning |
+| --- | --- |
+| Outcome | The variable a model describes or predicts |
+| Predictor/regressor | A variable supplied to describe variation in the outcome |
+| Correlation | A unitless summary of linear association between two numeric variables |
+| OLS | Ordinary least squares; estimates coefficients by minimizing squared residuals |
+| Coefficient | An estimated parameter whose interpretation depends on units and the full model |
+| Intercept | A fitted constant level when included predictors equal zero |
+| Residual | Observed outcome minus the fitted value |
+| R-squared | A model-specific sample fit measure; its exact definition can differ across estimators |
+| Standard deviation | Spread of observed values around their mean |
+| Standard error | Estimated coefficient/statistic uncertainty under an error/sampling model |
+| Confidence interval | An interval procedure with a stated repeated-sample coverage goal under assumptions |
+| Heteroskedasticity | Error variance differing across observations |
+| HC1 | A heteroskedasticity-robust covariance calculation with a finite-sample scale adjustment |
+| Cluster | A group within which the uncertainty method can allow related errors |
+| Reference category | The omitted category defining contrasts in an indicator-coded model |
+| Interaction | A model term allowing an association to depend on another predictor |
+| Fixed effects | Group-specific constant fitted levels; country effects remove time-invariant country differences |
+| Confounding | Other determinants associated with both a predictor and outcome, affecting interpretation |
+| Estimand | The specific quantity an analysis intends to estimate |
+| Association | An observed/modelled relationship; it does not by itself establish cause and effect |
+
+:::
+
+
+Start with [simple OLS](../lessons/04-regression/02-correlation-ols.ipynb), then [uncertainty](../lessons/04-regression/04-robust-clustered.ipynb) and [fixed effects](../lessons/04-regression/05-fixed-effects.ipynb). A robust standard error does not repair an omitted cause, and a fitted coefficient is not automatically an intervention effect.
+
+## Reproducible work
+
+::: {.table-responsive}
+
+| Term | Meaning |
+| --- | --- |
+| Working folder | The starting directory for a relative path |
+| Environment | A selected interpreter and set of installed packages |
+| Script | A Python text file that can run from top to bottom in a fresh process |
+| Raw input | A retained source version before the analysis's transformations |
+| Generated output | A file such as a chart or table produced by code |
+| API | A documented programmatic interface for requesting information |
+| JSON | A text format containing structures such as named fields and lists |
+| Pagination | A response split across multiple pages that must be retrieved/checksummed completely |
+| Checksum | A fingerprint of file contents; it identifies bytes, not measurement truth |
+| Snapshot | A preserved version of inputs used by a particular analysis |
+| Provenance | The documented origin, version, rights and transformations of data |
+| License | Permission and conditions for specified reuse; public access alone is not an open license |
+| Reproducibility | Being able to rerun documented steps from the stated inputs to results |
+
+:::
+
+
+See [folders and scripts](../lessons/05-workflow/02-folders-paths-scripts.ipynb) and [public data](../lessons/05-workflow/03-public-data.ipynb). Distinguish an observation's year from the day a dataset was retrieved or updated.
+
+```{python}
+#| include: false
+assert growth == 50.0
+assert not practice.duplicated(["economy", "year"]).any()
+assert practice["life_exp"].count() == 2
+```

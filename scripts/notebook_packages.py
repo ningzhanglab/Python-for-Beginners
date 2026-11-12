@@ -44,7 +44,7 @@ def main():
     parser.add_argument("--sync", action="store_true", help="Update tagged setup cells after dependency changes.")
     args = parser.parse_args()
     count = 0
-    for path in (ROOT / "lessons").rglob("*.ipynb"):
+    for path in sorted([*(ROOT / 'lessons').rglob('*.ipynb'), *(ROOT / 'projects').rglob('*.ipynb')]):
         notebook = json.loads(path.read_text(encoding="utf-8"))
         names = notebook.get("metadata", {}).get("course", {}).get("packages", [])
         if not names:

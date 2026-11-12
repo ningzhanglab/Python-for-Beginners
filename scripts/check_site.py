@@ -7,7 +7,7 @@ import json
 
 import nbformat
 
-from check_course import check_exports
+from check_course import check_exports, notebook_sources, notebook_download
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "_site"
@@ -59,13 +59,19 @@ def main():
                 failures.append(f"{path.relative_to(SITE)}: broken target {href}")
             elif parts.fragment and target in pages and unquote(parts.fragment) not in pages[target].ids:
                 failures.append(f"{path.relative_to(SITE)}: missing fragment {href}")
-    for source in (ROOT / "lessons").rglob("*.ipynb"):
-        download = SITE / "downloads" / source.relative_to(ROOT / "lessons")
+    for source in notebook_sources(ROOT):
+        download = SITE / notebook_download(source, ROOT)
         if not download.exists() or download.read_bytes() != source.read_bytes():
             failures.append(f"Missing or stale notebook download: {source.name}")
+    declared_exports = {exported for source in notebook_sources(ROOT)
+                        for exported in nbformat.read(source, as_version=4).metadata.get('course', {}).get('exports', [])}
+    for page in (SITE / 'downloads').rglob('*.html'):
+        if page.relative_to(SITE).as_posix() not in declared_exports:
+            failures.append(f'Unexpected rendered download: {page.relative_to(SITE)}')
     assert json.loads((SITE / "search.json").read_text()), "Search index is empty."
     assert not failures, "\n".join(failures)
-    check_exports(SITE, [nbformat.read(path, as_version=4) for path in (ROOT / "lessons").rglob("*.ipynb")])
+    assert (SITE / 'downloads/requirements.txt').read_bytes() == (ROOT / 'requirements.txt').read_bytes(), 'Stale shared dependency download.'
+    check_exports(SITE, [nbformat.read(path, as_version=4) for path in notebook_sources(ROOT)])
     print(f"PASS: {len(pages)} rendered pages; local links/fragments, assets, notebook downloads, image alt text and search index.")
 
 

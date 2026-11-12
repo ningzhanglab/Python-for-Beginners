@@ -1,0 +1,97 @@
+---
+title: "Stata → Python"
+---
+
+Use this page as a bridge after the worked lessons. The table names familiar operations; it does not promise identical missing-value, ordering, reference-category or uncertainty conventions. The Python examples below execute when the course is built. The Stata commands are reading comparisons, not a claim that Stata was run for this course. No Stata installation is required.
+
+
+Tables can be scrolled sideways on a narrow screen.
+
+## Common operations
+
+Here `d` is a pandas DataFrame, a table of rows and named columns. Methods return results that you usually assign to a name. See [loading data](../lessons/02-data/01-loading-data.ipynb), [grouping](../lessons/02-data/05-group-summaries.ipynb) and [merging](../lessons/02-data/06-combining.ipynb) for the full explanations.
+
+::: {.table-responsive}
+
+| Intention | Familiar Stata command | Python operation used below |
+| --- | --- | --- |
+| Load CSV | `import delimited` | `pd.read_csv` |
+| Inspect observations | `list in 1/5` | `d.head()` |
+| Filter a practice copy | `keep if year == 2007` | `d.loc[condition].copy()` |
+| Create a transformed field | `generate log_gdp_pc = ln(gdp_pc)` | Assign `np.log(...)` to a named column |
+| Reduce to regional means | `collapse (mean) life_exp, by(region)` | `groupby(...).mean()` creates a new summary |
+| Add group means to each original row | `egen ..., by(region)` | `groupby(...).transform("mean")` |
+| Add lookup fields | `merge m:1 country using regions` | `merge(..., validate="many_to_one", indicator=True)` |
+| Long panel to wide | `reshape wide` | `pivot`, after checking unique keys |
+| Estimate OLS | `regress life_exp log_gdp_pc, vce(robust)` | Formula OLS with explicit HC1 covariance |
+
+:::
+
+
+A Stata data-changing command such as collapse or keep can replace the data in memory. In these pandas examples we assign a separate object and retain `d`. A pandas join requires an explicit match audit; its default inner join is not a substitute for Stata's merge result review. Check the official [Stata merge](https://www.stata.com/manuals/dmerge.pdf) and [reshape](https://www.stata.com/manuals/dreshape.pdf) manuals for their own contracts.
+
+## Execute the data steps
+
+Read the documented historical country panel and inspect the first rows. These are real historical measurements, with the source/units in the [data dictionary](https://github.com/ningzhanglab/Python-for-Beginners/blob/main/data/README.md).
+
+```{python}
+import pandas as pd
+import numpy as np
+import statsmodels.formula.api as smf
+d = pd.read_csv("data/gapminder.csv")
+print(d.head())
+```
+
+There are 1704 country-year rows across twelve five-year observations. A displayed first row is not the whole sample definition.
+
+Select a year, create log income, and calculate regional means without replacing the full table.
+
+```{python}
+year_2007 = d.loc[d["year"] == 2007].copy()
+year_2007["log_gdp_pc"] = np.log(year_2007["gdp_pc"])
+regional_means = year_2007.groupby("region")["life_exp"].mean()
+year_2007["regional_mean_life"] = year_2007.groupby("region")["life_exp"].transform("mean")
+print(regional_means.round(2))
+print("Original rows:", len(d), "Selected rows:", len(year_2007))
+```
+
+The reduced summary has five region rows; the transformed group-mean column stays aligned with 142 country rows. Oceania includes only two countries in this extract. These are country-weighted means, not the average person's outcome.
+
+Join the existing region lookup back onto a practice copy, then check which rows matched.
+
+```{python}
+lookup = pd.read_csv("data/country_regions.csv")
+joined = d.drop(columns="region").merge(lookup, on="country", how="left", validate="many_to_one", indicator=True)
+print(joined["_merge"].value_counts())
+```
+
+All 1704 rows match. `validate` checks key multiplicity; `_merge` checks matches. Neither establishes that a country name was substantively harmonized correctly in a different source. Never average or drop duplicate keys merely to make a merge run.
+
+## Reshape and estimate
+
+Check the panel key before creating one column per year. A wide table is a different arrangement of the same measurements.
+
+```{python}
+assert not d.duplicated(["country", "year"]).any()
+wide = d.pivot(index="country", columns="year", values="life_exp")
+print("Wide shape:", wide.shape)
+model = smf.ols("life_exp ~ log_gdp_pc", year_2007, missing="raise").fit(cov_type="HC1", use_t=True)
+print("N:", int(model.nobs))
+print(model.params.round(3))
+```
+
+Expect 142 by 12 and a 2007 log-income coefficient near 7.203 years per natural-log unit. The formula includes an intercept. Package-specific small-sample and degrees-of-freedom conventions must be checked before comparing standard errors across programs; a command labelled robust is not one universal calculation. See [robust/clustered uncertainty](../lessons/04-regression/04-robust-clustered.ipynb) and [fixed effects](../lessons/04-regression/05-fixed-effects.ipynb).
+
+## Missing values and interpretation
+
+Do not port a numeric missing-value comparison blindly. Use explicit `.isna()` and `.notna()` masks in pandas, and consult the source's coding rules for values such as -99. Category labels, category reference levels and observation sorting also need explicit checks.
+
+Stata's one-based observation positions and pandas' zero-based `.iloc` positions differ. `.loc` selects labels or conditions; it is not shorthand for a numbered observation. A matching slope across programs validates a computation under a common model/sample, not a causal interpretation or a measurement definition.
+
+```{python}
+#| include: false
+assert len(d) == len(joined) == 1704
+assert len(year_2007) == 142 and wide.shape == (142, 12)
+assert joined["_merge"].eq("both").all()
+assert abs(model.params["log_gdp_pc"] - 7.202801571) < 1e-6
+```

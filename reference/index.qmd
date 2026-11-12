@@ -2,11 +2,12 @@
 title: Reference
 ---
 
-## Planned reference pages · Coming soon
+Find a reminder, then return to the worked lesson when you need its reasoning. The Python examples on these pages execute during the website build. Stata and R expressions are reading bridges; those programs are not required or tested here.
 
-- Stata → Python and R → Python cheat sheets
-- pandas quick reference
-- Glossary of programming and data terms
-- Common errors and fixes
+- [Stata → Python](stata-python.qmd): loading, selection, grouping, safe joins, panel reshaping and regression conventions.
+- [R → Python](r-python.qmd): DataFrames, explicit sample selection, formulas and differences that need checking.
+- [pandas quick reference](pandas.qmd): inspection, missingness, transformations, group summaries, joins and reshaping.
+- [Glossary](glossary.qmd): programming, measurement, modelling and reproducibility terms.
+- [Common errors and fixes](errors.qmd): read the error, inspect the relevant contract and verify the repair.
 
-The available core lessons define terms where you first use them and include a **When it goes wrong** section. [Lesson 1.5](../lessons/01-basics/05-reading-errors.ipynb) provides a focused error-reading guide. Start with [your first notebook](../lessons/00-start/02-first-notebook.ipynb) or [loading data](../lessons/02-data/01-loading-data.ipynb).
+Use the [course map](../lessons/index.qmd) for the full sequence. [Part 5](../lessons/05-workflow/01-local-installation.ipynb) explains local setup and reproducible work; the [guided projects](../projects/index.qmd) provide practice on new real public-data questions.

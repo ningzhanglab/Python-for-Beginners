@@ -31,7 +31,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix="python-course-build-") as temporary:
         workspace = Path(temporary)
         for name in ["_quarto.yml", "styles.css", "index.qmd", "about.qmd", "requirements.txt",
-                     "lessons", "projects", "reference", "data", "scripts"]:
+                     "lessons", "projects", "reference", "data", "scripts", "examples"]:
             source = ROOT / name
             destination = workspace / name
             if source.is_dir():

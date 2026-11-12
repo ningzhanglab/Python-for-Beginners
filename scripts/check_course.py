@@ -9,18 +9,32 @@ import yaml
 
 from simulate_people import generate_people, people_setup_source
 from notebook_packages import package_setup_source
+from course_setups import check_generated_setups
+from prepare_projects import prepare as prepare_projects, verified_bytes
+from prepare_data import prepare as prepare_country_data
+from project_starters import make_starter, serialized
 
 ROOT = Path(__file__).resolve().parents[1]
 SECTIONS = ("You will learn", "Why it matters", "Worked example", "Try it",
             "When it goes wrong", "Recap")
 
 
+def notebook_sources(root=ROOT):
+    return sorted([*(root / 'lessons').rglob('*.ipynb'), *(root / 'projects').rglob('*.ipynb')])
+
+
+def notebook_download(source, root=ROOT):
+    relative = source.relative_to(root)
+    return Path('downloads') / (source.relative_to(root / 'lessons') if relative.parts[0] == 'lessons' else relative)
+
+
 def check_sources(root=ROOT):
     config = yaml.safe_load((root / "_quarto.yml").read_text())
+    assert '!downloads/' in config['project']['render'], 'Downloads must remain unexecuted source copies.'
     assert config["execute"] == {
         "enabled": True, "error": False, "cache": False, "freeze": False, "daemon": False
     }, "Fresh execution and failure on unexpected errors are required."
-    notebooks = sorted((root / "lessons").rglob("*.ipynb"))
+    notebooks = notebook_sources(root)
     assert notebooks, "No lesson notebooks found."
     for path in notebooks:
         nb = nbformat.read(path, as_version=4)
@@ -30,7 +44,8 @@ def check_sources(root=ROOT):
         assert positions == sorted(positions), f"Lesson section order: {path}"
         goals = text.split("## You will learn", 1)[1].split("## Why it matters", 1)[0]
         assert 2 <= len(re.findall(r"^- ", goals, re.MULTILINE)) <= 4, f"Learning goal count: {path}"
-        assert 3 <= text.count("<summary>Solution") <= 5, f"Exercise count: {path}"
+        marker = '<summary>Hint' if nb.metadata.get('course', {}).get('kind') == 'project-starter' else '<summary>Solution'
+        assert 3 <= text.count(marker) <= 5, f"Exercise count: {path}"
         assert text.count("<details>") == text.count("</details>"), f"Unclosed solution: {path}"
         assert "colab.research.google.com/github/" in text, f"Missing Colab link: {path}"
         assert "../../downloads/" in text, f"Missing notebook download: {path}"
@@ -38,6 +53,10 @@ def check_sources(root=ROOT):
         assert "made-up numbers" in text, f"Label fictional examples: {path}"
         assert not nb.metadata.get("quarto", {}), f"Keep execution policy in project config: {path}"
         checks = nb.metadata.get("course", {}).get("checks", [])
+        check_generated_setups(nb, path)
+        if nb.metadata.get('course', {}).get('kind') == 'project-starter':
+            solution = nbformat.read(path.with_name('02-solution.ipynb'), as_version=4)
+            assert path.read_text() == serialized(make_starter(solution)), f'Stale project starter: {path}'
         assert checks and all(isinstance(check, str) for check in checks), f"Missing outcome checks: {path}"
         for check in checks:
             compile(check, f"{path.name}:outcome-check", "exec")
@@ -75,7 +94,7 @@ def check_curriculum(root=ROOT):
     navigation = str(config["website"]["sidebar"]["contents"])
     course_map = (root / "lessons/index.qmd").read_text()
     positions = []
-    for part, expected in {"00-start": 3, "01-basics": 6, "02-data": 8, "03-viz": 4, "04-regression": 6}.items():
+    for part, expected in {"00-start": 3, "01-basics": 6, "02-data": 8, "03-viz": 4, "04-regression": 6, "05-workflow": 4}.items():
         notebooks = sorted((root / "lessons" / part).glob("*.ipynb"))
         assert len(notebooks) == expected, f"Incomplete {part}: expected {expected} lessons."
         for notebook in notebooks:
@@ -84,13 +103,19 @@ def check_curriculum(root=ROOT):
             positions.append(navigation.index(relative))
             assert notebook.relative_to(root / "lessons").as_posix() in course_map, f"Missing from course map: {relative}"
     assert positions == sorted(positions), "Core lessons must appear in curriculum order in the sidebar."
-    print("PASS: all 27 lessons in Parts 0–4 are present in the course map and ordered sidebar.")
+    for source in (root / 'projects').glob('*/*.ipynb'):
+        assert source.relative_to(root).as_posix() in navigation, f'Missing project navigation: {source}'
+    for name in ['stata-python', 'r-python', 'pandas', 'glossary', 'errors']:
+        reference = root / 'reference' / (name + '.qmd')
+        assert reference.is_file() and len(reference.read_text()) > 1500, f'Missing reference content: {name}'
+        assert f'reference/{name}.qmd' in navigation, f'Missing reference navigation: {name}'
+    print("PASS: 31 lessons, two project pairs and five reference pages are present in ordered navigation.")
 
 
 def check_exports(root, notebooks=None):
     """Verify generated figure/table exports, without changing learner sources."""
     from PIL import Image
-    lessons = notebooks if notebooks is not None else [nbformat.read(path, as_version=4) for path in (root / "lessons").rglob("*.ipynb")]
+    lessons = notebooks if notebooks is not None else [nbformat.read(path, as_version=4) for path in notebook_sources(root)]
     count = 0
     for notebook in lessons:
         course = notebook.metadata.get("course", {})
@@ -110,6 +135,16 @@ def check_exports(root, notebooks=None):
                 assert not pd.read_csv(path).empty, path
             elif path.suffix == ".html":
                 assert "<table" in path.read_text(encoding="utf-8"), path
+            elif path.suffix == '.zip':
+                import zipfile
+                with zipfile.ZipFile(path) as archive:
+                    assert archive.testzip() is None, path
+                    assert all(not Path(name).is_absolute() and '..' not in Path(name).parts for name in archive.namelist()), path
+                    expected_members = course.get('export_members', {}).get(exported)
+                    if expected_members:
+                        assert set(archive.namelist()) == set(expected_members), path
+                    if 'income-life-project/requirements.txt' in archive.namelist():
+                        assert archive.read('income-life-project/requirements.txt') == (ROOT / 'requirements.txt').read_bytes(), 'Stale bundled dependency file.'
             count += 1
     if count:
         print(f"PASS: {count} generated figure/table exports and declared image sizes.")
@@ -129,8 +164,12 @@ def check_data(root=ROOT):
     pd.testing.assert_frame_equal(regions, expected_regions)
     assert not regions["country"].duplicated().any()
     assert (root / "data/simulated_people.csv").read_bytes() == generate_people()
+    assert prepare_country_data(verified_bytes('gapminder.tsv', root / 'data/raw')) == (root / 'data/gapminder.csv').read_bytes()
+    for name, content in prepare_projects(root / 'data/raw').items():
+        assert (root / 'data' / name).read_bytes() == content, f'Stale project data: {name}'
     print("PASS: country panel schema, coverage, unique country-years and complete positive measurements.")
     print("PASS: derived region lookup and deterministic simulated survey data.")
+    print("PASS: pinned raw country source and exact World Bank project transformations.")
 
 
 def check_practice_formats(root):

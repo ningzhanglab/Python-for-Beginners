@@ -1,11 +1,43 @@
 ---
-title: Projects
+title: Guided projects
 ---
 
-## Part 6 · Coming soon
+## Part 6 · Put the workflow together
 
-Guided projects will take a research question from raw public data to a figure and regression table. Each will include a partially completed starter notebook and a full solution.
+Two projects take a new public-data question from inputs to a figure, a regression table and interpretation notes. Complete Parts 0–5 first. Plan for 60–90 minutes per project, split across sessions as needed. The second gives less step-by-step guidance.
 
-The planned questions will reuse the cleaning, plotting and interpretation skills from Parts 1–5, with less guidance each time. Datasets and redistribution rights will be checked before projects are added.
+### 6.1 Fertility and income
 
-For now, begin with [your first notebook](../lessons/00-start/02-first-notebook.ipynb) or explore the [course map](../lessons/index.qmd).
+In 2019, did higher-income economies have lower total fertility rates? The World Bank snapshot retains 217 economies, with 211 complete income/fertility pairs. This first project provides more explicit steps.
+
+::: {.lesson-tools}
+[Start project 6.1](01-fertility-income/01-starter.ipynb){.btn .btn-primary}
+[Compare with solution 6.1](01-fertility-income/02-solution.ipynb){.btn .btn-outline-secondary}
+:::
+
+### 6.2 Internet use and urbanization
+
+Were more urbanized economies also more connected in 2019? The World Bank snapshot retains 217 economies, with 189 complete internet-use/urban-share pairs. This second project asks you to plan more of the analysis yourself.
+
+::: {.lesson-tools}
+[Start project 6.2](02-internet-urban/01-starter.ipynb){.btn .btn-primary}
+[Compare with solution 6.2](02-internet-urban/02-solution.ipynb){.btn .btn-outline-secondary}
+:::
+
+## How to work
+
+1. Open the starter in Colab or download it and upload your own copy. Each notebook includes the prepared package and frozen-data setup; no repository credentials or live-data API key are needed to run that copy.
+2. Read the question, units and source notes. Run the supplied setup and input checks. The cells marked **TODO** are deliberately incomplete: running the starter alone does not solve the project.
+3. Write the sample, chart, estimation and export steps. Keep original inputs, count missing values and check unique keys. Give each result its units and observation year.
+4. Explain the result in words before comparing with the complete solution. A different defensible specification can answer a different question; do not change code merely to match an expected sign or p-value.
+5. Restart and run the notebook from the top. Verify the exported numbers against the fitted results and keep source/interpretation notes with the figure and table.
+
+## Sources and limits
+
+These are **2019 observations in snapshots retrieved 2026-11-11**, not current statistics. World Bank geography includes countries and territories. Each economy receives equal weight; neither project estimates the average person's behaviour. The [data dictionary and provenance](https://github.com/ningzhanglab/Python-for-Beginners/blob/main/data/README.md) records raw API requests, hashes, definitions, transformations, missingness and source licenses.
+
+The indicator metadata explicitly identifies CC BY 4.0 with the World Bank's additional terms. Credit the World Bank and original providers: national/OECD/World Bank accounts and UN/national/Eurostat fertility sources in 6.1; the International Telecommunication Union and UN Population Division in 6.2. The course's original presentation remains unlicensed pending the owner's decision.
+
+Both projects use OLS with explicit HC1 uncertainty and compare the same sample across specifications. They do not identify causal effects of income or urbanization. Missingness, different national definitions, source-estimate uncertainty and cross-economy dependence remain limitations. The complete solution is a transparent teaching analysis, not a policy recommendation.
+
+Use [regression interpretation](../lessons/04-regression/02-correlation-ols.ipynb), [uncertainty choices](../lessons/04-regression/04-robust-clustered.ipynb), [reproducible folders](../lessons/05-workflow/02-folders-paths-scripts.ipynb) and the [reference pages](../reference/index.qmd) when you need a reminder.

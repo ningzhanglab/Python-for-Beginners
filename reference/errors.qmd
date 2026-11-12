@@ -1,0 +1,151 @@
+---
+title: Common errors and fixes
+---
+
+Read the final exception name/message first, then find the line in your own code that triggered it. Restart and run from the top when state is uncertain. Use [lesson 1.5](../lessons/01-basics/05-reading-errors.ipynb) for a slow worked walkthrough. The examples below deliberately trigger named errors and catch only those expected exceptions so the page can finish executing.
+
+
+Tables can be scrolled sideways on a narrow screen.
+
+## Find the right kind of problem
+
+::: {.table-responsive}
+
+| Symptom | Likely question to investigate | First action |
+| --- | --- | --- |
+| NameError | Was the name defined in this kernel, with this spelling? | Rerun definitions in order; inspect case/spelling |
+| TypeError | Did a numeric operation receive text or another incompatible type? | Inspect values and types before conversion |
+| KeyError | Does the exact field/key exist? | Print columns/keys and consult the codebook |
+| IndexError | Was a position requested beyond the collection length? | Check length and zero-based indexing |
+| ValueError | Is a value inconsistent with the requested conversion/operation? | Inspect invalid source values before choosing a rule |
+| FileNotFoundError | Which folder is the path relative to? | Check working folder and documented layout |
+| ModuleNotFoundError | Is the package name correct and installed in this kernel? | Check interpreter and shared requirements |
+| IndentationError / SyntaxError | Does Python understand the written structure? | Check the indicated line and preceding punctuation |
+| pandas MergeError | Do join keys satisfy the promised multiplicity? | Inspect duplicates and the observation definition |
+| AttributeError | Does this object support the requested method/field? | Check its type and official API documentation |
+
+:::
+
+
+An error message is evidence about what the program could not do, not a complete diagnosis. Do not install an unfamiliar package, overwrite a source file or drop observations simply because a plausible-looking fix was suggested.
+
+## Names, types and keys
+
+A name belongs to a live kernel; seeing a cell on screen does not mean it has been executed in the current session.
+
+```{python}
+try:
+    print(income_not_defined_for_this_example)
+except NameError as error:
+    print(f"{type(error).__name__}: {error}")
+```
+
+Define the intended value and run cells in order. An assistant cannot infer the right research variable merely by replacing an unknown name with another one.
+
+These made-up Northland responses include text that is not automatically a number.
+
+```{python}
+try:
+    print("34" + 1)
+except TypeError as error:
+    print(f"{type(error).__name__}: {error}")
+```
+
+Choose a conversion based on the codebook, and count conversion failures. Blindly coercing every unexpected entry to missing can change the analysis sample.
+
+Inspect a small table's actual columns before requesting a guessed name.
+
+```{python}
+import pandas as pd
+practice = pd.DataFrame({"economy": ["Northland", "Eastria"], "age_text": ["34", "unknown"]})
+try:
+    practice["age"]
+except KeyError as error:
+    print(f"{type(error).__name__}: {error}")
+print("Actual columns:", practice.columns.tolist())
+```
+
+The field is age_text. Renaming it does not convert its contents into ages. The word unknown is a missingness code that needs a stated rule.
+
+## Positions and invalid values
+
+A two-row table has positions 0 and 1. A label and a position are different selection concepts.
+
+```{python}
+try:
+    practice.iloc[2]
+except IndexError as error:
+    print(f"{type(error).__name__}: {error}")
+try:
+    practice["age_text"].astype(int)
+except ValueError as error:
+    print(f"{type(error).__name__}: {error}")
+```
+
+Check length for IndexError. For the conversion error, preserve age_text and use a documented clean field, such as `pd.to_numeric` with an explicit missingness audit. See [missing values](../lessons/02-data/04-missing-types.ipynb).
+
+## Files and packages
+
+This intentionally absent file demonstrates a path failure without depending on your computer's private folder names.
+
+```{python}
+from pathlib import Path
+try:
+    Path("scratch/intentionally-absent-reference-input.csv").read_text()
+except FileNotFoundError:
+    print("FileNotFoundError: check the starting folder and documented input path.")
+print("Working folder name:", Path.cwd().name)
+```
+
+Paths on one computer are not universal. The [portable project](../lessons/05-workflow/02-folders-paths-scripts.ipynb) anchors inputs to the script location and distinguishes inputs from generated results.
+
+A deliberately misspelled module demonstrates why checking the name comes before installing anything.
+
+```{python}
+try:
+    import pandas_typo_for_this_reference
+except ModuleNotFoundError as error:
+    print(f"{type(error).__name__}: {error}")
+```
+
+Use the correct package name, the course requirements and the intended notebook kernel. Installing into a different Python environment will not fix the current kernel. See [local setup](../lessons/05-workflow/01-local-installation.ipynb).
+
+## Structure and join contracts
+
+Ordinarily an indentation error prevents a cell from starting. This prepared demonstration asks Python to compile a short text string, so we can catch and display that parsing error.
+
+```{python}
+try:
+    compile("if True:\nprint('Northland')", "fictional_example", "exec")
+except IndentationError as error:
+    print(f"{type(error).__name__}: {error}")
+```
+
+Indent the body after a colon. An error position can also be caused by an unclosed quote or bracket on the preceding line; inspect the surrounding structure rather than changing random whitespace.
+
+A duplicated lookup violates a many-to-one join contract even though the economy names look plausible.
+
+```{python}
+lookup = pd.DataFrame({"economy": ["Northland", "Northland"], "region": ["North", "North"]})
+try:
+    practice.merge(lookup, on="economy", how="left", validate="many_to_one")
+except pd.errors.MergeError as error:
+    print(f"{type(error).__name__}: {error}")
+```
+
+Find why the key repeats and what one row represents. Counting final rows alone can miss a dropped-and-duplicated observation. Read [safe merges](../lessons/02-data/06-combining.ipynb) before deciding whether any duplicate should be removed.
+
+## Code that runs can still be wrong
+
+A method or result field can sound reasonable and still not exist. Different packages expose different interfaces.
+
+```{python}
+try:
+    practice.average_age_that_was_never_defined()
+except AttributeError as error:
+    print(f"{type(error).__name__}: {error}")
+```
+
+Check object type and the official documentation. Separately, code can run with the wrong denominator, wrong income units, the wrong year or an unjustified causal claim. There may be no exception for those mistakes. Use known answers, sample/key audits, explicit units and an interpretation review, as in [checking AI assistance](../lessons/05-workflow/04-checking-ai.ipynb).
+
+For a bug report, provide the lesson title, a small fictional example, the exact error name/message and package versions when relevant. Remove private data, identifiers and credentials. State what you actually ran; never describe a suggested check as a passed test.

@@ -30,7 +30,7 @@ You will learn to load CSV, Excel and Stata files; clean and combine tables; mak
 
 Each lesson has a worked example, things to try, hidden solutions and help with common errors. Plan for 20–40 minutes, with breaks whenever you need them. A little statistics helps; programming experience is not assumed.
 
-**Available now: all 27 lessons in Parts 0–4.** Start with [your first notebook](lessons/00-start/02-first-notebook.ipynb), learn [Python basics](lessons/01-basics/01-values-variables.ipynb), then work through [data handling](lessons/02-data/01-loading-data.ipynb), [visualization](lessons/03-viz/01-first-plots.ipynb) and [statistics and regression](lessons/04-regression/01-descriptive-statistics.ipynb). See the [course map](lessons/index.qmd) for the full sequence. Workflow, projects and reference pages are coming soon.
+**Available now: 31 lessons, two guided projects and five reference pages.** Start with [your first notebook](lessons/00-start/02-first-notebook.ipynb), then follow Python basics, data handling, visualization, regression and a reproducible workflow. Apply the steps to new public-data questions in the [guided projects](projects/index.qmd). The [course map](lessons/index.qmd) lists the sequence; [reference pages](reference/index.qmd) help you find a command or term. This is a curriculum draft awaiting full beginner review and first-release polish.
 
 ## A good place to make mistakes
 

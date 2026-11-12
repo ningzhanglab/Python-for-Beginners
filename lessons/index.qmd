@@ -2,7 +2,7 @@
 title: Course map
 ---
 
-**Parts 0–4 are available: 27 complete lessons.** Parts 5–6 and the reference pages remain coming soon. Begin with [your first notebook](00-start/02-first-notebook.ipynb); read [0.1](00-start/01-what-python-is-for.ipynb) first if you want an overview. Plan for 20–40 minutes per lesson, including practice and breaks.
+**The curriculum draft is available: 31 lessons in Parts 0–5, two guided projects in Part 6, and five reference pages.** Begin with [your first notebook](00-start/02-first-notebook.ipynb); read [0.1](00-start/01-what-python-is-for.ipynb) first if you want an overview. Plan for 20–40 minutes per lesson, including practice and breaks. Projects take longer and can be split across sessions. Beginner review and first-release polish remain ahead.
 
 Our running question is **Do people live longer in richer countries?** We return to the same historical country panel as your skills grow. Short introductions use made-up numbers for fictional countries. The missing-data lesson also uses a clearly labelled simulated survey; it contains no actual people.
 
@@ -60,16 +60,24 @@ Build the income–life expectancy scatter in small steps, then compare patterns
 
 Learn what a model estimates and what it cannot establish. Ordinary least squares (OLS) fits a linear relationship; fixed effects account for group differences that stay constant over time. Instrumental variables and difference-in-differences are beyond the core path.
 
-## Part 5 · A workflow others can rerun — coming soon
+## Part 5 · A workflow others can rerun
 
-5.1 Optional local installation · 5.2 Folders, paths, notebooks and scripts · 5.3 Public data by code · 5.4 Checking AI coding assistance
+- [5.1 Optional local Python installation](05-workflow/01-local-installation.ipynb)
+- [5.2 Folders, paths, notebooks and scripts](05-workflow/02-folders-paths-scripts.ipynb)
+- [5.3 Getting public data by code](05-workflow/03-public-data.ipynb)
+- [5.4 Checking AI coding assistance](05-workflow/04-checking-ai.ipynb)
 
 Turn the running example into a project another person can rerun from raw data to results. Local installation stays optional.
 
-## Part 6 · Projects — coming soon
+## Part 6 · Guided projects
 
-[Guided projects](../projects/index.qmd) will include starter notebooks and complete solutions, with progressively less guidance.
+[Two guided projects](../projects/index.qmd) provide separate incomplete starters and complete solutions, with less guidance in the second project:
 
-## Reference — coming soon
+- [6.1 Fertility and income in 2019](../projects/01-fertility-income/01-starter.ipynb)
+- [6.2 Internet use and urbanization in 2019](../projects/02-internet-urban/01-starter.ipynb)
 
-[Cheat sheets, a glossary and common errors](../reference/index.qmd) will support the core path.
+Each uses a small, documented World Bank snapshot and produces a labelled figure and regression table. Complete the tasks before comparing with the solution; running a starter alone does not fill its TODO cells.
+
+## Reference
+
+[Stata and R bridges, pandas quick reference, a glossary and common errors](../reference/index.qmd) support the full path.
