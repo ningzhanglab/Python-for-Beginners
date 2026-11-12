@@ -1,0 +1,218 @@
+economy_code,economy,region,year,internet_pct,urban_pct
+ABW,Aruba,Latin America & Caribbean,2019,,62.288276286885
+AFG,Afghanistan,"Middle East, North Africa, Afghanistan & Pakistan",2019,17.60000038,25.1437258839803
+AGO,Angola,Sub-Saharan Africa,2019,32.12939835,66.6637823180533
+ALB,Albania,Europe & Central Asia,2019,68.5503911218006,56.7639071287255
+AND,Andorra,Europe & Central Asia,2019,90.71869659,88.5391793666245
+ARE,United Arab Emirates,"Middle East, North Africa, Afghanistan & Pakistan",2019,99.1499979561243,85.0298263388195
+ARG,Argentina,Latin America & Caribbean,2019,79.9469520347551,91.8567844513802
+ARM,Armenia,Europe & Central Asia,2019,66.5439496866159,65.0047033570428
+ASM,American Samoa,East Asia & Pacific,2019,,83.0542171797274
+ATG,Antigua and Barbuda,Latin America & Caribbean,2019,71.09259796,24.708337524045
+AUS,Australia,East Asia & Pacific,2019,93.60990143,87.3019647888406
+AUT,Austria,Europe & Central Asia,2019,87.7522047870069,68.3176044750522
+AZE,Azerbaijan,Europe & Central Asia,2019,81.0999990651547,58.1308191977779
+BDI,Burundi,Sub-Saharan Africa,2019,6.072199821,18.786178154187
+BEL,Belgium,Europe & Central Asia,2019,90.275428012141,87.0961631189222
+BEN,Benin,Sub-Saharan Africa,2019,20.50099945,48.7125500590248
+BFA,Burkina Faso,Sub-Saharan Africa,2019,9.27180600953186,26.1187254401157
+BGD,Bangladesh,South Asia,2019,30.38310051,30.8228396343012
+BGR,Bulgaria,Europe & Central Asia,2019,67.9469809417603,73.7162322998047
+BHR,Bahrain,"Middle East, North Africa, Afghanistan & Pakistan",2019,99.7015043807778,100
+BHS,"Bahamas, The",Latin America & Caribbean,2019,90.69329834,81.8257463283204
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2019,69.9463476317266,49.4650440037758
+BLR,Belarus,Europe & Central Asia,2019,82.7891520910901,77.4550771852757
+BLZ,Belize,Latin America & Caribbean,2019,58.76520157,42.9077622153323
+BMU,Bermuda,North America,2019,,100
+BOL,Bolivia,Latin America & Caribbean,2019,47.4748191121692,69.7334986708387
+BRA,Brazil,Latin America & Caribbean,2019,73.9124399133589,86.6797991084296
+BRB,Barbados,Latin America & Caribbean,2019,70.30709839,59.2841140645486
+BRN,Brunei Darussalam,East Asia & Pacific,2019,95,74.7923311783673
+BTN,Bhutan,South Asia,2019,74.17939758,39.0746823405146
+BWA,Botswana,Sub-Saharan Africa,2019,48.82279968,66.3271694845464
+CAF,Central African Republic,Sub-Saharan Africa,2019,7.509200096,41.7800430407332
+CAN,Canada,North America,2019,91.91290283,81.7363672047941
+CHE,Switzerland,Europe & Central Asia,2019,93.1460869535177,80.7792907322229
+CHI,Channel Islands,Europe & Central Asia,2019,,32.8235411026876
+CHL,Chile,Latin America & Caribbean,2019,85.01760101,88.1273685623538
+CHN,China,East Asia & Pacific,2019,64.080881297515,62.7099151611328
+CIV,Cote d'Ivoire,Sub-Saharan Africa,2019,36.2889545655205,51.3514799771241
+CMR,Cameroon,Sub-Saharan Africa,2019,36.53919983,53.9487914119331
+COD,"Congo, Dem. Rep.",Sub-Saharan Africa,2019,13.02970028,42.8747090907476
+COG,"Congo, Rep.",Sub-Saharan Africa,2019,16.11639977,63.5176376123385
+COL,Colombia,Latin America & Caribbean,2019,65.0069007159493,77.4595528518377
+COM,Comoros,Sub-Saharan Africa,2019,16.38380051,31.7287584068243
+CPV,Cabo Verde,Sub-Saharan Africa,2019,61.9433977593088,71.6254285086577
+CRI,Costa Rica,Latin America & Caribbean,2019,81.2025964435269,77.0435864735963
+CUB,Cuba,Latin America & Caribbean,2019,67.9708086565152,77.0728225708008
+CUW,Curacao,Latin America & Caribbean,2019,,91.3714918191305
+CYM,Cayman Islands,Latin America & Caribbean,2019,,100
+CYP,Cyprus,Europe & Central Asia,2019,86.0636299618935,66.7677357070518
+CZE,Czechia,Europe & Central Asia,2019,80.8669444139622,72.7876426709563
+DEU,Germany,Europe & Central Asia,2019,88.1345169091916,81.3053991689039
+DJI,Djibouti,"Middle East, North Africa, Afghanistan & Pakistan",2019,58.4762001,71.7418146554518
+DMA,Dominica,Latin America & Caribbean,2019,73.38200378,71.4382284948964
+DNK,Denmark,Europe & Central Asia,2019,98.0464347521549,88.2096490810669
+DOM,Dominican Republic,Latin America & Caribbean,2019,79.71549988,73.5403464672933
+DZA,Algeria,"Middle East, North Africa, Afghanistan & Pakistan",2019,55.79069901,72.4824561380175
+ECU,Ecuador,Latin America & Caribbean,2019,59.2,63.0627139714638
+EGY,"Egypt, Arab Rep.","Middle East, North Africa, Afghanistan & Pakistan",2019,57.2828663990195,42.4812027332648
+ERI,Eritrea,Sub-Saharan Africa,2019,11.22379971,35.2352333068848
+ESP,Spain,Europe & Central Asia,2019,90.718665325267,79.6349761108307
+EST,Estonia,Europe & Central Asia,2019,90.2289281997919,69.5787397662154
+ETH,Ethiopia,Sub-Saharan Africa,2019,15.98460007,21.2486705780029
+FIN,Finland,Europe & Central Asia,2019,89.6073851129779,72.7431214358314
+FJI,Fiji,East Asia & Pacific,2019,63.21789932,56.70989552257
+FRA,France,Europe & Central Asia,2019,83.3397440866883,78.6890784549356
+FRO,Faroe Islands,Europe & Central Asia,2019,,38.3945655822754
+FSM,"Micronesia, Fed. Sts.",East Asia & Pacific,2019,37.97370148,22.359245777081
+GAB,Gabon,Sub-Saharan Africa,2019,59.51760101,89.9031850170394
+GBR,United Kingdom,Europe & Central Asia,2019,92.5166285497138,82.6699420738913
+GEO,Georgia,Europe & Central Asia,2019,68.8467135616978,58.6304091780343
+GHA,Ghana,Sub-Saharan Africa,2019,22.0732,55.7246279109161
+GIB,Gibraltar,Europe & Central Asia,2019,,100
+GIN,Guinea,Sub-Saharan Africa,2019,23.89049911,36.1281547546387
+GMB,"Gambia, The",Sub-Saharan Africa,2019,31.11829948,61.643210849607
+GNB,Guinea-Bissau,Sub-Saharan Africa,2019,17.92149925,43.8745574951172
+GNQ,Equatorial Guinea,Sub-Saharan Africa,2019,49.13370132,70.1175419547293
+GRC,Greece,Europe & Central Asia,2019,75.6712066931757,78.1888100466875
+GRD,Grenada,Latin America & Caribbean,2019,64.31279755,36.1346465679904
+GRL,Greenland,Europe & Central Asia,2019,,87.0217895507812
+GTM,Guatemala,Latin America & Caribbean,2019,44.401049838502,54.1882267267974
+GUM,Guam,East Asia & Pacific,2019,,94.0799802498939
+GUY,Guyana,Latin America & Caribbean,2019,55.31269836,26.4258834773058
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2019,91.7434003891587,100
+HND,Honduras,Latin America & Caribbean,2019,39.3883521850111,56.3791561389766
+HRV,Croatia,Europe & Central Asia,2019,79.0797836757554,56.303247958306
+HTI,Haiti,Latin America & Caribbean,2019,35.76409912,52.0069059952475
+HUN,Hungary,Europe & Central Asia,2019,80.3716936050482,70.4565277099609
+IDN,Indonesia,East Asia & Pacific,2019,47.6906489788375,55.7382049560547
+IMN,Isle of Man,Europe & Central Asia,2019,,52.1789898247578
+IND,India,South Asia,2019,29.52350044,33.8139578818147
+IRL,Ireland,Europe & Central Asia,2019,87.0000552425146,63.2737009154127
+IRN,"Iran, Islamic Rep.","Middle East, North Africa, Afghanistan & Pakistan",2019,72.4509047672065,75.2038879394531
+IRQ,Iraq,"Middle East, North Africa, Afghanistan & Pakistan",2019,44.3263465511579,69.8683395385742
+ISL,Iceland,Europe & Central Asia,2019,99.5049411693787,93.9770847416131
+ISR,Israel,"Middle East, North Africa, Afghanistan & Pakistan",2019,86.7878776180583,91.6154002002652
+ITA,Italy,Europe & Central Asia,2019,67.8507102874836,69.5050010681153
+JAM,Jamaica,Latin America & Caribbean,2019,70.8410169743356,56.6957957395074
+JOR,Jordan,"Middle East, North Africa, Afghanistan & Pakistan",2019,70.08470154,91.515966492507
+JPN,Japan,East Asia & Pacific,2019,92.7303978145525,91.7164207898107
+KAZ,Kazakhstan,Europe & Central Asia,2019,81.8776204746284,59.0832474269546
+KEN,Kenya,Sub-Saharan Africa,2019,22.6687733618171,31.1895566421135
+KGZ,Kyrgyz Republic,Europe & Central Asia,2019,64.1,34.8805205758044
+KHM,Cambodia,East Asia & Pacific,2019,52.305878224498,39.5830241256026
+KIR,Kiribati,East Asia & Pacific,2019,41.79299927,56.2846727145489
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2019,69.43499756,31.4121818392285
+KOR,"Korea, Rep.",East Asia & Pacific,2019,96.157579184239,81.2901063535619
+KWT,Kuwait,"Middle East, North Africa, Afghanistan & Pakistan",2019,99.5426764518489,100
+LAO,Lao PDR,East Asia & Pacific,2019,47.03229904,35.9072880879451
+LBN,Lebanon,"Middle East, North Africa, Afghanistan & Pakistan",2019,81.48120117,89.4986743521503
+LBR,Liberia,Sub-Saharan Africa,2019,19.89579964,52.85526226447
+LBY,Libya,"Middle East, North Africa, Afghanistan & Pakistan",2019,71.40409851,87.8220115209342
+LCA,St. Lucia,Latin America & Caribbean,2019,61.08050156,24.2476974658382
+LIE,Liechtenstein,Europe & Central Asia,2019,93.14610291,14.6070830005951
+LKA,Sri Lanka,South Asia,2019,32.02090073,19.4946326418437
+LSO,Lesotho,Sub-Saharan Africa,2019,42.301733569273,38.6040920446259
+LTU,Lithuania,Europe & Central Asia,2019,81.5818683764046,67.245735168457
+LUX,Luxembourg,Europe & Central Asia,2019,97.120635693272,93.2589839734767
+LVA,Latvia,Europe & Central Asia,2019,86.13545644343,68.066323694246
+MAC,"Macao SAR, China",East Asia & Pacific,2019,86.4679257062588,100
+MAF,St. Martin (French part),Latin America & Caribbean,2019,,100
+MAR,Morocco,"Middle East, North Africa, Afghanistan & Pakistan",2019,84.1203630467602,61.8430450233765
+MCO,Monaco,Europe & Central Asia,2019,98,100
+MDA,Moldova,Europe & Central Asia,2019,73.32610321,40.772289276123
+MDG,Madagascar,Sub-Saharan Africa,2019,9.379400253,30.3046972370204
+MDV,Maldives,South Asia,2019,77.46970367,40.0492764783282
+MEX,Mexico,Latin America & Caribbean,2019,69.6321092705209,78.355984332992
+MHL,Marshall Islands,East Asia & Pacific,2019,49.75749969,76.9422712042154
+MKD,North Macedonia,Europe & Central Asia,2019,81.4128827618364,60.6286848102132
+MLI,Mali,Sub-Saharan Africa,2019,24.96030045,28.3520715749509
+MLT,Malta,"Middle East, North Africa, Afghanistan & Pakistan",2019,85.7785963798031,94.9332032524644
+MMR,Myanmar,East Asia & Pacific,2019,36.54050064,30.0782436945232
+MNE,Montenegro,Europe & Central Asia,2019,73.4766657478691,65.1686759904159
+MNG,Mongolia,East Asia & Pacific,2019,51.079994082603,67.8277299551557
+MNP,Northern Mariana Islands,East Asia & Pacific,2019,,91.6162852134162
+MOZ,Mozambique,Sub-Saharan Africa,2019,12.47929955,33.4177241517032
+MRT,Mauritania,Sub-Saharan Africa,2019,25.0977993,56.0596215779146
+MUS,Mauritius,Sub-Saharan Africa,2019,61.7299551453346,39.2509492806955
+MWI,Malawi,Sub-Saharan Africa,2019,11.05860043,16.1383746619001
+MYS,Malaysia,East Asia & Pacific,2019,84.1871450078281,74.8377707734042
+NAM,Namibia,Sub-Saharan Africa,2019,49.77590179,48.0019807724839
+NCL,New Caledonia,East Asia & Pacific,2019,,67.1574673707832
+NER,Niger,Sub-Saharan Africa,2019,11.28549957,16.813146499685
+NGA,Nigeria,Sub-Saharan Africa,2019,29.74410057,58.9611186427056
+NIC,Nicaragua,Latin America & Caribbean,2019,39.01079941,58.5405671448072
+NLD,Netherlands,Europe & Central Asia,2019,93.2885906040269,93.8898028856479
+NOR,Norway,Europe & Central Asia,2019,98.0000043853142,82.4935894878281
+NPL,Nepal,South Asia,2019,33.33660126,65.9873929484157
+NRU,Naoero,East Asia & Pacific,2019,74.73789978,100
+NZL,New Zealand,East Asia & Pacific,2019,89.86370087,83.804965871667
+OMN,Oman,"Middle East, North Africa, Afghanistan & Pakistan",2019,90.25939941,79.5780017545962
+PAK,Pakistan,"Middle East, North Africa, Afghanistan & Pakistan",2019,17.070901719916,37.1091631735769
+PAN,Panama,Latin America & Caribbean,2019,63.6284147731451,65.752985396379
+PER,Peru,Latin America & Caribbean,2019,59.9505036049006,83.1033003087105
+PHL,Philippines,East Asia & Pacific,2019,43.0266118680279,53.7157859948017
+PLW,Palau,East Asia & Pacific,2019,,79.2803814152827
+PNG,Papua New Guinea,East Asia & Pacific,2019,13.62419987,13.9278267446947
+POL,Poland,Europe & Central Asia,2019,80.4359068768673,59.9626184068963
+PRI,Puerto Rico (US),Latin America & Caribbean,2019,77.7364393708352,93.9519912222253
+PRK,"Korea, Dem. People's Rep.",East Asia & Pacific,2019,,62.3542226611578
+PRT,Portugal,Europe & Central Asia,2019,75.3463779408712,61.114927250613
+PRY,Paraguay,Latin America & Caribbean,2019,68.5176284222264,64.9845298299929
+PSE,West Bank and Gaza,"Middle East, North Africa, Afghanistan & Pakistan",2019,70.6225837001758,85.8136174183656
+PYF,French Polynesia,East Asia & Pacific,2019,,61.7824142427508
+QAT,Qatar,"Middle East, North Africa, Afghanistan & Pakistan",2019,99.6528042086389,99.1191696672067
+ROU,Romania,Europe & Central Asia,2019,73.6574757545465,52.8931835224862
+RUS,Russian Federation,Europe & Central Asia,2019,82.6421618670668,74.6222859951926
+RWA,Rwanda,Sub-Saharan Africa,2019,21.3579998,22.9711026997362
+SAU,Saudi Arabia,"Middle East, North Africa, Afghanistan & Pakistan",2019,95.7247355953812,83.6394643268678
+SDN,Sudan,Sub-Saharan Africa,2019,,34.4727685824236
+SEN,Senegal,Sub-Saharan Africa,2019,43.37969971,49.9443321273477
+SGP,Singapore,East Asia & Pacific,2019,88.9492526850762,100
+SLB,Solomon Islands,East Asia & Pacific,2019,22.48880005,27.275106750276
+SLE,Sierra Leone,Sub-Saharan Africa,2019,15.71370029,42.7018444914441
+SLV,El Salvador,Latin America & Caribbean,2019,50.4911940673888,72.4148941040039
+SMR,San Marino,Europe & Central Asia,2019,67.85070038,97.0999984741211
+SOM,"Somalia, Fed. Rep.",Sub-Saharan Africa,2019,2.731400013,51.6421170703225
+SRB,Serbia,Europe & Central Asia,2019,77.4167736219802,61.0492248535156
+SSD,South Sudan,Sub-Saharan Africa,2019,6.671000004,19.9062299188719
+STP,Sao Tome and Principe,Sub-Saharan Africa,2019,44.25790024,67.9129943847656
+SUR,Suriname,Latin America & Caribbean,2019,62.03350067,66.0370492311305
+SVK,Slovak Republic,Europe & Central Asia,2019,82.8536605021784,53.3666558664583
+SVN,Slovenia,Europe & Central Asia,2019,83.1083578026717,55.4523277282715
+SWE,Sweden,Europe & Central Asia,2019,94.4934434072202,87.7088420242759
+SWZ,Eswatini,Sub-Saharan Africa,2019,43.93389893,24.3459549517751
+SXM,Sint Maarten (Dutch part),Latin America & Caribbean,2019,,100
+SYC,Seychelles,Sub-Saharan Africa,2019,76.63420105,44.0049304031754
+SYR,Syrian Arab Republic,"Middle East, North Africa, Afghanistan & Pakistan",2019,,73.8248788261986
+TCA,Turks and Caicos Islands,Latin America & Caribbean,2019,,92.9404854322845
+TCD,Chad,Sub-Saharan Africa,2019,7.618199825,24.2731047386633
+TGO,Togo,Sub-Saharan Africa,2019,20.72730064,41.445731197295
+THA,Thailand,East Asia & Pacific,2019,66.6524194587528,55.9266166687012
+TJK,Tajikistan,Europe & Central Asia,2019,22.68630028,26.1300735473633
+TKM,Turkmenistan,Europe & Central Asia,2019,,47.0494562466485
+TLS,Timor-Leste,East Asia & Pacific,2019,28.00460052,29.1148755245217
+TON,Tonga,East Asia & Pacific,2019,51.56299973,22.3288155626206
+TTO,Trinidad and Tobago,Latin America & Caribbean,2019,74.98670197,53.9342394732739
+TUN,Tunisia,"Middle East, North Africa, Afghanistan & Pakistan",2019,66.6999983024144,68.8206382576031
+TUR,Turkiye,Europe & Central Asia,2019,73.9767022871511,88.6618152857124
+TUV,Tuvalu,East Asia & Pacific,2019,,61.2406529218636
+TZA,Tanzania,Sub-Saharan Africa,2019,16.59090042,33.3475258518752
+UGA,Uganda,Sub-Saharan Africa,2019,11.72579956,27.8369781799403
+UKR,Ukraine,Europe & Central Asia,2019,70.1248442995263,69.3527648708735
+URY,Uruguay,Latin America & Caribbean,2019,83.3515337667548,95.3479309082031
+USA,United States,North America,2019,89.4302848575712,80.1304793353594
+UZB,Uzbekistan,Europe & Central Asia,2019,70.3999986481458,50.5920104980469
+VCT,St. Vincent and the Grenadines,Latin America & Caribbean,2019,59.57630157,47.1962073993512
+VEN,"Venezuela, RB",Latin America & Caribbean,2019,49.05009842,89.1030100517924
+VGB,British Virgin Islands,Latin America & Caribbean,2019,,52.3907871425786
+VIR,Virgin Islands (U.S.),Latin America & Caribbean,2019,,95.0857481413049
+VNM,Viet Nam,East Asia & Pacific,2019,68.6615802057338,34.6239134999511
+VUT,Vanuatu,East Asia & Pacific,2019,,23.5024668917075
+WSM,Samoa,East Asia & Pacific,2019,,18.4147344481283
+XKX,Kosovo,Europe & Central Asia,2019,,44.0002171565695
+YEM,"Yemen, Rep.","Middle East, North Africa, Afghanistan & Pakistan",2019,17.49099922,34.9067561732024
+ZAF,South Africa,Sub-Saharan Africa,2019,69.69689941,63.4127255007908
+ZMB,Zambia,Sub-Saharan Africa,2019,14.47189999,43.4897864547552
+ZWE,Zimbabwe,Sub-Saharan Africa,2019,26.5883007,36.1837638266364
