@@ -34,7 +34,7 @@ class Page(HTMLParser):
 
 
 def main():
-    pages = {path.resolve(): Page(path.read_text()) for path in SITE.rglob("*.html")}
+    pages = {path.resolve(): Page(path.read_text(encoding="utf-8")) for path in SITE.rglob("*.html")}
     assert (SITE / "index.html").resolve() in pages, "No landing page."
     failures = []
     for path, page in pages.items():
@@ -68,7 +68,7 @@ def main():
     for page in (SITE / 'downloads').rglob('*.html'):
         if page.relative_to(SITE).as_posix() not in declared_exports:
             failures.append(f'Unexpected rendered download: {page.relative_to(SITE)}')
-    assert json.loads((SITE / "search.json").read_text()), "Search index is empty."
+    assert json.loads((SITE / "search.json").read_text(encoding="utf-8")), "Search index is empty."
     assert not failures, "\n".join(failures)
     assert (SITE / 'downloads/requirements.txt').read_bytes() == (ROOT / 'requirements.txt').read_bytes(), 'Stale shared dependency download.'
     check_exports(SITE, [nbformat.read(path, as_version=4) for path in notebook_sources(ROOT)])

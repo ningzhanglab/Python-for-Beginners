@@ -25,8 +25,8 @@ def project_data_setup_source(files):
 
 
 def workflow_setup_source():
-    sources = {name: (ROOT / 'examples/income-life' / name).read_text() for name in ['analyze.py', 'fetch_data.py', 'README.md']}
-    sources['requirements.txt'] = (ROOT / 'requirements.txt').read_text()
+    sources = {name: (ROOT / 'examples/income-life' / name).read_text(encoding="utf-8") for name in ['analyze.py', 'fetch_data.py', 'README.md']}
+    sources['requirements.txt'] = (ROOT / 'requirements.txt').read_text(encoding="utf-8")
     return ("#| code-fold: true\n#| code-summary: \"Prepared portable-project files\"\n"
             "from pathlib import Path\nimport subprocess\nimport sys\n\n"
             "project_dir = Path('scratch/income-life-project').resolve()\n"
@@ -77,5 +77,5 @@ if __name__ == '__main__':
             else:
                 assert cell.source == expected, f'Stale generated setup: {path}'
         if changed:
-            path.write_text(json.dumps(json.loads(nbformat.writes(notebook)), ensure_ascii=False, indent=1, sort_keys=True) + '\n')
+            path.write_text(json.dumps(json.loads(nbformat.writes(notebook)), ensure_ascii=False, indent=1, sort_keys=True) + '\n', encoding='utf-8')
     print(f'PASS: {count} generated project-data/workflow setups match their sources.')

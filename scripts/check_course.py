@@ -29,7 +29,7 @@ def notebook_download(source, root=ROOT):
 
 
 def check_sources(root=ROOT):
-    config = yaml.safe_load((root / "_quarto.yml").read_text())
+    config = yaml.safe_load((root / "_quarto.yml").read_text(encoding="utf-8"))
     assert '!downloads/' in config['project']['render'], 'Downloads must remain unexecuted source copies.'
     assert config["execute"] == {
         "enabled": True, "error": False, "cache": False, "freeze": False, "daemon": False
@@ -56,7 +56,7 @@ def check_sources(root=ROOT):
         check_generated_setups(nb, path)
         if nb.metadata.get('course', {}).get('kind') == 'project-starter':
             solution = nbformat.read(path.with_name('02-solution.ipynb'), as_version=4)
-            assert path.read_text() == serialized(make_starter(solution)), f'Stale project starter: {path}'
+            assert path.read_text(encoding="utf-8") == serialized(make_starter(solution)), f'Stale project starter: {path}'
         assert checks and all(isinstance(check, str) for check in checks), f"Missing outcome checks: {path}"
         for check in checks:
             compile(check, f"{path.name}:outcome-check", "exec")
@@ -90,9 +90,9 @@ def outcome_cell(notebook):
 
 
 def check_curriculum(root=ROOT):
-    config = yaml.safe_load((root / "_quarto.yml").read_text())
+    config = yaml.safe_load((root / "_quarto.yml").read_text(encoding="utf-8"))
     navigation = str(config["website"]["sidebar"]["contents"])
-    course_map = (root / "lessons/index.qmd").read_text()
+    course_map = (root / "lessons/index.qmd").read_text(encoding="utf-8")
     positions = []
     for part, expected in {"00-start": 3, "01-basics": 6, "02-data": 8, "03-viz": 4, "04-regression": 6, "05-workflow": 4}.items():
         notebooks = sorted((root / "lessons" / part).glob("*.ipynb"))
@@ -107,7 +107,7 @@ def check_curriculum(root=ROOT):
         assert source.relative_to(root).as_posix() in navigation, f'Missing project navigation: {source}'
     for name in ['stata-python', 'r-python', 'pandas', 'glossary', 'errors']:
         reference = root / 'reference' / (name + '.qmd')
-        assert reference.is_file() and len(reference.read_text()) > 1500, f'Missing reference content: {name}'
+        assert reference.is_file() and len(reference.read_text(encoding="utf-8")) > 1500, f'Missing reference content: {name}'
         assert f'reference/{name}.qmd' in navigation, f'Missing reference navigation: {name}'
     print("PASS: 31 lessons, two project pairs and five reference pages are present in ordered navigation.")
 
