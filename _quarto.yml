@@ -119,6 +119,7 @@ format:
     code-copy: true
     code-overflow: scroll
     lightbox: true
+    include-after-body: scripts/figure-accessibility.html
     lang: en
 
 jupyter: python3

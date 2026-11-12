@@ -8,6 +8,10 @@ New entries belong under Unreleased until the owner requests a release. Link the
 
 ## Unreleased
 
+### Fixed
+
+- Notebook downloads and result links work from Colab as well as the course website; builds explicitly stage generated exports and version revised styles. Accessibility polish improves contents/breadcrumb contrast and target sizes, pandas table headers, keyboard scrolling of reference tables, dark TODO comments, and enlarged figures' captions, descriptions and focus. Added a separate browser audit profile, public-link checker, Windows learner-environment checks and a first-release checklist; human learner/assistive-technology review and licensing/release decisions remain pending ([PR #10](https://github.com/ningzhanglab/Python-for-Beginners/pull/10); [review evidence](records/2026-11-11-phase-five-review.md)).
+
 ### Added
 
 - Full curriculum draft: four workflow lessons, a portable raw-data-to-results project, two guided World Bank projects with incomplete starters and complete solutions, and five executed reference pages. Pinned public snapshots retain missingness and provider rights; expanded checks verify all 35 notebooks, generated inputs/downloads and 17 exports. Phone review improved project entry points and reference-table scrolling. Beginner/accessibility polish and release sign-off remain separate ([PR #8](https://github.com/ningzhanglab/Python-for-Beginners/pull/8)).

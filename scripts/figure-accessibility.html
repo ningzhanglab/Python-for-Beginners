@@ -1,0 +1,38 @@
+<script>
+window.addEventListener('load', () => {
+  const viewer = window.lightboxQuarto;
+  if (!viewer) return;
+  let openingLink = null;
+
+  // Remember the figure's link so Escape returns the reader to their place.
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest?.('a.lightbox');
+    if (link) openingLink = link;
+  }, true);
+
+  viewer.on('open', () => {
+    const dialog = document.querySelector('.glightbox-container');
+    if (!dialog) return;
+    dialog.setAttribute('aria-label', 'Enlarged course figure');
+    dialog.setAttribute('aria-modal', 'true');
+    dialog.querySelector('button.gclose')?.focus();
+  });
+
+  viewer.on('slide_after_load', ({slideNode, trigger}) => {
+    const sourceAlt = trigger?.querySelector('img')?.alt;
+    const image = slideNode.querySelector('.gslide-image img');
+    if (image && sourceAlt) image.alt = sourceAlt;
+    const caption = slideNode.querySelector('.gslide-description');
+    if (caption) {
+      caption.tabIndex = 0;
+      caption.setAttribute('role', 'region');
+      caption.setAttribute('aria-label', 'Figure caption');
+    }
+  });
+
+  viewer.on('close', () => {
+    openingLink?.focus({preventScroll: true});
+    openingLink = null;
+  });
+});
+</script>
