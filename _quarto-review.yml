@@ -1,0 +1,9 @@
+# Contributor-only browser audit; never used for publication.
+project:
+  output-dir: _site-review
+format:
+  html:
+    axe:
+      output: json
+      standard: wcag22aa
+      best-practice: true

@@ -63,7 +63,7 @@ joined = selected.drop(columns="region").merge(lookup, on="country", how="left",
 print(joined["_merge"].value_counts())
 ```
 
-The original selected table has one country row, and so does the lookup. `one_to_one` would be inappropriate for a repeated country panel; that join would use `many_to_one`. Check keys and matches after each sample restriction.
+The selected table and lookup each have one row per country. `one_to_one` would be inappropriate for a repeated country panel; that join would use `many_to_one`. Check keys and matches after each sample restriction.
 
 Fit simple and region-adjusted OLS, choosing HC1 t-based approximate inference explicitly.
 

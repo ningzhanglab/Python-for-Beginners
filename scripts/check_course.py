@@ -48,7 +48,8 @@ def check_sources(root=ROOT):
         assert 3 <= text.count(marker) <= 5, f"Exercise count: {path}"
         assert text.count("<details>") == text.count("</details>"), f"Unclosed solution: {path}"
         assert "colab.research.google.com/github/" in text, f"Missing Colab link: {path}"
-        assert "../../downloads/" in text, f"Missing notebook download: {path}"
+        expected_download = 'https://ningzhanglab.github.io/Python-for-Beginners/' + notebook_download(path, root).as_posix()
+        assert expected_download in text, f"Missing portable notebook download: {path}"
         assert not re.search(r"```(?:python|\{python\})", text), f"Use executable cells for code: {path}"
         assert "made-up numbers" in text, f"Label fictional examples: {path}"
         assert not nb.metadata.get("quarto", {}), f"Keep execution policy in project config: {path}"

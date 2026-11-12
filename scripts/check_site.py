@@ -1,6 +1,7 @@
 """Check rendered internal links, fragment targets, downloads and image alt text."""
 
 from html.parser import HTMLParser
+import argparse
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 import json
@@ -19,10 +20,17 @@ class Page(HTMLParser):
         self.ids = set()
         self.links = []
         self.images = []
+        self.empty_table_headers = 0
+        self._table_is_dataframe = False
+        self._header = None
         self.feed(source)
 
     def handle_starttag(self, tag, attributes):
         attrs = dict(attributes)
+        if tag == 'table':
+            self._table_is_dataframe = 'dataframe' in attrs.get('class', '').split()
+        if tag == 'th' and self._table_is_dataframe:
+            self._header = []
         if "id" in attrs:
             self.ids.add(attrs["id"])
         if tag in {"a", "link", "script", "img"}:
@@ -32,18 +40,36 @@ class Page(HTMLParser):
         if tag == "img":
             self.images.append(attrs)
 
+    def handle_data(self, text):
+        if self._header is not None:
+            self._header.append(text)
+
+    def handle_endtag(self, tag):
+        if tag == 'th' and self._header is not None:
+            self.empty_table_headers += not ''.join(self._header).strip()
+            self._header = None
+        if tag == 'table':
+            self._table_is_dataframe = False
+
 
 def main():
+    global SITE
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--site', type=Path, default=SITE, help='Rendered site folder.')
+    SITE = parser.parse_args().site.resolve()
     pages = {path.resolve(): Page(path.read_text(encoding="utf-8")) for path in SITE.rglob("*.html")}
     assert (SITE / "index.html").resolve() in pages, "No landing page."
     failures = []
     for path, page in pages.items():
+        if page.empty_table_headers:
+            failures.append(f'{path.relative_to(SITE)}: unnamed pandas table header')
         for image in page.images:
             if not image.get("alt", "").strip() and image.get("role") != "presentation":
                 failures.append(f"{path.relative_to(SITE)}: missing image alt text")
         for href in page.links:
             parts = urlsplit(href)
-            if parts.scheme or parts.netloc or href == "#":
+            own_site = parts.netloc == 'ningzhanglab.github.io' and parts.path.startswith('/Python-for-Beginners/')
+            if ((parts.scheme or parts.netloc) and not own_site) or href == "#":
                 continue
             url_path = unquote(parts.path)
             if url_path.startswith("/Python-for-Beginners/"):

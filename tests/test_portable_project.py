@@ -51,7 +51,7 @@ class PortableProject(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             shutil.copyfile(ROOT / '_quarto.yml', root / '_quarto.yml')
-            folder = root / 'projects/example'
+            folder = root / 'projects/01-fertility-income'
             folder.mkdir(parents=True)
             source = ROOT / 'projects/01-fertility-income'
             shutil.copyfile(source / '02-solution.ipynb', folder / '02-solution.ipynb')
