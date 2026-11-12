@@ -18,7 +18,7 @@ A free, self-paced course for students and researchers who have never programmed
 
 Each lesson has an **Open in Colab** link and a notebook download on its generated webpage. Colab requires a Google account to run and save work; local installation and paid software are not required. If a Colab GitHub link cannot open, download the notebook and use **File → Upload notebook** instead.
 
-**Website:** the repository is public and Pages is configured for GitHub Actions (verified 2026-11-11), but the [intended course URL](https://ningzhanglab.github.io/Python-for-Beginners/) returned HTTP 404. The latest observed main-branch workflow failed; no successful live deployment is claimed. Phase 4 is in PR #8 and has not been merged.
+**Website:** the repository is public and Pages is configured for GitHub Actions (verified 2026-11-11), but the [intended course URL](https://ningzhanglab.github.io/Python-for-Beginners/) returned HTTP 404. The latest observed main-branch workflow failed; no successful live deployment is claimed. PR builds do not deploy; publication runs from the approved main branch.
 
 ## What holds the course together
 
