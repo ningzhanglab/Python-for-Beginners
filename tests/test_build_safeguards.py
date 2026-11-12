@@ -39,12 +39,13 @@ class BuildSafeguards(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             shutil.copyfile(ROOT / "_quarto.yml", root / "_quarto.yml")
-            (root / "lessons").mkdir()
             source = next((ROOT / "lessons").rglob("*.ipynb"))
             nb = nbformat.read(source, as_version=4)
             cell = next(cell for cell in nb.cells if cell.cell_type == "code")
             cell.metadata["tags"] = ["skip-execution"]
-            nbformat.write(nb, root / "lessons/broken.ipynb")
+            destination = root / source.relative_to(ROOT)
+            destination.parent.mkdir(parents=True)
+            nbformat.write(nb, destination)
             with self.assertRaises(AssertionError), contextlib.redirect_stdout(io.StringIO()):
                 check_sources(root)
 
@@ -52,11 +53,12 @@ class BuildSafeguards(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             shutil.copyfile(ROOT / "_quarto.yml", root / "_quarto.yml")
-            (root / "lessons").mkdir()
             nb = nbformat.read(ROOT / "lessons/02-data/04-missing-types.ipynb", as_version=4)
             setup = next(cell for cell in nb.cells if "course-people-setup" in cell.metadata.get("tags", []))
             setup.source = setup.source.replace("20261111", "12345")
-            nbformat.write(nb, root / "lessons/stale.ipynb")
+            destination = root / "lessons/02-data/04-missing-types.ipynb"
+            destination.parent.mkdir(parents=True)
+            nbformat.write(nb, destination)
             with self.assertRaisesRegex(AssertionError, "Stale generated simulation"):
                 check_sources(root)
 
@@ -64,11 +66,12 @@ class BuildSafeguards(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             shutil.copyfile(ROOT / "_quarto.yml", root / "_quarto.yml")
-            (root / "lessons").mkdir()
             nb = nbformat.read(ROOT / "lessons/04-regression/02-correlation-ols.ipynb", as_version=4)
             setup = next(cell for cell in nb.cells if "course-package-setup" in cell.metadata.get("tags", []))
             setup.source += "\n# stale generated copy"
-            nbformat.write(nb, root / "lessons/stale.ipynb")
+            destination = root / "lessons/04-regression/02-correlation-ols.ipynb"
+            destination.parent.mkdir(parents=True)
+            nbformat.write(nb, destination)
             with self.assertRaisesRegex(AssertionError, "Stale package setup"):
                 check_sources(root)
 

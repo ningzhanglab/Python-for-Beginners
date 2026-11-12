@@ -22,7 +22,7 @@ print(d.head(2))
 
 A 1704 by 6 shape counts rows and columns. A successful read does not establish what a column measures. CSV does not store the same type metadata as Excel or Stata; see [loading data](../lessons/02-data/01-loading-data.ipynb) for those formats.
 
-::: {.table-responsive}
+::: {.table-responsive tabindex="0" role="region" aria-label="Load, inspect and select reference table"}
 
 | Need | Operation | Check alongside it |
 | --- | --- | --- |
@@ -64,7 +64,7 @@ There is one unavailable clean age and two unavailable wages. Converting unknown
 
 ## Summarize, join and reshape
 
-::: {.table-responsive}
+::: {.table-responsive tabindex="0" role="region" aria-label="Summarize, join and reshape reference table"}
 
 | Need | Method | Important contract |
 | --- | --- | --- |

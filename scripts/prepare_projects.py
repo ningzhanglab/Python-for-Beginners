@@ -13,7 +13,7 @@ RAW = ROOT / 'data/raw'
 
 
 def verified_bytes(name, root=RAW):
-    manifest = json.loads((root / 'manifest.json').read_text())
+    manifest = json.loads((root / 'manifest.json').read_text(encoding="utf-8"))
     raw = (root / name).read_bytes()
     if hashlib.sha256(raw).hexdigest() != manifest[name]['sha256']:
         raise ValueError(f'Snapshot checksum changed: {name}; review provenance before updating it.')

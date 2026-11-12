@@ -25,7 +25,7 @@ py -3.12 -m venv .venv
 .venv\Scripts\python scripts/build.py
 ```
 
-Windows instructions are provided for contributors but have not yet been tested on Windows. The optional [learner installation lesson](lessons/05-workflow/01-local-installation.ipynb) uses uv and VS Code; its macOS environment commands have been checked, while Windows and the editor installation screens remain untested. A university-managed computer may prevent installation; the full curriculum can be taken in Colab.
+CI checks the optional learner uv commands and portable analysis on a Windows runner, including paths with spaces and an unrelated working folder. The optional [learner installation lesson](lessons/05-workflow/01-local-installation.ipynb) uses uv and VS Code. macOS environment commands were also checked; installer screens, editor setup, kernel selection and a full Windows Quarto build remain untested. A university-managed computer may prevent installation; the full curriculum can be taken in Colab.
 
 ## Required checks
 
@@ -60,7 +60,7 @@ The first two commands need internet access; the simulation, project-data and ge
 python -m http.server 8765 --directory _site --bind 127.0.0.1
 ```
 
-Visit [the preview](http://127.0.0.1:8765/) and stop the server with Ctrl+C. Rebuild after editing. Review a desktop and a phone-width window, light/dark themes, sidebar, search, previous/next links, figure labels and exercise disclosures. An automatic alt-text check is not a full accessibility audit. External links and actual Colab execution need separate checks; disclose anything not performed.
+Visit [the preview](http://127.0.0.1:8765/) and stop the server with Ctrl+C. Rebuild after editing. Review a desktop and a phone-width window, light/dark themes, sidebar, search, previous/next links, figure labels and exercise disclosures. For a browser audit, run `python scripts/build.py --profile review` and serve `_site-review/`. Quarto runs its bundled axe-core audit against WCAG 2.2 AA plus best-practice rules and prints JSON in the browser console. This separate build is ignored by Git and never published by CI. Inspect both themes and phone/desktop layouts, then rebuild normally for delivery. Run `python scripts/check_external_links.py` against the normal build (or add `--site _site-review`); the report is saved under `scratch/`. HTTP 404/410 fail the check; rate limits, authentication refusals and other service failures are reported for review. HTTP success does not establish that a linked notebook executes. The build derives custom stylesheet filenames from `styles.css`; edit that source, not the generated CSS. `scripts/accessible-tables.lua` supplies pandas index headers, and `scripts/figure-accessibility.html` preserves image descriptions and keyboard focus in the built-in figure viewer. Recheck these integrations after an approved Quarto upgrade. Automated checks do not replace keyboard, assistive-technology or human beginner review; see [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md).
 
 ## Write and update sources
 

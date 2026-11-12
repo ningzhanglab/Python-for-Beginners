@@ -10,6 +10,28 @@ permissions:
   contents: read
 
 jobs:
+  windows-learner-setup:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    env:
+      # Exercise explicit UTF-8 file handling even on older Windows defaults.
+      PYTHONUTF8: "0"
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.13.7"
+      - name: Create the documented learner environment
+        run: |
+          uv venv --python 3.12
+          uv pip sync requirements.txt
+          uv pip check
+          .venv\Scripts\python --version
+      - name: Check course sources and portable analysis on Windows
+        run: |
+          .venv\Scripts\python scripts/check_course.py
+          .venv\Scripts\python -m unittest discover -s tests -v
+
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -43,7 +65,7 @@ jobs:
 
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: build
+    needs: [build, windows-learner-setup]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

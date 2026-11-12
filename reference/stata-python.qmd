@@ -11,7 +11,7 @@ Tables can be scrolled sideways on a narrow screen.
 
 Here `d` is a pandas DataFrame, a table of rows and named columns. Methods return results that you usually assign to a name. See [loading data](../lessons/02-data/01-loading-data.ipynb), [grouping](../lessons/02-data/05-group-summaries.ipynb) and [merging](../lessons/02-data/06-combining.ipynb) for the full explanations.
 
-::: {.table-responsive}
+::: {.table-responsive tabindex="0" role="region" aria-label="Common operations reference table"}
 
 | Intention | Familiar Stata command | Python operation used below |
 | --- | --- | --- |

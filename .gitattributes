@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# These snapshots have recorded byte-level checksums.
+data/raw/** -text

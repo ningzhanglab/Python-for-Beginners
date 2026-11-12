@@ -9,7 +9,7 @@ Tables can be scrolled sideways on a narrow screen.
 
 ## Find the right kind of problem
 
-::: {.table-responsive}
+::: {.table-responsive tabindex="0" role="region" aria-label="Find the right kind of problem reference table"}
 
 | Symptom | Likely question to investigate | First action |
 | --- | --- | --- |

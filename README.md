@@ -2,7 +2,7 @@
 
 A free, self-paced course for students and researchers who have never programmed. Start in your browser, then learn to load, clean, summarize and visualize data, interpret regressions, and organize analysis another person can rerun.
 
-**Status: Phase 4 curriculum draft available.** There are 31 lessons in Parts 0–5, two guided projects with separate starters and complete solutions, and five reference pages. Phase 1 was reviewed and merged in [PR #4](https://github.com/ningzhanglab/Python-for-Beginners/pull/4); Phases 2–3 were authorized directly on main ([Issue #5](https://github.com/ningzhanglab/Python-for-Beginners/issues/5), [Issue #6](https://github.com/ningzhanglab/Python-for-Beginners/issues/6)). Phase 4 follows the normal branch/PR workflow ([Issue #7](https://github.com/ningzhanglab/Python-for-Beginners/issues/7)). Full beginner review, accessibility polish and first-release sign-off remain Phase 5 work.
+**Status: full curriculum available; first-release review in progress.** There are 31 lessons in Parts 0–5, two guided projects with separate starters and complete solutions, and five reference pages. Phase 1 was reviewed and merged in [PR #4](https://github.com/ningzhanglab/Python-for-Beginners/pull/4); Phases 2–3 were authorized directly on main ([Issue #5](https://github.com/ningzhanglab/Python-for-Beginners/issues/5), [Issue #6](https://github.com/ningzhanglab/Python-for-Beginners/issues/6)). Phase 4 was merged in [PR #8](https://github.com/ningzhanglab/Python-for-Beginners/pull/8). Phase 5 checks usability, accessibility and release readiness ([Issue #9](https://github.com/ningzhanglab/Python-for-Beginners/issues/9)); see the [first-release checklist](RELEASE_CHECKLIST.md) for remaining human review.
 
 ## Start learning
 
@@ -18,7 +18,7 @@ A free, self-paced course for students and researchers who have never programmed
 
 Each lesson has an **Open in Colab** link and a notebook download on its generated webpage. Colab requires a Google account to run and save work; local installation and paid software are not required. If a Colab GitHub link cannot open, download the notebook and use **File → Upload notebook** instead.
 
-**Website:** the repository is public and Pages is configured for GitHub Actions (verified 2026-11-11), but the [intended course URL](https://ningzhanglab.github.io/Python-for-Beginners/) returned HTTP 404. The latest observed main-branch workflow failed; no successful live deployment is claimed. PR builds do not deploy; publication runs from the approved main branch.
+**Website:** [Start the course](https://ningzhanglab.github.io/Python-for-Beginners/). The main-branch build and Pages deployment succeeded after PR #8 was merged; the homepage, new lessons, projects and downloads returned HTTP 200 when checked on 2026-11-11. PR builds do not deploy.
 
 ## What holds the course together
 
@@ -64,9 +64,9 @@ The 1,704-row Gapminder teaching extract is pinned to an upstream commit and che
 
 ## Review and publication
 
-Pages is already configured for GitHub Actions. After reviewing and merging approved content, the main-branch workflow builds, checks and deploys it; an owner can also rerun **Course build and Pages** on the existing main branch. The Phase 4 PR build does not deploy its review content. Review the curriculum for instructional accuracy, pace and clarity before a first release. Deployment does not change visibility or Pages settings itself.
+Pages is already configured for GitHub Actions. After reviewing and merging approved content, the main-branch workflow builds, checks and deploys it; an owner can also rerun **Course build and Pages** on the existing main branch. PR builds provide review artifacts without deploying their content. Review the curriculum for instructional accuracy, pace and clarity before a first release. Deployment does not change visibility or Pages settings itself.
 
-The optional learner setup uses uv-managed Python 3.12 and VS Code. The macOS environment commands were checked in an isolated environment; Windows and editor installation screens remain untested. Actual Google Colab service/UI execution and a full accessibility/human beginner review are also separate checks. Stata/R reference expressions are reading bridges; those programs were not run.
+The optional learner setup uses uv-managed Python 3.12 and VS Code. The environment commands and portable analysis passed in an isolated macOS environment and an automated Windows runner. Installer/editor screens and a human beginner review remain separate checks. Browser accessibility and actual Colab coverage are recorded in the [first-release checklist](RELEASE_CHECKLIST.md). Stata/R reference expressions are reading bridges; those programs were not run.
 
 Every successful build uploads a `course-site` Actions artifact for inspection. Download and unzip it, then serve the extracted folder using a local HTTP server. The workflow deploys only checked main-branch output, never PR code.
 

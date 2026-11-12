@@ -25,6 +25,7 @@ __pycache__/
 
 # Generated website, notebook downloads, and practice files
 _site/
+_site-review/
 .quarto/
 _freeze/
 downloads/
