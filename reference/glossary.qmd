@@ -9,7 +9,7 @@ Tables can be scrolled sideways on a narrow screen.
 
 ## Running code
 
-::: {.table-responsive}
+::: {.table-responsive tabindex="0" role="region" aria-label="Running code reference table"}
 
 | Term | Meaning | Learn it |
 | --- | --- | --- |
@@ -51,7 +51,7 @@ The variable growth holds 50.0. A definition, arguments and return value are sep
 
 ## Tables and measurements
 
-::: {.table-responsive}
+::: {.table-responsive tabindex="0" role="region" aria-label="Tables and measurements reference table"}
 
 | Term | Meaning | Learn it |
 | --- | --- | --- |
@@ -92,7 +92,7 @@ The unique key is economy plus year, not life expectancy. Two complete country r
 
 ## Models and interpretation
 
-::: {.table-responsive}
+::: {.table-responsive tabindex="0" role="region" aria-label="Models and interpretation reference table"}
 
 | Term | Meaning |
 | --- | --- |
@@ -124,7 +124,7 @@ Start with [simple OLS](../lessons/04-regression/02-correlation-ols.ipynb), then
 
 ## Reproducible work
 
-::: {.table-responsive}
+::: {.table-responsive tabindex="0" role="region" aria-label="Reproducible work reference table"}
 
 | Term | Meaning |
 | --- | --- |

@@ -9,7 +9,7 @@ Tables can be scrolled sideways on a narrow screen.
 
 ## Translate intentions
 
-::: {.table-responsive}
+::: {.table-responsive tabindex="0" role="region" aria-label="Translate intentions reference table"}
 
 | Intention | Familiar R expression | Python approach |
 | --- | --- | --- |
