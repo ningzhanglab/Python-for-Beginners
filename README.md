@@ -16,9 +16,9 @@ A free, self-paced course for students and researchers who have never programmed
 - [Reference](reference/index.qmd) — Stata/R bridges, pandas, glossary and common errors.
 - [Course map](lessons/index.qmd) — the planned sequence, Parts 0–6 and reference pages.
 
-Each lesson has an **Open in Colab** link and a notebook download on its generated webpage. Colab requires a Google account to run and save work; local installation and paid software are not required. Before the repository is public, download a lesson notebook and upload it in Colab via **File → Upload notebook** if its GitHub link cannot open.
+Each lesson has an **Open in Colab** link and a notebook download on its generated webpage. Colab requires a Google account to run and save work; local installation and paid software are not required. If a Colab GitHub link cannot open, download the notebook and use **File → Upload notebook** instead.
 
-**Website:** not yet published. The intended address is [ningzhanglab.github.io/Python-for-Beginners](https://ningzhanglab.github.io/Python-for-Beginners/). The owner plans to make the repository public later and enable Pages. No live-site verification is claimed.
+**Website:** the repository is public and Pages is configured for GitHub Actions (verified 2026-11-11), but the [intended course URL](https://ningzhanglab.github.io/Python-for-Beginners/) returned HTTP 404. The latest observed main-branch workflow failed; no successful live deployment is claimed. Phase 4 is in PR #8 and has not been merged.
 
 ## What holds the course together
 
@@ -64,7 +64,7 @@ The 1,704-row Gapminder teaching extract is pinned to an upstream commit and che
 
 ## Review and publication
 
-When ready to publish, the owner should make the repository public, select **Settings → Pages → Build and deployment → Source: GitHub Actions**, then rerun **Course build and Pages** on `main`. Review the available lessons for instructional accuracy, pace and clarity before a first release. Deployment does not enable Pages or change visibility itself. Before enablement, the main build can succeed while its deploy job fails.
+Pages is already configured for GitHub Actions. After reviewing and merging approved content, the main-branch workflow builds, checks and deploys it; an owner can also rerun **Course build and Pages** on the existing main branch. The Phase 4 PR build does not deploy its review content. Review the curriculum for instructional accuracy, pace and clarity before a first release. Deployment does not change visibility or Pages settings itself.
 
 The optional learner setup uses uv-managed Python 3.12 and VS Code. The macOS environment commands were checked in an isolated environment; Windows and editor installation screens remain untested. Actual Google Colab service/UI execution and a full accessibility/human beginner review are also separate checks. Stata/R reference expressions are reading bridges; those programs were not run.
 
